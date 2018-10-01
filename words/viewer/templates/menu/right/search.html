@@ -1,0 +1,10 @@
+{% load i18n %}
+{% if user.is_authenticated %}
+<div class="ui search item">
+    <div class="ui icon transparent input">
+        <input class="prompt" placeholder="{% trans 'Search...' %}" type="text">
+        <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+</div>
+{% endif %}

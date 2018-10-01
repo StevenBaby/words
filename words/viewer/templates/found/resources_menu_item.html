@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if item.type == 'menu' %}
+<div class="item resource" value="{{forloop.counter0}}">
+    <i class="dropdown icon"></i>
+    <span class="text">{% trans item.name %}</span>
+    <div class="menu">
+        {% for subitem in item.list %}
+            {% include 'found/resources_menu_item.html' with item=subitem %}
+        {% endfor %}
+    </div>
+</div>
+{% elif item.type == "list" %}
+<a class="item resource list" value="{{forloop.counter0}}" action="{% url 'resources' %}">
+    <i class="browser icon"></i>
+    <span class="text">{% trans item.name %}</span>
+</a>
+{% endif %}

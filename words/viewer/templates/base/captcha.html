@@ -1,0 +1,15 @@
+{% load i18n %}
+<input class="captcha_0" type="hidden" name="captcha_0" value="" />
+<div class="two fields">
+    <div class="ten wide field">
+        <div class="ui fluid left icon input">
+            <i class="map signs icon"></i>
+            <input type="text" name="captcha_1" placeholder="{% trans 'Captcha' %}">
+        </div>
+    </div>
+    <div class="six wide field">
+        <div class="ui link bordered rounded image captcha" data-content="{% trans 'Click to refresh captcha' %}">
+            <img src="" >
+        </div>
+    </div>
+</div>

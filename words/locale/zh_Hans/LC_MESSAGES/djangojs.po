@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-07 08:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: viewer/static/js/base/auth_validate.js:10
+msgid "Please enter username at least 2 character"
+msgstr "请输入至少2位字符的用户名"
+
+#: viewer/static/js/base/auth_validate.js:14
+msgid "Please enter username at most 32 character"
+msgstr "请输入至多32位字符的用户名"
+
+#: viewer/static/js/base/auth_validate.js:21
+msgid "Please enter valid email"
+msgstr "请输入有效的电子邮箱"
+
+#: viewer/static/js/base/auth_validate.js:28
+msgid "Please enter your password"
+msgstr "请输入你的密码"
+
+#: viewer/static/js/base/auth_validate.js:36
+msgid "Please enter captcha 4 character"
+msgstr "请输入4位验证码"
+
+#: viewer/static/js/base/auth_validate.js:45
+msgid "Please enter password at least 8 character"
+msgstr "请输入至少八位密码"
+
+#: viewer/static/js/base/auth_validate.js:49
+msgid "Password cannot be all number"
+msgstr "密码不能全为数字"
+
+#: viewer/static/js/base/auth_validate.js:57
+msgid "Two password not equal"
+msgstr "两次密码不一致"
+
+#: viewer/static/js/base/auth_validate.js:64
+msgid "Please enter your current password"
+msgstr "请输入你现在的密码"
+
+#: viewer/static/js/base/modal.js:11
+msgid "Notice"
+msgstr "提示"
+
+#: viewer/static/js/base/modal.js:24
+msgid "System notice !!!"
+msgstr "系统提示！！！"
+
+#: viewer/static/js/base/right_menu.js:5
+msgid "Really want to logout ?"
+msgstr "真的想要注销吗？"
+
+#: viewer/static/js/edit.js:25 viewer/static/js/edit.js:209
+#: viewer/static/js/edit.js:501
+msgid "Edit"
+msgstr "编辑"
+
+#: viewer/static/js/edit.js:38 viewer/static/js/found.js:83
+msgid "Already in review"
+msgstr "已加入复习"
+
+#: viewer/static/js/edit.js:117
+msgid "Really want to reset this review?"
+msgstr "真的想要重置复习吗？"
+
+#: viewer/static/js/edit.js:121
+msgid "Really want to delete this word?"
+msgstr "真的想要删除这个单词吗？"
+
+#: viewer/static/js/edit.js:125
+msgid "Really want to remove this review?"
+msgstr "真的想要移除这个复习吗？"
+
+#: viewer/static/js/edit.js:128
+msgid "Really want to remove this paraphrase?"
+msgstr "真的想要移除这个释义吗？"
+
+#: viewer/static/js/edit.js:195 viewer/static/js/edit.js:487
+msgid "Save"
+msgstr "保存"
+
+#: viewer/static/js/edit.js:265
+msgid "Paraphrase type must not empty."
+msgstr "词性不能为空"
+
+#: viewer/static/js/edit.js:272
+msgid "Paraphrase must not empty."
+msgstr "释义内容不能为空"
+
+#: viewer/static/js/edit.js:315
+msgid "Paraphrase type must be not empty."
+msgstr "词性不能为空"
+
+#: viewer/static/js/edit.js:320
+msgid "Paraphrase content must be not empty."
+msgstr "释义内容不能为空"
+
+#: viewer/static/js/edit.js:548
+msgid "Word title must not empty."
+msgstr "单词标题不能为空"
+
+#: viewer/static/js/found.js:6
+msgid "Please input at least two letters."
+msgstr "请输入至少2位字符"
+
+#: viewer/static/js/search.js:20
+msgid "No Results"
+msgstr "没有结果"
+
+#: viewer/static/js/search.js:26
+msgid "Cannot search. No source used, and Semantic API module was not included"
+msgstr "不能搜索，无搜索源可用"
+
+#: viewer/static/js/search.js:27
+msgid "Your search returned no results"
+msgstr "搜索未找到任何结果"
+
+#: viewer/static/js/search.js:28
+msgid "Error in debug logging, exiting."
+msgstr "调试日志错误，将要退出"
+
+#: viewer/static/js/search.js:29
+msgid "No search endpoint was specified"
+msgstr "没有指定搜索端点"
+
+#: viewer/static/js/search.js:30
+msgid "A valid template name was not specified."
+msgstr "没有指定一个有效的模板名称"
+
+#: viewer/static/js/search.js:31
+msgid "There was an issue querying the server."
+msgstr "搜索服务错误"
+
+#: viewer/static/js/search.js:32
+msgid "Results must be an array to use maxResults setting"
+msgstr "结果必须是使用 maxResults 设置的数组"
+
+#: viewer/static/js/search.js:33
+msgid "The method you called is not defined."
+msgstr "您所调用的方法没有定义"
+
+#: viewer/static/js/settings.js:24
+msgid "Download"
+msgstr "下载"
+
+#: viewer/static/js/settings.js:44
+msgid "Finished"
+msgstr "已完成"
+
+#: viewer/static/js/settings.js:46
+msgid "Downloading"
+msgstr "下载中"
+
+#: viewer/static/js/settings.js:49
+msgid "Extracting"
+msgstr "解压中"
+
+#: viewer/static/js/settings.js:52
+msgid "Moving"
+msgstr "移动中"
+
+#: viewer/static/js/settings.js:140
+msgid "Save success"
+msgstr "保存成功"
+
+#: viewer/static/js/settings.js:144
+msgid "Save failure, please try again later"
+msgstr "保存失败，请稍后重试"
+
+#: viewer/static/js/study.js:105
+msgid "PR"
+msgstr "练习"
+
+#~ msgid "Add to review"
+#~ msgstr "添加至复习"

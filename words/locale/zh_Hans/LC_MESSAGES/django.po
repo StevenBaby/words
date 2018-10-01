@@ -1,0 +1,1021 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-22 16:09+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings/settings.py:198
+msgid "English"
+msgstr "英语"
+
+#: settings/settings.py:199
+msgid "Simplified Chinese"
+msgstr "简体中文"
+
+#: viewer/templates/base/captcha.html:7
+msgid "Captcha"
+msgstr "验证码"
+
+#: viewer/templates/base/captcha.html:11
+msgid "Click to refresh captcha"
+msgstr "点击刷新验证码"
+
+#: viewer/templates/base/footer.html:6
+msgid "All Rights Reserved"
+msgstr "版权所有"
+
+#: viewer/templates/base/modal.html:7
+msgid "Notice"
+msgstr "提示"
+
+#: viewer/templates/base/modal.html:10
+msgid "System notice !!!"
+msgstr "系统提示"
+
+#: viewer/templates/base/modal.html:15
+msgid "Cancel"
+msgstr "取消"
+
+#: viewer/templates/base/modal.html:18
+msgid "Confirm"
+msgstr "确认"
+
+#: viewer/templates/base/pagination.html:11
+msgid "Previous page"
+msgstr "前一页"
+
+#: viewer/templates/base/pagination.html:21
+msgid "Next page"
+msgstr "后一页"
+
+#: viewer/templates/edit/edit.html:3
+#: viewer/templates/edit/edit_paraphrase_information.html:49
+#: viewer/templates/edit/edit_title.html:30
+#: viewer/templates/word_card/word_card_extra_footer.html:26
+msgid "Edit"
+msgstr "编辑"
+
+#: viewer/templates/edit/edit_add_paraphrase.html:26
+#: viewer/templates/edit/edit_paraphrase_information.html:39
+msgid "Input paraphrase..."
+msgstr "输入释义..."
+
+#: viewer/templates/edit/edit_add_paraphrase.html:36
+msgid "Add"
+msgstr "添加"
+
+#: viewer/templates/edit/edit_extra_footer.html:11
+#: viewer/templates/edit/edit_relation_words.html:22
+#: viewer/templates/edit/edit_relation_words.html:43
+#: viewer/templates/edit/edit_relation_words.html:64
+#: viewer/templates/settings/user_settings.html:64
+msgid "Save"
+msgstr "保存"
+
+#: viewer/templates/edit/edit_extra_footer.html:23
+msgid "Refresh word"
+msgstr "刷新单词"
+
+#: viewer/templates/edit/edit_extra_footer.html:30
+msgid "Reset review"
+msgstr "重置复习级别"
+
+#: viewer/templates/edit/edit_extra_footer.html:36
+msgid "Remove from review"
+msgstr "从复习中移除"
+
+#: viewer/templates/edit/edit_extra_footer.html:42
+msgid "Remove from dictionary"
+msgstr "从词典中删除"
+
+#: viewer/templates/edit/edit_paraphrase_information.html:56
+msgid "Remove"
+msgstr "删除"
+
+#: viewer/templates/edit/edit_relation_words.html:7
+#: viewer/templates/word_card/word_card_relation_words.html:57
+msgid "Equal words"
+msgstr "相等单词"
+
+#: viewer/templates/edit/edit_relation_words.html:13
+msgid "Please input and choise equal word any if you wanted."
+msgstr "请输入或选择你需要的相等的单词"
+
+#: viewer/templates/edit/edit_relation_words.html:28
+#: viewer/templates/word_card/word_card_relation_words.html:69
+msgid "Related words"
+msgstr "相关单词"
+
+#: viewer/templates/edit/edit_relation_words.html:34
+msgid "Please input and choise related word any if you wanted."
+msgstr "请输入或选择你需要的相关的单词"
+
+#: viewer/templates/edit/edit_relation_words.html:49
+#: viewer/templates/word_card/word_card_relation_words.html:81
+msgid "Similar words"
+msgstr "相似单词"
+
+#: viewer/templates/edit/edit_relation_words.html:55
+msgid "Please input and choise similar word any if you wanted."
+msgstr "请输入或选择你需要的相似的单词"
+
+#: viewer/templates/edit/edit_title.html:23
+#: viewer/templates/found/found_content.html:5
+#: viewer/templates/word_card/word_card_title.html:24
+msgid "Input word..."
+msgstr "输入单词..."
+
+#: viewer/templates/filter.html:9
+msgid "Filter"
+msgstr "过滤器"
+
+#: viewer/templates/filter_form.html:14
+msgid "Review type"
+msgstr "复习类型"
+
+#: viewer/templates/filter_form.html:16 viewer/templates/filter_form.html:41
+msgid "All words"
+msgstr "所有单词"
+
+#: viewer/templates/filter_form.html:17
+msgid "Review Word"
+msgstr "已复习单词"
+
+#: viewer/templates/filter_form.html:18
+msgid "No Review"
+msgstr "未复习单词"
+
+#: viewer/templates/filter_form.html:28
+msgid "All level"
+msgstr "所有级别"
+
+#: viewer/templates/filter_form.html:39
+#: viewer/templates/study/study_hard_menu.html:22
+#: viewer/templates/word_card/word_card_review_information.html:17
+msgid "Hard"
+msgstr "困难"
+
+#: viewer/templates/filter_form.html:42
+msgid "Hard word"
+msgstr "困难单词"
+
+#: viewer/templates/filter_form.html:48
+msgid "Submit"
+msgstr "提交"
+
+#: viewer/templates/found/found.html:4
+#: viewer/templates/found/found_menu.html:10
+#: viewer/templates/menu/left/found_menu.html:13
+msgid "Found"
+msgstr "发现"
+
+#: viewer/templates/found/found_content.html:16
+#: viewer/templates/found/resources_word_card.html:7
+msgid "Sorry, cannot found any word"
+msgstr "对不起，没有找到任何单词"
+
+#: viewer/templates/found/resources.html:6 viewer/views/found.py:54
+msgid "Resources"
+msgstr "资源"
+
+#: viewer/templates/found/resources.html:26
+#: viewer/templates/found/resources.html:31
+#: viewer/templates/study/study_review_menu.html:22 words/models.py:247
+msgid "Review"
+msgstr "复习"
+
+#: viewer/templates/found/resources.html:38
+#: viewer/templates/found/resources.html:43
+msgid "Dictionary"
+msgstr "字典"
+
+#: viewer/templates/found/resources_wordlist.html:46
+msgid "Show word card"
+msgstr "显示单词卡片"
+
+#: viewer/templates/found/resources_wordlist.html:54
+msgid "Not in dictionary"
+msgstr "未加入词典"
+
+#: viewer/templates/found/resources_wordlist.html:58
+#: viewer/templates/found/wordlist.html:54
+#: viewer/templates/word_card/word_card_extra_footer.html:31
+msgid "Already in review"
+msgstr "已加入复习"
+
+#: viewer/templates/found/resources_wordlist.html:62
+#: viewer/templates/word_card/word_card_extra_footer.html:35
+msgid "Add to review"
+msgstr "添加至复习"
+
+#: viewer/templates/found/wordlist.html:6
+#: viewer/templates/found/wordlist.html:12
+msgid "Wordlist"
+msgstr "单词列表"
+
+#: viewer/templates/found/wordlist.html:58
+msgid "Not in review"
+msgstr "未加入复习"
+
+#: viewer/templates/menu/left/menu.html:11
+msgid "Home"
+msgstr "首页"
+
+#: viewer/templates/menu/left/statistics_menu.html:20
+msgid "Statistics"
+msgstr "统计"
+
+#: viewer/templates/menu/left/study_menu.html:36
+#: viewer/templates/study/study.html:4
+msgid "Study"
+msgstr "学习"
+
+#: viewer/templates/menu/right/debug.html:5
+msgid "Test"
+msgstr "测试"
+
+#: viewer/templates/menu/right/help.html:6
+msgid "Help"
+msgstr "帮助"
+
+#: viewer/templates/menu/right/language.html:10
+msgid "Language"
+msgstr "语言"
+
+#: viewer/templates/menu/right/menu.html:6
+#: viewer/templates/menu/right/settings.html:6
+#: viewer/templates/settings/settings.html:4
+msgid "Settings"
+msgstr "设置"
+
+#: viewer/templates/menu/right/search.html:5
+msgid "Search..."
+msgstr "搜索..."
+
+#: viewer/templates/menu/right/user.html:8
+#: viewer/templates/registration/register.html:5
+#: viewer/templates/registration/register.html:43
+msgid "Register"
+msgstr "注册"
+
+#: viewer/templates/menu/right/user.html:17
+msgid "Logout"
+msgstr "注销"
+
+#: viewer/templates/menu/right/user.html:24
+#: viewer/templates/registration/login.html:5
+#: viewer/templates/registration/login.html:23
+#: viewer/templates/registration/register.html:45
+msgid "Login"
+msgstr "登陆"
+
+#: viewer/templates/registration/login.html:13
+#: viewer/templates/registration/register.html:20
+msgid "Username"
+msgstr "用户名"
+
+#: viewer/templates/registration/login.html:19
+#: viewer/templates/registration/register.html:29
+msgid "Password"
+msgstr "密码"
+
+#: viewer/templates/registration/register.html:9
+msgid "Notice: already logon user "
+msgstr "提示： 该用户已登陆"
+
+#: viewer/templates/registration/register.html:13
+msgid "Create superuser"
+msgstr "创建超级用户"
+
+#: viewer/templates/registration/register.html:38
+msgid "Password Again"
+msgstr "重复密码"
+
+#: viewer/templates/registration/register.html:45
+msgid "Already have an account?"
+msgstr "已经有账户了？"
+
+#: viewer/templates/settings/settings_backup.html:15
+msgid "Backup"
+msgstr "备份"
+
+#: viewer/templates/settings/settings_backup.html:34
+msgid "Restore"
+msgstr "还原"
+
+#: viewer/templates/settings/settings_phonetic.html:21
+msgid "Download"
+msgstr "下载"
+
+#: viewer/templates/settings/settings_phonetic.html:31
+msgid "Stop"
+msgstr "停止"
+
+#: viewer/templates/settings/settings_update.html:16
+msgid "Downloading"
+msgstr "下载中"
+
+#: viewer/templates/settings/settings_update.html:18
+msgid "Extracting"
+msgstr "解压中"
+
+#: viewer/templates/settings/settings_update.html:20
+msgid "Moving"
+msgstr "移动中"
+
+#: viewer/templates/settings/settings_update.html:22
+msgid "Finished"
+msgstr "已完成"
+
+#: viewer/templates/settings/settings_update.html:28
+msgid "Current version is "
+msgstr "当前软件版本是"
+
+#: viewer/templates/settings/settings_update.html:33
+msgid "Your software is up to date."
+msgstr "软件已是最新"
+
+#: viewer/templates/settings/settings_update.html:37
+msgid "Have new version of "
+msgstr "有新版本"
+
+#: viewer/templates/settings/settings_update.html:47
+msgid "Updating"
+msgstr "更新中"
+
+#: viewer/templates/settings/settings_update.html:57
+msgid "Check"
+msgstr "检查"
+
+#: viewer/templates/settings/settings_update.html:67
+#: viewer/templates/settings/staff_settings.html:28
+msgid "Update"
+msgstr "更新"
+
+#: viewer/templates/settings/staff_settings.html:2
+msgid "Staff settings"
+msgstr "管理员设置"
+
+#: viewer/templates/settings/staff_settings.html:7
+msgid "Download phonetics"
+msgstr "下载发音"
+
+#: viewer/templates/settings/staff_settings.html:17
+msgid "Backup restore"
+msgstr "备份还原"
+
+#: viewer/templates/settings/user_settings.html:2
+msgid "User settings"
+msgstr "用户设置"
+
+#: viewer/templates/settings/user_settings.html:7
+msgid "Study Mode"
+msgstr "学习模式"
+
+#: viewer/templates/settings/user_settings.html:29
+msgid "Alert Delete Word"
+msgstr "警告删除单词"
+
+#: viewer/templates/settings/user_settings.html:39
+msgid "Alert Delete Review"
+msgstr "警告删除复习"
+
+#: viewer/templates/settings/user_settings.html:49
+msgid "Alert Delete Paraphrase"
+msgstr "警告删除释义"
+
+#: viewer/templates/settings/user_settings.html:59
+msgid "Alert Reset Review"
+msgstr "警告重置复习"
+
+#: viewer/templates/statistics/coming.html:5
+#: viewer/templates/statistics/coming.html:12
+#: viewer/templates/statistics/statistics_menu.html:19
+msgid "Coming"
+msgstr "来临"
+
+#: viewer/templates/statistics/coming.html:20
+#: viewer/templates/statistics/count.html:26
+#: viewer/templates/statistics/date.html:5
+#: viewer/templates/statistics/date.html:12
+#: viewer/templates/statistics/statistics_menu.html:29
+msgid "Date"
+msgstr "日期"
+
+#: viewer/templates/statistics/coming.html:21
+#: viewer/templates/statistics/count.html:27
+#: viewer/templates/statistics/date.html:23
+#: viewer/templates/statistics/error.html:21
+#: viewer/templates/statistics/level.html:21
+msgid "Amount"
+msgstr "数量"
+
+#: viewer/templates/statistics/coming.html:22
+#: viewer/templates/statistics/count.html:28
+msgid "Weekday"
+msgstr "星期"
+
+#: viewer/templates/statistics/count.html:5
+#: viewer/templates/statistics/count.html:12
+#: viewer/templates/statistics/date.html:16
+#: viewer/templates/statistics/statistics_menu.html:24
+msgid "Count"
+msgstr "计数"
+
+#: viewer/templates/statistics/count.html:16
+msgid "Dictionary count"
+msgstr "字典数量"
+
+#: viewer/templates/statistics/count.html:19
+msgid "Review count"
+msgstr "复习数量"
+
+#: viewer/templates/statistics/date.html:22
+msgid "Hour"
+msgstr "小时"
+
+#: viewer/templates/statistics/error.html:5
+#: viewer/templates/statistics/error.html:12
+#: viewer/templates/statistics/statistics_menu.html:39
+#: viewer/views/statistics.py:69
+msgid "Error"
+msgstr "错误"
+
+#: viewer/templates/statistics/error.html:20
+#: viewer/templates/statistics/level.html:20
+msgid "Times"
+msgstr "次数"
+
+#: viewer/templates/statistics/level.html:5
+#: viewer/templates/statistics/level.html:12
+#: viewer/templates/statistics/statistics_menu.html:34
+#: viewer/templates/word_card/word_card_review_information.html:15
+#: viewer/views/statistics.py:41
+msgid "Level"
+msgstr "级别"
+
+#: viewer/templates/study/study_content.html:14
+#, python-format
+msgid "You have %(count)s word need %(study_description)s!!!"
+msgstr "你有%(count)s个单词需要%(study_description)s！！！"
+
+#: viewer/templates/study/study_content.html:22
+msgid "Start Study"
+msgstr "开始学习"
+
+#: viewer/templates/study/study_content.html:33
+msgid "You have word need review after"
+msgstr "复习单词需要等待"
+
+#: viewer/templates/study/study_content.html:40
+msgid "Days"
+msgstr "天"
+
+#: viewer/templates/study/study_content.html:58
+msgid "You do not have any word need review!!!"
+msgstr "没有单词需要复习"
+
+#: viewer/templates/study/study_practice_menu.html:11
+msgid "Practice"
+msgstr "练习"
+
+#: viewer/templates/word_card/word_card_extra_footer.html:39
+msgid "Add to dictionary"
+msgstr "添加至词典"
+
+#: viewer/templates/word_card/word_card_phonetic.html:16
+msgid "Phrase"
+msgstr "词组"
+
+#: viewer/templates/word_card/word_card_phonetic.html:21 words/models.py:72
+#: words/models.py:98 words/models.py:125 words/models.py:155
+#: words/models.py:176
+msgid "Word"
+msgstr "单词"
+
+#: viewer/templates/word_card/word_card_relation_words.html:41
+msgid "Word rank"
+msgstr "单词级别"
+
+#: viewer/templates/word_card/word_card_review_information.html:21
+msgid "Review Times"
+msgstr "复习次数"
+
+#: viewer/templates/word_card/word_card_review_information.html:23
+msgid "Right Times"
+msgstr "正确次数"
+
+#: viewer/templates/word_card/word_card_review_information.html:27
+msgid "Error Times"
+msgstr "错误次数"
+
+#: viewer/templates/word_card/word_card_review_information.html:29
+msgid "Skip Times"
+msgstr "跳过次数"
+
+#: viewer/templates/word_card/word_card_review_information.html:33
+msgid "Reset Times"
+msgstr "重置次数"
+
+#: viewer/templates/word_card/word_card_review_information.html:39
+#: words/models.py:45
+msgid "Create Time"
+msgstr "创建时间"
+
+#: viewer/templates/word_card/word_card_review_information.html:41
+#: words/models.py:182
+msgid "First Time"
+msgstr "加入时间"
+
+#: viewer/templates/word_card/word_card_review_information.html:45
+#: words/models.py:186
+msgid "Update Time"
+msgstr "更新时间"
+
+#: viewer/templates/word_card/word_card_review_information.html:47
+#: words/models.py:190
+msgid "Review Time"
+msgstr "复习时间"
+
+#: viewer/templates/word_card/word_card_review_information.html:52
+#: words/models.py:49
+msgid "Refresh Time"
+msgstr "刷新时间"
+
+#: viewer/templates/word_card/word_card_review_information.html:55
+#: words/models.py:194
+msgid "Hard Time"
+msgstr "困难时间"
+
+#: viewer/templates/word_card/word_card_study_buttons.html:15
+#: words/models.py:102 words/models.py:262
+msgid "Paraphrase"
+msgstr "释义"
+
+#: viewer/templates/word_card/word_card_study_buttons.html:20
+msgid "Information"
+msgstr "信息"
+
+#: viewer/templates/word_card/word_card_study_buttons.html:25
+msgid "Skip"
+msgstr "跳过"
+
+#: viewer/templates/wordlist.html:7 words/apps.py:10 words/models.py:73
+msgid "Words"
+msgstr "单词"
+
+#: viewer/templates/wordlist.html:23
+msgid ""
+"There are no any words, go to study or change filter settings then try "
+"again!!!"
+msgstr "没有任何单词，去学习看看或者修改过滤器设置，然后重试！！！"
+
+#: viewer/templatetags/words_tag.py:82
+msgid "UK"
+msgstr "英音"
+
+#: viewer/templatetags/words_tag.py:84
+msgid "US"
+msgstr "美音"
+
+#: viewer/views/edit.py:51
+msgid "Word not exists."
+msgstr "没有找到该单词"
+
+#: viewer/views/edit.py:57
+msgid "Delete word success."
+msgstr "删除单词成功"
+
+#: viewer/views/edit.py:67
+msgid "Review not exists."
+msgstr "复习不存在的"
+
+#: viewer/views/edit.py:73
+msgid "Remove review success."
+msgstr "移除复习成功"
+
+#: viewer/views/edit.py:85
+msgid "Paraphrase not exists."
+msgstr "释义不存在"
+
+#: viewer/views/edit.py:91
+msgid "Remove Paraphrase success."
+msgstr "移除释义成功"
+
+#: viewer/views/edit.py:115 viewer/views/edit.py:247
+msgid "Cause application design, this word can not add in directory."
+msgstr "由于程序设计因素，该单词不允许添加至词典"
+
+#: viewer/views/edit.py:123 viewer/views/study.py:78
+msgid "Word not found."
+msgstr "没有找到该单词"
+
+#: viewer/views/edit.py:140
+msgid "Add to dictionary success."
+msgstr "添加至词典成功"
+
+#: viewer/views/edit.py:158
+msgid "Add to review success."
+msgstr "添加至复习成功"
+
+#: viewer/views/edit.py:183 viewer/views/edit.py:235 viewer/views/edit.py:316
+#: viewer/views/edit.py:334 viewer/views/edit.py:358 viewer/views/edit.py:382
+msgid "Word does not exists!!!"
+msgstr "没有找到该单词"
+
+#: viewer/views/edit.py:189 viewer/views/edit.py:284
+msgid "Paraphrase type invalid."
+msgstr "词性不存在"
+
+#: viewer/views/edit.py:195 viewer/views/edit.py:290
+msgid "Paraphrase content must not empty."
+msgstr "释义内容不能为空"
+
+#: viewer/views/edit.py:203
+msgid "Paraphrase already exists."
+msgstr "释义已存在"
+
+#: viewer/views/edit.py:208
+msgid "Add paraphrase success."
+msgstr "添加释义成功"
+
+#: viewer/views/edit.py:241
+msgid "Word title must not empty!!!"
+msgstr "单词标题不能为空"
+
+#: viewer/views/edit.py:253 viewer/views/edit.py:268
+msgid "Save word title success."
+msgstr "保存单词标题成功"
+
+#: viewer/views/edit.py:259
+msgid "Word title already exists!!!"
+msgstr "单词标题已存在"
+
+#: viewer/views/edit.py:278
+msgid "Paraphrase does not exists."
+msgstr "释义不存在"
+
+#: viewer/views/edit.py:308
+msgid "Save paraphrase success."
+msgstr "保存释义成功"
+
+#: viewer/views/edit.py:321
+msgid "Refresh word failure!!!"
+msgstr "刷新单词失败"
+
+#: viewer/views/edit.py:326
+msgid "Refresh word success."
+msgstr "刷新单词成功"
+
+#: viewer/views/edit.py:350
+msgid "Save equal words success."
+msgstr "保存相等单词成功"
+
+#: viewer/views/edit.py:374
+msgid "Save similar words success."
+msgstr "保存相似单词成功"
+
+#: viewer/views/edit.py:397
+msgid "Save related words success."
+msgstr "保存相关单词成功"
+
+#: viewer/views/edit.py:406
+msgid "Review does not exists"
+msgstr "复习不存在的"
+
+#: viewer/views/edit.py:414
+msgid "Reset review success."
+msgstr "重置复习成功"
+
+#: viewer/views/settings.py:93
+msgid "Save success"
+msgstr "保存成功"
+
+#: viewer/views/settings.py:171
+msgid "Backup {} success."
+msgstr "备份 {} 成功."
+
+#: viewer/views/settings.py:185
+msgid "Restore file does not exists."
+msgstr "还原文件不存在"
+
+#: viewer/views/settings.py:192
+msgid "Restore {} success."
+msgstr "还原 {} 成功."
+
+#: viewer/views/study.py:31
+msgid "study"
+msgstr "学习"
+
+#: viewer/views/study.py:72
+msgid "Wrong approach"
+msgstr "错误的访问"
+
+#: viewer/views/study.py:80
+msgid "Word not vaild to this study method"
+msgstr "该单词现在不可学习"
+
+#: viewer/views/study.py:83
+msgid "Title is Empty"
+msgstr "单词名称为空"
+
+#: viewer/views/study.py:129
+msgid "review"
+msgstr "复习"
+
+#: viewer/views/study.py:158
+msgid "Conquer hard"
+msgstr "克服困难"
+
+#: viewer/views/study.py:188
+msgid "practice"
+msgstr "练习"
+
+#: words/models.py:28 words/models.py:31 words/models.py:39
+msgid "WordType"
+msgstr "单词类型"
+
+#: words/models.py:32
+msgid "WordTypes"
+msgstr "单词类型"
+
+#: words/models.py:40
+msgid "Equal word"
+msgstr "相等的单词"
+
+#: words/models.py:41
+msgid "Similar word"
+msgstr "相似单词"
+
+#: words/models.py:42
+msgid "Related word"
+msgstr "相关单词"
+
+#: words/models.py:53
+msgid "Title"
+msgstr "标题"
+
+#: words/models.py:58
+msgid "Star"
+msgstr "星级"
+
+#: words/models.py:86 words/models.py:89 words/models.py:97
+msgid "ParaType"
+msgstr "释义类型"
+
+#: words/models.py:90
+msgid "ParaTypes"
+msgstr "释义类型"
+
+#: words/models.py:99
+msgid "Content"
+msgstr "内容"
+
+#: words/models.py:103
+msgid "Paraphrases"
+msgstr "释义"
+
+#: words/models.py:112 words/models.py:116 words/models.py:124
+msgid "PhoneticType"
+msgstr "发音类型"
+
+#: words/models.py:117
+msgid "PhoneticTypes"
+msgstr "发音类型"
+
+#: words/models.py:128 words/models.py:141
+msgid "Phonetic"
+msgstr "发音"
+
+#: words/models.py:142
+msgid "Phonetics"
+msgstr "发音"
+
+#: words/models.py:151 words/models.py:159
+msgid "Rank"
+msgstr "等级"
+
+#: words/models.py:160
+msgid "Ranks"
+msgstr "等级"
+
+#: words/models.py:169 words/models.py:255
+msgid "User"
+msgstr "用户"
+
+#: words/models.py:198
+msgid "Hard mark"
+msgstr "困难标记"
+
+#: words/models.py:203
+msgid "Review level"
+msgstr "复习等级"
+
+#: words/models.py:208
+msgid "Review times"
+msgstr "复习次数"
+
+#: words/models.py:213
+msgid "Review right times"
+msgstr "复习正确次数"
+
+#: words/models.py:218
+msgid "Review skip times"
+msgstr "复习跳过次数"
+
+#: words/models.py:223
+msgid "Review error times"
+msgstr "复习错误次数"
+
+#: words/models.py:228
+msgid "Review status"
+msgstr "复习状态"
+
+#: words/models.py:233
+msgid "Reset times"
+msgstr "重置次数"
+
+#: words/models.py:248
+msgid "Reviews"
+msgstr "复习"
+
+#: words/models.py:260
+msgid "Random"
+msgstr "随机"
+
+#: words/models.py:261
+msgid "Dictation"
+msgstr "听写"
+
+#: words/models.py:266
+msgid "Settings Study Mode"
+msgstr "设置学习模式"
+
+#: words/models.py:271
+msgid "Settings Alert Delete Word"
+msgstr "设置警告删除单词"
+
+#: words/models.py:276
+msgid "Settings Alert Delete Review"
+msgstr "设置警告删除复习"
+
+#: words/models.py:281
+msgid "Settings Alert Delete Paraphrase"
+msgstr "设置警告删除释义"
+
+#: words/models.py:286
+msgid "Settings Alert Reset Review"
+msgstr "设置警告重置复习"
+
+#: words/models.py:296
+msgid "UserProfile"
+msgstr "用户配置"
+
+#: words/models.py:297
+msgid "UserProfiles"
+msgstr "用户配置"
+
+msgid "Collins words"
+msgstr "柯林斯词汇"
+
+msgid "Star1"
+msgstr "一星级"
+
+msgid "Star2"
+msgstr "二星级"
+
+msgid "Star3"
+msgstr "三星级"
+
+msgid "Star4"
+msgstr "四星级"
+
+msgid "Star5"
+msgstr "五星级"
+
+msgid "Examination words"
+msgstr "考试词汇"
+
+msgid "English translator"
+msgstr "英语翻译"
+
+msgid "Three levels of translation 1"
+msgstr "三级笔译上"
+
+msgid "Three levels of translation 2"
+msgstr "三级笔译下"
+
+msgid "Second level translation outline"
+msgstr "二级翻译口笔译大纲"
+
+msgid "GRE"
+msgstr "美国研究生入学考试"
+
+msgid "CET4"
+msgstr "四级词汇"
+
+msgid "CET6"
+msgstr "六级词汇"
+
+msgid "High School"
+msgstr "高考词汇"
+
+msgid "IELTS"
+msgstr "雅思词汇"
+
+msgid "Middle school"
+msgstr "初中词汇"
+
+msgid "Postgraduate"
+msgstr "考研词汇"
+
+msgid "TEM4"
+msgstr "专四词汇"
+
+msgid "TEM8"
+msgstr "专八词汇"
+
+msgid "TOFEL"
+msgstr "托福词汇"
+
+msgid "Profession words"
+msgstr "专业词汇"
+
+msgid "Human resources"
+msgstr "人力资源"
+
+msgid "Chemistry"
+msgstr "化学"
+
+msgid "Medicine"
+msgstr "医学"
+
+msgid "Architecture"
+msgstr "建筑"
+
+msgid "Computer"
+msgstr "计算机"
+
+msgid "Finance"
+msgstr "金融"
+
+msgid "Qsbdc words"
+msgstr "轻松背单词"
+
+msgid "Level words"
+msgstr "分级单词"
+
+msgid "Level 01"
+msgstr "第一级"
+
+msgid "Level 02"
+msgstr "第二级"
+
+msgid "Level 03"
+msgstr "第三级"
+
+msgid "Level 04"
+msgstr "第四级"
+
+msgid "Level 05"
+msgstr "第五级"
+
+msgid "Level 06"
+msgstr "第六级"
+
+msgid "Level 07"
+msgstr "第七级"
+
+msgid "Level 08"
+msgstr "第八级"
+
+msgid "Level 09"
+msgstr "第九级"
+
+msgid "Level 10"
+msgstr "第十级"
+
+msgid "Level 11"
+msgstr "第十一级"
+
+msgid "Level 12"
+msgstr "第十二级"
+
+msgid "Level extra"
+msgstr "扩展级"
+
+msgid "Level phrases"
+msgstr "分级词组"

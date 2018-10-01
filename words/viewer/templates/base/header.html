@@ -1,0 +1,14 @@
+{% load static %}
+{% load base_tag %}
+{% load i18n %}
+{% base_info as base_info %}
+<div class="ui huge menu stackable">
+    <div class="item">
+        <img class="ui mini image circular" src="{% static 'images/favicon.jpg' %}" style="width: 20px; height: 20px;">
+        <div class="header project">
+            {{ base_info.project_name }}
+        </div>
+    </div>
+    {% include 'menu/left/menu.html' %}
+    {% include 'menu/right/menu.html' %}
+</div>

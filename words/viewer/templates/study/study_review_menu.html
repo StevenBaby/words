@@ -1,0 +1,33 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'review' %}
+    {% set 'review_active' 'active' %}
+{% endif %}
+
+<a class="item teal {{review_active}}" href="{% url 'review' 'start' %}">
+    {% if not review_count %}
+        <i class="hourglass green empty icon"></i>
+    {% elif review_count < 20 %}
+        <i class="hourglass blue start icon"></i>
+    {% elif review_count < 50 %}
+         <i class="hourglass yellow half icon"></i>
+    {% elif review_count < 100 %}
+         <i class="hourglass orange end icon"></i>
+    {% else %}
+        <i class="hourglass red full icon"></i>
+    {% endif %}
+
+    {% trans 'Review' %}
+
+    {% if review_count > 99 %}
+    <div class="ui circular {% get_study_color 'review' %} floating mini label">
+        99+
+    </div>
+    {% elif review_count > 0 %}
+    <div class="ui circular {% get_study_color 'review' %} floating mini label">
+        {{review_count}}
+    </div>
+    {% endif %}
+</a>

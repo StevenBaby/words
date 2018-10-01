@@ -1,0 +1,35 @@
+{% load i18n %}
+<h3>{% trans 'Staff settings' %}</h3>
+<table class="ui very basic table">
+    <tr>
+       <td class="three wide">
+            <span class="ui tiny header">
+                {% trans "Download phonetics" %}
+            </span>
+       </td>
+       <td>
+            {% include 'settings/settings_phonetic.html' %}
+       </td>
+    </tr>
+    <tr>
+       <td class="three wide">
+            <span class="ui tiny header">
+                {% trans "Backup restore" %}
+            </span>
+       </td>
+       <td>
+            {% include 'settings/settings_backup.html' %}
+       </td>
+    </tr>
+
+    <tr>
+       <td class="three wide">
+            <span class="ui tiny header">
+                {% trans "Update" %}
+            </span>
+       </td>
+       <td>
+            {% include 'settings/settings_update.html' %}
+       </td>
+    </tr>
+</table>

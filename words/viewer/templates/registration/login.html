@@ -1,0 +1,27 @@
+{% extends 'base/single_card_page.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} {% trans 'Login' %} {% endblock %}
+
+{% block content %}
+<form class="ui form login error" action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="field">
+        <div class="ui fluid left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="{% trans 'Username' %}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="{% trans 'Password' %}">
+        </div>
+    </div>
+    {% include 'base/form_error.html' %}
+    <div class="field">
+        <div class="ui fluid large teal submit button">{% trans 'Login' %}</div>
+    </div>
+</form>
+{% endblock %}

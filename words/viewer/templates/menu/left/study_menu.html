@@ -1,0 +1,48 @@
+{% if user.is_authenticated %}
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+
+{% if request.resolver_match.url_name == 'review' %}
+    {% set 'active_study' 'active' %}
+{% elif request.resolver_match.url_name == 'hard' %}
+    {% set 'active_study' 'active' %}
+{% elif request.resolver_match.url_name == 'practice' %}
+    {% set 'active_study' 'active' %}
+{% endif %}
+
+
+{% get_study_count 'review' as review_count %}
+{% set 'review_count' review_count %}
+
+{% get_study_count 'hard' as hard_count %}
+{% set  'hard_count' hard_count %}
+
+{% add review_count hard_count as count %}
+
+
+<a class="item {{active_study}}" href="{% url 'study' %}">
+    {% if not count  %}
+        <i class="hourglass green empty icon"></i>
+    {% elif count < 20 %}
+        <i class="hourglass blue start icon"></i>
+    {% elif count < 50 %}
+         <i class="hourglass yellow half icon"></i>
+    {% elif count < 100 %}
+         <i class="hourglass orange end icon"></i>
+    {% else %}
+        <i class="hourglass red full icon"></i>
+    {% endif %}
+    {% trans 'Study' %}
+    {% if count > 99 %}
+        <div class="ui circular {% get_study_color 'study' %} floating mini label">
+            99+
+        </div>
+    {% elif count > 0 %}
+        <div class="ui circular {% get_study_color 'study' %} floating mini label">
+            {{count}}
+        </div>
+    {% endif %}
+</a>
+
+{% endif %}

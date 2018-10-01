@@ -1,0 +1,15 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'found' %}
+    {% set 'found_active' 'active' %}
+{% endif %}
+<a class="item teal {{found_active}}" href="{% url 'found'  %}">
+    <i class="search blue icon"></i>
+    {% trans 'Found' %}
+</a>
+<div class="divider"></div>
+{% if user.is_staff %}
+{% include 'found/resources_menu.html' %}
+{% endif %}

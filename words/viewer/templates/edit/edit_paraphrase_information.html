@@ -1,0 +1,66 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+<table class="ui selectable striped table study paraphrase">   
+{% for para in word.paraphrase.all %}
+<tr>
+    <td class="twelve wide">
+        <div class="edit paraphrase label">
+            <span class="ui large header type">
+                {{ para.type.content }}
+            </span>
+            <span class="ui large header">.</span>
+            <span class="ui large header paraphrase">
+                {{ para.content }}
+            </span>
+        </div>
+        <form class="ui edit paraphrase form" 
+            style="display: none;"
+            method="POST"
+            action="{% url 'edit' 'para' para.id %}"
+            onkeydown="if(event.keyCode==13) return false;">
+            {% csrf_token %}
+            <div class="fields">
+                <div class="three wide field">
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="para_type" value="{{ para.type.content }}">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">{{ para.type.content }}</div>
+                        <div class="menu">
+                            {% for para_type in para_types %}
+                            <div class="item" data-value="{{ para_type }}">{{ para_type }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="thirteen wide field para">
+                    <div class="ui fluid input">
+                    <input name="para_content" placeholder="{% trans 'Input paraphrase...' %}" type="text" value="{{ para.content }}">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </td>
+    <td class="two wide">
+        <div class="ui fluid mini green icon button edit paraphrase save" action="">
+            <i class="edit icon"></i>
+            <span>
+                {% trans "Edit" %}
+            </span>
+        </div>
+    </td>
+    <td class="two wide">
+        <div class="ui fluid mini red icon button edit remove" action="{% url 'remove' 'para' para.id %}" alert="{{ user.profile.settings_alert_delete_paraphrase }}">
+            <i class="remove icon"></i>
+            {% trans "Remove" %}
+        </div>
+    </td>
+</tr>
+{% endfor %}
+
+<tr>
+    {% include 'edit/edit_add_paraphrase.html' %}
+</tr>
+
+</table>

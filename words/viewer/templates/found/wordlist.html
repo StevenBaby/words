@@ -1,0 +1,69 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+{% block title %} {% trans 'Wordlist' %}  {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block content %}
+
+<div class="ui segment">
+
+<div class="ui huge header"> {% trans 'Wordlist' %} {{ title }} </div>
+<table class="ui selectable striped celled table">
+    {% if reviewlist %}
+        {% for review in items %}
+        <tr>
+            <td class="four wide">
+                <a class="ui fluid" href="{% url 'found' review.word.title %}">
+                    <div class="ui blue header">
+                        {{ review.word.title }}
+                    </div>
+                </a>
+            </td>
+            <td class="twelve wide">
+                <div class="ui tiny header">
+                    {% for type, para in review.word.paraphrases %}
+                        {{ type }}. {{ para}}
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        {% for word in items %}
+        {% get_review word as review %}
+        <tr>
+            <td class="four wide">
+                <a class="ui fluid" href="{% url 'found' word.title %}">
+                    <div class="ui blue header">
+                        {{ word.title }}
+                    </div>
+                </a>
+            </td>
+            <td class="ten wide">
+                <div class="ui tiny header">
+                    {% for type, para in word.paraphrases %}
+                        {{ type }}. {{ para}}
+                    {% endfor %}
+                </div>
+            </td>
+            <td class="two wide">
+                {% if review %}
+                <div class="ui blue tiny label tag">
+                    {% trans 'Already in review' %}
+                </div>
+                {% else %}
+                <div class="ui yellow tiny label tag">
+                    {% trans 'Not in review' %}
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+
+</table>
+</div>
+{% include 'base/pagination.html' %}
+{% endblock %}

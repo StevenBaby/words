@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+
+{% if not review %}
+    {% get_review word as review %}
+{% endif %}
+<div class="grid">
+    <div class="left floated column">
+         {% if word.id %}
+            <div class="ui basic label">
+                {{ word.type.content }}
+            </div>  
+        {% else %}
+            <div class="ui basic label">
+                {{ word.type }}
+            </div>  
+        {% endif %}
+    </div>
+    <div class="right floated column">
+        <form class="add form wordcard">
+            {% csrf_token %}
+        </form>
+        {% if user.is_staff and word.id and request.resolver_match.url_name != 'edit' %}
+        <a class="ui pink label edit" href ="{% url 'edit' word.id %}" target="_blank">
+            {% trans 'Edit' %}
+        </a>
+        {% endif %}
+        {% if review %}
+        <a class="ui teal tag label">
+            {% trans 'Already in review' %}
+        </a>
+        {% else %}
+            <a class="ui blue label edit add review" action="{% url 'add' 'review' word.title %}">
+                {% trans 'Add to review' %}
+            </a>
+            {% if not word.id %}
+            <a class="ui orange label edit add word" action="{% url 'add' 'word' word.title %}">
+                {% trans 'Add to dictionary' %}
+            </a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>

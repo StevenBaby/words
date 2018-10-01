@@ -1,0 +1,4 @@
+django
+dandan>=0.5.1
+six
+colorama

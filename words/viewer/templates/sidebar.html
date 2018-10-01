@@ -1,0 +1,19 @@
+{% load base_tag %}
+{% base_info as info %}
+<div class="ui vertical menu fluid">
+    <a class="item teal">
+        <i class="alarm blue icon"></i>
+        <span class="current time">{{ info.current_time }}</span>
+    </a>
+    {% include 'study/study_review_menu.html' %}
+    {% include 'study/study_hard_menu.html' %}
+    {% include 'study/study_practice_menu.html' %}
+</div>
+
+<div class="ui vertical menu fluid">
+    {% include 'found/found_menu.html' %}
+</div>
+
+<div class="ui vertical menu fluid">
+    {% include 'statistics/statistics_menu.html' %}
+</div>

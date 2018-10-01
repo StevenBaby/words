@@ -1,0 +1,27 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+{% if not study%}
+<div class="ui segment raised">
+    {% if request.resolver_match.url_name != 'found' %}
+    <a href="{% url 'found' word.title %}">
+        <h1 class="word title">{{ word.title }}</h1>
+    </a>
+    {% else %}
+    <h1 class="word title">{{ word.title }}</h1>
+    {% endif %}
+</div>
+{% else %}
+<div class="ui segment">
+    <form class="ui study form" method="POST">
+    {% csrf_token %}
+    <input class="action" type="hidden" value="{% url study_type 'check' %}">
+    <input type="hidden" value="{{ word.id }}" name="id">
+    <input type="hidden" name="input_line">
+    </form>
+    <div class="ui massive transparent fluid input">
+        <input class="study" placeholder="{% trans 'Input word...' %}" type="text">
+    </div>
+</div>
+{% endif %}

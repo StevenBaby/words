@@ -1,0 +1,48 @@
+{% extends 'base/single_card_page.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} {% trans 'Register' %} {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="ui warning message">
+    {% trans "Notice: already logon user " %} {{ user.username }}
+</div>
+{% endif %}
+<form class="ui form register error" action="{% url 'register' %}" method="post">
+    <h1>{% trans "Create superuser" %}</h1>
+    {% csrf_token %}
+    <div class="field">
+        <div class="ui fluid left icon input pop" data-content="{{ form.username.help_text }}">
+            <i class="user icon"></i>
+            <input  type="text"
+                    name="username"
+                    placeholder="{% trans 'Username' %}"
+                    value="{% if form.username.value %}{{form.username.value}}{% endif %}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <input  type="password"
+                    name="password1"
+                    placeholder="{% trans 'Password' %}"
+                    value="{% if form.password1.value %}{{form.password1.value}}{% endif %}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <input  type="password"
+                    name="password2"
+                    placeholder="{% trans 'Password Again' %}"
+                    value="{% if form.password2.value %}{{form.password2.value}}{% endif %}">
+        </div>
+    </div>
+    <div class="field">
+        <button class="ui fluid large teal submit button">{% trans 'Register' %}</button>
+    </div>
+    <label>{% trans 'Already have an account?' %} <a href="{% url 'login' %}">{% trans 'Login' %}</a></label>
+    {% include 'base/form_error.html' %}
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base/base_page.html' %}
+{% block body %}
+    <header class="ui container">
+        {% include 'base/header.html' %}
+    </header>
+    <div class="wrapper">
+        <div class="ui container base-container">
+            {% block container %}
+            {% endblock %}
+        </div>
+    </div>
+    {% include 'base/modal.html' %}
+    {% include 'base/footer.html' %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load i18n %}
+<table class="ui selectable striped celled table">
+    {% for item in items %}
+    <tr>
+        <td>
+            <a class="ui fluid" href="{{forloop.counter0}}">{% trans item.name %}</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

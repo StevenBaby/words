@@ -1,0 +1,92 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+
+{% if word.id and word.ranks.exists %}
+    {% set 'show_relation_rank' 'word' %}
+    {% set 'ranks' word.ranks.all %}
+{% elif not word.id and word.ranks %}
+    {% set 'show_relation_rank' 'dict' %}
+    {% set 'ranks' word.ranks %}
+{% else %}
+    {% set 'show_relation_rank' 0 %}
+{% endif %}
+
+{% if word.equals.exists %}
+{% set 'show_relation_equal' 'word' %}
+{% else %}
+{% set 'show_relation_equal' 0 %}
+{% endif %}
+
+{% if word.similars.exists %}
+    {% set 'show_relation_similar' 'word' %}
+{% else %}
+    {% set 'show_relation_similar' 0 %}
+{% endif %}
+
+{% if word.relateds.exists %}
+    {% set 'show_relation_related' 'word' %}
+{% else %}
+    {% set 'show_relation_related' 0 %}
+{% endif %}
+
+{% if show_relation_rank or show_relation_equal or show_relation_similar or show_relation_related %}
+<table class="ui selectable striped celled table study review info"
+{% if not detail %}
+     style="display: none;"
+{% endif %}>
+    {% if show_relation_rank %}
+    <tr>
+        <td class="three wide">{% trans 'Word rank' %}</td>
+        <td>
+            {% for rank in ranks %}
+            <a class="ui pink label">
+                {% if show_relation_rank == 'word' %}
+                    {{ rank.content }}
+                {% else %}
+                    {{ rank }}
+                {% endif %}
+            </a>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+    {% if word.equals.exists %}
+    <tr>
+        <td class="three wide">{% trans 'Equal words' %}</td>
+        <td>
+            {% for equal in word.equals.all %}
+                <a class="ui green label" href="{% url 'found' equal.title %}" target="_blank">
+                {{ equal.title }}
+                </a>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+    {% if word.relateds.exists %}
+    <tr>
+        <td class="three wide">{% trans 'Related words' %}</td>
+        <td>
+            {% for related in word.relateds.all %}
+            <a class="ui teal label" href="{% url 'found' related.title %}" target="_blank">
+                {{ related.title }}
+            </a>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+    {% if word.similars.exists %}
+    <tr>
+        <td class="three wide">{% trans 'Similar words' %}</td>
+        <td>
+            {% for similar in word.similars.all %}
+            <a class="ui orange label" href="{% url 'found' similar.title %}" target="_blank">
+                {{ similar.title }}
+            </a>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+</table>
+{% endif %}

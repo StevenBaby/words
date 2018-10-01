@@ -1,0 +1,23 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'resources' %}
+    {% set 'resources_active' 'active' %}
+{% endif %}
+
+{% get_resources as resources %}
+
+{% for resource in resources %}
+<div class="ui dropdown item resource" value="{{forloop.counter0}}">
+    <i class="dropdown icon"></i>
+    <i class="browser icon"></i>
+    <span class="text">{% trans resource.name %}</span>
+    <div class="menu">
+        {% for item in resource.list %}
+            {% include 'found/resources_menu_item.html' with item=item %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{{resource}}

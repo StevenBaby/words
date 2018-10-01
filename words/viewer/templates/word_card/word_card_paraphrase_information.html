@@ -1,0 +1,19 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+<table class="ui selectable striped celled table study paraphrase"
+{% if study and method == 'dictation' %}
+     style="display: none;"
+{% endif %}
+>   
+    {% for type, para in word.paraphrases %}
+    <tr>
+       <td>
+            <span class="ui large header">
+                {{ type }}. {{ para}}
+            </span>
+       </td>
+    </tr>
+    {% endfor %}
+</table>

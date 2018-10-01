@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block container %}
+<div class="ui grid stackable">
+    <div class="four wide column">
+        {% block sidebar %}
+        {% endblock %}
+    </div>
+    <div class="twelve wide column">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

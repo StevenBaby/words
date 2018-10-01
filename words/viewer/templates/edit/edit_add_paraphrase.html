@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+<td class="twelve wide">
+<form class="ui add paraphrase form"
+    method="POST"
+    action="{% url 'add_paraphrase' word.id %}"
+    onkeydown="if(event.keyCode==13) return false;">
+    {% csrf_token %}
+    <div class="fields">
+        <div class="three wide field">
+            <div class="ui fluid selection dropdown">
+                <input type="hidden" name="para_type" value="none">
+                <i class="dropdown icon"></i>
+                <div class="default text">none</div>
+                <div class="menu">
+                    {% for para_type in para_types %}
+                    <div class="item" data-value="{{ para_type }}">{{ para_type }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="thirteen wide field para">
+            <div class="ui fluid input">
+            <input name="para_content" placeholder="{% trans 'Input paraphrase...' %}" type="text" value="">
+            </div>
+        </div>
+    </div>
+</form>
+</td>
+
+<td class="two wide" colspan="2">
+<div class="ui fluid mini teal icon button edit paraphrase add" action="">
+    <i class="add icon"></i>
+    {% trans "Add" %}
+</div>
+</td>

@@ -1,0 +1,10 @@
+{% load i18n %}
+{% if word %}
+    {% include "word_card/word_card.html" %}
+{% else %}
+    <div class="content">
+        <div class="ui yellow centered huge header">
+            {% trans 'Sorry, cannot found any word' %}
+        </div>
+    </div>
+{% endif %}

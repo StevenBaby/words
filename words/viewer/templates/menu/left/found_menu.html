@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'found' %}
+    {% set 'found_header_active' 'active' %}
+{% elif request.resolver_match.url_name == 'resources' %}
+    {% set 'found_header_active' 'active' %}
+{% endif %}
+<a class="item teal {{found_header_active}}" href="{% url 'found'  %}">
+    <i class="search blue icon"></i>
+    {% trans 'Found' %}
+</a>
+{% endif %}

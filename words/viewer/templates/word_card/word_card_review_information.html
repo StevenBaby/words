@@ -1,0 +1,62 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+
+{% if not review %}
+{% get_review word as review %}
+{% endif %}
+{% if review %}
+<table class="ui selectable striped celled table study review info"
+{% if not detail %}
+     style="display: none;"
+{% endif %}>
+    <tr>
+        <td class="three wide">{% trans 'Level' %}</td>
+        <td>{{ review.level }}</td>
+        <td class="three wide">{% trans 'Hard' %}</td>
+        <td>{{ review.hard }}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'Review Times' %}</td>
+        <td>{{ review.times }}</td>
+         <td>{% trans 'Right Times' %}</td>
+        <td>{{ review.right }}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'Error Times' %}</td>
+        <td>{{ review.error }}</td>
+        <td>{% trans 'Skip Times' %}</td>
+        <td>{{ review.skip }}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'Reset Times' %}</td>
+        <td>{{ review.reset }}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>{% trans 'Create Time' %}</td>
+        <td>{{ review.word.create_time }}</td>
+        <td>{% trans 'First Time' %}</td>
+        <td>{{ review.first_time }}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'Update Time' %}</td>
+        <td>{{ review.update_time }}</td>
+        <td>{% trans 'Review Time' %}</td>
+        <td>{{ review.review_time }}</td>
+    </tr>
+    
+    <tr>
+        <td>{% trans 'Refresh Time' %}</td>
+        <td>{{ review.word.refresh_time }}</td>
+        {% if review.hard %}
+        <td>{% trans 'Hard Time' %}</td>
+        <td>{{ review.hard_time }}</td>
+        {% else %}
+        <td></td> <td></td>
+        {% endif %}
+    </tr>
+</table>
+{% endif %}

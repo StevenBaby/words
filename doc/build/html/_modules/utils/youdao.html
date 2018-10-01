@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>utils.youdao &mdash; words latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="words latest documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> words
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">words</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>utils.youdao</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for utils.youdao</h1><div class="highlight"><pre>
+<span></span><span class="c1"># encoding=utf-8</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">dandan</span>
+
+
+<span class="n">PHONETIC_UK</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">PHONETIC_US</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PHONETICS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;UK&quot;</span><span class="p">:</span> <span class="n">PHONETIC_UK</span><span class="p">,</span>
+    <span class="s2">&quot;US&quot;</span><span class="p">:</span> <span class="n">PHONETIC_US</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">SEARCH_API</span> <span class="o">=</span> <span class="s2">&quot;http://dict.youdao.com/search&quot;</span>
+<span class="n">PHONETIC_API</span> <span class="o">=</span> <span class="s2">&quot;http://dict.youdao.com/dictvoice&quot;</span>
+
+
+<div class="viewcode-block" id="get_word"><a class="viewcode-back" href="../../index.html#utils.youdao.get_word">[docs]</a><span class="k">def</span> <span class="nf">get_word</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get youdao word paraphrase</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        * title (string): word title</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        * dandan.value.AttrDict: word</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">title</span><span class="p">}</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">dandan</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">soup</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">SEARCH_API</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;#phrsListTab&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">content</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">word</span> <span class="o">=</span> <span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">AttrDict</span><span class="p">()</span>
+
+    <span class="c1"># text</span>
+    <span class="n">keyword</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;.keyword&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keyword</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="c1"># phonetic</span>
+    <span class="n">phons</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;.pronounce&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">phon</span> <span class="ow">in</span> <span class="n">phons</span><span class="p">:</span>
+        <span class="n">phonstring</span> <span class="o">=</span> <span class="n">phon</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;.phonetic&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">phonstring</span><span class="p">:</span>
+            <span class="n">phonstring</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">phonstring</span> <span class="o">=</span> <span class="n">phonstring</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s2">&quot;英&quot;</span> <span class="ow">in</span> <span class="n">phon</span><span class="o">.</span><span class="n">get_text</span><span class="p">():</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">epron</span> <span class="o">=</span> <span class="n">phonstring</span>
+        <span class="k">elif</span> <span class="s2">&quot;美&quot;</span> <span class="ow">in</span> <span class="n">phon</span><span class="o">.</span><span class="n">get_text</span><span class="p">():</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">upron</span> <span class="o">=</span> <span class="n">phonstring</span>
+
+    <span class="c1"># paraphrase</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">paras</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">paras</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">para</span> <span class="ow">in</span> <span class="n">paras</span><span class="p">:</span>
+        <span class="n">word</span><span class="o">.</span><span class="n">paras</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+    <span class="c1"># rank</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">ranks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ranks</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;.via.rank&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ranks</span> <span class="ow">and</span> <span class="n">ranks</span><span class="o">.</span><span class="n">get_text</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">ranks</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">rank</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">ranks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rank</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+    <span class="c1"># star</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">star</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">star</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;.star&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">star</span><span class="p">:</span>
+        <span class="n">clas</span> <span class="o">=</span> <span class="n">star</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cla</span> <span class="ow">in</span> <span class="n">clas</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;star(\d+)&quot;</span><span class="p">,</span> <span class="n">cla</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">star</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># synonyms</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">synonyms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">synonyms</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;#synonyms&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">synonyms</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">synonyms</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">):</span>
+            <span class="n">syn</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">synonyms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">syn</span><span class="p">)</span>
+
+    <span class="c1"># phrase</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">phrase</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;#wordGroup&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">phrase</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;.contentTitle&quot;</span><span class="p">):</span>
+            <span class="n">phrase</span> <span class="o">=</span> <span class="n">phrase</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">word</span><span class="o">.</span><span class="n">phrase</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+
+    <span class="c1"># sentence</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sentence</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;#examplesToggle&quot;</span><span class="p">)</span>
+    <span class="n">lis</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">word</span><span class="o">.</span><span class="n">sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">word</span></div>
+
+
+<div class="viewcode-block" id="get_phonetic"><a class="viewcode-back" href="../../index.html#utils.youdao.get_phonetic">[docs]</a><span class="k">def</span> <span class="nf">get_phonetic</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">PHONETIC_UK</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get word phonetic title save to filename</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        * title (string): title of word</span>
+<span class="sd">        * filename (stirng): local system filename</span>
+<span class="sd">        * type (string, optional): must be in definite as PHONETIC_UK or PHONETIC_US</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        * OSError: if filename cannot write</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="kn">from</span> <span class="nn">requests</span> <span class="k">import</span> <span class="n">Request</span>
+    <span class="k">if</span> <span class="nb">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">PHONETIC_UK</span><span class="p">,</span> <span class="n">PHONETIC_US</span><span class="p">):</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="n">PHONETIC_UK</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dandan</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">writeable</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;File </span><span class="si">{}</span><span class="s2"> unwriteable&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">)):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="n">PHONETIC_API</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">dandan</span><span class="o">.</span><span class="n">traffic</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Steven Kang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

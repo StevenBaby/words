@@ -1,0 +1,49 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load base_tag %}
+{% load i18n %}
+{% block title %} {% trans 'Count' %} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block content %}
+
+<div class="ui segment">
+     <div class="ui grid">
+        <div class="ui left floated six wide column">
+            <div class="ui huge header"> {% trans 'Count' %} </div>
+        </div>
+        <div class="ui right floated right aligned ten wide column">
+             <div class="ui pink large label tag">
+               {% trans 'Dictionary count' %} {{ all_word_count }} 
+            </div>
+            <div class="ui green large label tag">
+                {% trans 'Review count' %} {{ all_review_count }}
+            </div>
+        </div>
+    </div>
+   
+    <table class="ui selectable striped celled table">
+        <thead>
+            <th class="ui header">{% trans "Date" %}</th>
+            <th class="ui header">{% trans "Amount" %}</th>
+            <th class="ui header">{% trans "Weekday" %}</th>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                {% if item.count > 30 %}
+                    {% set 'td_color' 'positive' %}
+                {% elif item.count > 10 %}
+                    {% set 'td_color' 'warning' %}
+                {% else %}
+                    {% set 'td_color' 'negative' %}
+                {% endif %}
+                <td class="three wide {{td_color}}">{{ item.date }}</td>
+                <td class="three wide {{td_color}}">{{ item.count }}</td>
+                <td class="six wide {{td_color}}">{{ item.date|date:"l" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include 'base/pagination.html' %}
+{% endblock %}

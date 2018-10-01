@@ -1,0 +1,34 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+<table class="ui very basic table edit title"> 
+<tr>
+    <td class="thirteen wide">
+        <div class="ui segment raised edit title bar">
+            <a href="{% url 'found' word.title %}">
+                <h1 class="title">{{ word.title }}</h1>
+            </a>
+        </div>
+        <form 
+            class="ui segment edit title form"
+            action="{% url 'edit' 'title' word.id %}" 
+            method="POST"
+            style="display: none;"
+            onkeydown="if(event.keyCode==13) return false;"
+        >
+            {% csrf_token %}
+            <input class="edit title before" type="hidden" value="{{word.title}}">
+            <div class="ui massive transparent fluid input">
+                <input class="edit title" name="title" placeholder="{% trans 'Input word...' %}" type="text" value="{{ word.title }}">
+            </div>
+        </form>
+    </td>
+    <td class="three wide">
+        <div class="ui fluid green icon huge button edit title save">
+            <i class="edit icon"></i>
+            <span>{% trans "Edit" %}</span>
+        </div>
+    </td>
+</tr>
+</table>

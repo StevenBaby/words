@@ -1,0 +1,12 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'practice' %}
+    {% set 'practice_active' 'active' %}
+{% endif %}
+
+<a class="item teal {{practice_active}}" href="{% url 'practice' 'start' %}">
+    <i class="write blue icon"></i>
+    {% trans 'Practice' %}
+</a>

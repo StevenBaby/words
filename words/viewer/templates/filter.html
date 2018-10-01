@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load words_tag %}
+
+{% get_level_count as level_count %}
+
+<div class="ui card centered segments detail">
+    <div class="ui content segment">
+        <div class="ui blue basic fluid button filter">
+            <h2 class="ui header">{% trans 'Filter' %}</h2>
+        </div>
+        {% include "filter_form.html" %}
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load base_tag %}
+{% load i18n %}
+{% block title %} {% trans 'Date' %} {{ date }} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block content %}
+
+<div class="ui segment">
+    <div class="ui grid">
+        <div class="ui left floated six wide column">
+            <div class="ui huge header"> {% trans 'Date' %} {{ date }} </div>
+        </div>
+        <div class="ui right floated right aligned ten wide column">
+        	<div class="ui green large label tag">
+                {% trans 'Count' %}  {{ date_count }}
+            </div>
+        </div>
+    </div>
+    <table class="ui selectable striped celled table">
+        <thead>
+            <th class="ui blue header">{% trans "Hour" %}</th>
+            <th class="ui header">{% trans "Amount" %}</th>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                {% if item.count > 30 %}
+                    {% set 'td_color' 'negative' %}
+                {% elif item.count > 15 %}
+                    {% set 'td_color' 'warning' %}
+                {% else %}
+                    {% set 'td_color' 'positive' %}
+                {% endif %}
+                <td class="three wide {{td_color}}">{{ item.hour.hour }}</td>
+                <td class="three wide {{td_color}}">{{ item.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include 'base/pagination.html' %}
+{% endblock %}

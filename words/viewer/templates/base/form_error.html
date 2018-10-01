@@ -1,0 +1,15 @@
+{% spaceless %}
+
+<div class="ui error message">
+{% if form.errors %}
+    <ul class="list">
+    {% for name, errors in form.errors.items %}
+        {% for error in errors %}
+            <li>{{ error|escape }}</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+{% endspaceless %}

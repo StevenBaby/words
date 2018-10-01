@@ -1,0 +1,42 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load base_tag %}
+{% load i18n %}
+{% block title %} {% trans 'Level' %} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block content %}
+
+<div class="ui segment">
+    <div class="ui grid">
+        <div class="ui left floated six wide column">
+            <div class="ui huge header"> {% trans 'Level' %}</div>
+        </div>
+        <div class="ui right floated right aligned ten wide column">
+
+        </div>
+    </div>
+    <table class="ui selectable striped celled table">
+        <thead>
+            <th class="ui blue header">{% trans "Times" %}</th>
+            <th class="ui header">{% trans "Amount" %}</th>
+        </thead>
+        {% for item in items %}
+        <tr>
+            <td class="three wide">
+                <a href="{% url 'level' item.level %}">
+                    <div class="ui blue header">
+                    {{ item.level }}
+                    </div>
+                </a>
+            </td>
+            <td class="three wide">
+                <div class="ui header">
+                    {{ item.count }}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% include 'base/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% load i18n %}
+{% if user.is_authenticated %}
+<a href="{% url 'settings' %}" class="item right-menu-item">
+    <div class="right-menu-text text">
+        <i class="setting icon"></i>
+        {% trans 'Settings' %}
+    </div>
+</a>
+{% endif %}

@@ -1,0 +1,39 @@
+{% load i18n %}
+<table class="ui very basic table">
+<tr>
+    <td class="four wide">
+        <form 
+            class="form settings backup "
+            action="{% url 'settings_backup' 'backup' %}"
+            method="POST"
+        >
+            {% csrf_token %}
+        </form>
+        <a class="ui icon fluid blue button settings backup action">
+             <i class="share icon"></i>
+            <span>
+                {% trans 'Backup' %}
+            </span>
+        </a>
+    </td>
+    <td>
+        <form   class="ui form settings restore"
+                action="{% url 'settings_backup' 'restore' %}" method="POST">
+            {% csrf_token %}
+            <select name="backup_name" class="ui fluid selection dropdown backup">
+                {% for backup in backups %}
+                <option value="{{ backup }}">{{ backup }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </td>
+    <td class="four wide">
+        <a class="ui icon fluid pink button settings backup restore">
+            <i class="undo icon"></i>
+            <span>
+                {% trans 'Restore' %}
+            </span>
+        </a>
+    </td>
+</tr>
+</table>

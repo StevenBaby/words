@@ -1,0 +1,11 @@
+{% extends 'base/sidebar_page.html' %}
+{% load i18n %}
+{% block title %} {% trans 'Edit' %} {{ word.title }} {% endblock %}
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+{% block content %}
+{% if word %}
+    {% include 'edit/edit_content.html' %}
+{% endif %}
+{% endblock %}

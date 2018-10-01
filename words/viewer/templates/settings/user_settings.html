@@ -1,0 +1,65 @@
+{% load i18n %}
+<h3>{% trans 'User settings' %}</h3>
+<form class="ui form settings profile" method="POST" action="{% url 'settings' %}">
+    {% csrf_token %}
+    <div class="fields">
+        <div class="field">
+            <label>{% trans 'Study Mode' %}</label>
+            <div class="ui fluid search selection dropdown">
+                <input name="settings_study_mode" type="hidden" value="{{user.profile.settings_study_mode}}">
+                <i class="dropdown icon"></i>
+                <div class="default text">{{ user.profile.get_settings_study_mode_display }}</div>
+                <div class="menu">
+                    {% for choice in user.profile.STUDY_MODE_CHOICES %}
+                        <div class="item" data-value="{{choice.0}}">{{ choice.1 }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {% if user.profile.settings_alert_delete_word %}
+                    <input name="settings_alert_delete_word" checked="checked" type="checkbox">
+                {% else %}
+                    <input name="settings_alert_delete_word" type="checkbox">
+                {% endif %}
+                <label>{% trans 'Alert Delete Word' %}</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {% if user.profile.settings_alert_delete_review %}
+                    <input name="settings_alert_delete_review" checked="checked" type="checkbox">
+                {% else %}
+                    <input name="settings_alert_delete_review" type="checkbox">
+                {% endif %}
+                <label>{% trans 'Alert Delete Review' %}</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {% if user.profile.settings_alert_delete_paraphrase %}
+                    <input name="settings_alert_delete_paraphrase" checked="checked" type="checkbox">
+                {% else %}
+                    <input name="settings_alert_delete_paraphrase" type="checkbox">
+                {% endif %}
+                <label>{% trans 'Alert Delete Paraphrase' %}</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {% if user.profile.settings_alert_reset_review %}
+                    <input name="settings_alert_reset_review" checked="" type="checkbox">
+                {% else %}
+                    <input name="settings_alert_reset_review" type="checkbox">
+                {% endif %}
+                <label>{% trans 'Alert Reset Review' %}</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui green button settings profile save">{% trans 'Save' %}</div>
+</form>

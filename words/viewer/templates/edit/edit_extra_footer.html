@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load words_tag %}
+
+{% if not review %}
+    {% get_review word as review %}
+{% endif %}
+<div class="grid">
+    <div class="left floated column">
+        <div class="ui green mini icon button edit save" action="{% url 'save' word.id %}" style="display: none;">
+            <i class="save icon"></i>
+            {% trans 'Save' %}
+        </div>
+    </div>
+    <div class="right floated column">
+        <form class="remove form">
+            {% csrf_token %}
+        </form>
+        <form class="refresh form" action="{% url 'edit' 'refresh' word.id %}">
+            {% csrf_token %}
+        </form>
+        <div class="ui teal mini icon button edit refresh">
+            <i class="refresh icon"></i>
+            {% trans 'Refresh word' %}
+        </div>
+        {% if review %}
+        <div    class="ui yellow mini icon button edit remove reset"
+                action="{% url 'edit' 'reset' review.id %}"
+                alert="{{ user.profile.settings_alert_reset_review}}" >
+            <i class="undo icon"></i>
+            {% trans 'Reset review' %}
+        </div>
+        <div    class="ui pink mini icon button edit remove review"
+                action="{% url 'remove' 'review' review.id %}"
+                alert="{{ user.profile.settings_alert_delete_review }}" >
+            <i class="remove icon"></i>
+            {% trans 'Remove from review' %}
+        </div>
+        {% endif %}
+        {% if word.id and user.is_staff %}
+        <a class="ui red mini icon button edit remove" action="{% url 'remove' 'word' word.id %}" alert="{{ user.profile.settings_alert_delete_word }}">
+            <i class="remove icon"></i>
+            {% trans 'Remove from dictionary' %}
+        </a>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% trans 'Study' %}  {% endblock %}
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+{% block content %}
+    {% include 'study/study_content.html' %}
+{% endblock %}

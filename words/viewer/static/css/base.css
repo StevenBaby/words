@@ -1,0 +1,63 @@
+html, body{
+    height: 100%;
+    background-color: #A0A0A0 ;
+}
+
+header{
+    margin-top: 20px;
+    z-index: 5;
+}
+
+.header.project{
+    margin-left: 10px;
+}
+
+footer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wrapper{
+    min-height: 100%;
+}
+
+.base-container{
+    margin-top: 20px;
+}
+
+.messages{
+    margin-top: 20px;
+}
+
+.pagination{
+    margin-top: 20px;
+}
+
+.single.card{
+    min-width: 320px;
+}
+
+.right-menu-item{
+    max-width:170px;
+}
+
+.right-menu-text{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-break: break-all;
+}
+
+.single.cards{
+    margin-top: 30px;
+}
+
+.username .name{
+    margin-left: 0.75em;
+
+}
+
+.username .image{
+    width: 18px;
+    height: 18px
+}
+

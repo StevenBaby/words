@@ -1,0 +1,68 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+<table class="ui basic table edit euqal word">   
+<tr>
+    <td class="two wide">
+        <label class="ui header">{% trans 'Equal words' %}</label>
+    </td>
+    <td class="twelve wide">
+        <form class="ui form edit equal word" action="{% url 'edit' 'equals' word.id %}" method="POST">  
+            {% csrf_token %}
+            <select name="word_ids" multiple="" class="ui fluid multiple search selection dropdown equal word">
+                <option value="">{% trans 'Please input and choise equal word any if you wanted.' %}</option>
+                {% for equal in word.equals.all %}
+                <option value="{{ equal.id }}" selected="true">{{ equal.title }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </td>
+    <td class="two wide">
+        <div class="ui teal fluid button edit equal word save">
+            {% trans 'Save' %}
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="two wide">
+        <label class="ui header">{% trans 'Related words' %}</label>
+    </td>
+    <td class="twelve wide">
+        <form class="ui form edit related word" action="{% url 'edit' 'related' word.id %}" method="POST">  
+            {% csrf_token %}
+            <select name="word_ids" multiple="" class="ui fluid multiple search selection dropdown related word">
+                <option value="">{% trans 'Please input and choise related word any if you wanted.' %}</option>
+                {% for related in word.relateds.all %}
+                <option value="{{ related.id }}" selected="true">{{ related.title }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </td>
+    <td class="two wide">
+        <div class="ui teal fluid button edit related word save">
+            {% trans 'Save' %}
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="two wide">
+        <label class="ui header">{% trans 'Similar words' %}</label>
+    </td>
+    <td class="twelve wide">
+        <form class="ui form edit similar word" action="{% url 'edit' 'similars' word.id %}" method="POST">  
+            {% csrf_token %}
+            <select name="word_ids" multiple="" class="ui fluid multiple search selection dropdown similar word">
+                <option value="">{% trans 'Please input and choise similar word any if you wanted.' %}</option>
+                {% for similar in word.similars.all %}
+                <option value="{{ similar.id }}" selected="true">{{ similar.title }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </td>
+    <td class="two wide">
+        <div class="ui teal fluid button edit similar word save">
+            {% trans 'Save' %}
+        </div>
+    </td>
+</tr>
+</table>

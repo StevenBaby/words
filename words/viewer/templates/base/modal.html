@@ -1,0 +1,22 @@
+{% load base_tag %}
+{% load i18n %}
+{% if not has_modal %}
+    {% set has_modal True %}
+    <div class="ui modal small card">
+        <i class="close icon"></i>
+        <div class="ui title header teal">{% trans 'Notice' %}</div>
+        <div class="content">
+            <div class="ui header">
+                {% trans "System notice !!!" %}
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui green deny button">
+                {% trans 'Cancel' %}
+            </div>
+            <div class="ui red approve button">
+                {% trans 'Confirm' %}
+            </div>
+        </div>
+    </div>
+{% endif %}

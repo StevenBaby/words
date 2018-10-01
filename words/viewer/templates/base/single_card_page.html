@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block container %}
+<div class="ui center aligned grid ">
+    <div class="center aligned row">
+        <div class="ui single cards centered raised">
+            <div class="ui single card">
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

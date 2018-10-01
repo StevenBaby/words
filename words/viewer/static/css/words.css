@@ -1,0 +1,22 @@
+/*This is words css*/
+.edit.paraphrase.form .fields{
+    margin-bottom: -4px;
+    margin-top: -4px;
+}
+
+.add.paraphrase.form .fields{
+    margin-bottom: -4px;
+    margin-top: -4px;
+}
+
+.edit.title.segment{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*max-height: 62px;*/
+}
+
+.card.detail{
+    width: auto;
+    max-width: 800px;
+    margin-top: 0px;
+}

@@ -1,0 +1,36 @@
+{% load base_tag %}
+{% base_info as base_info %}
+<div class="grid">
+    <div class="left floated column">
+        {% for var in word.star|times %}
+            <i class="star yellow icon"></i>
+        {% endfor %}
+
+        {% if word.id and word.ranks.exists %}
+            {% for rank in word.ranks.all %}
+            <div class="ui pink label">
+                {{ rank.content }}
+            </div>
+            {% endfor %}
+        {% elif not word.id and word.ranks %}
+            {% for rank in word.ranks %}
+            <div class="ui pink label">
+                {{ rank }}
+            </div>
+            {% endfor %}
+        {% endif %}       
+
+    </div>
+    <div class="right floated column">
+        {% if review %}
+        <div class="ui green label">
+            {{ review.first_time }}
+        </div>
+        {% else %}
+        <div class="ui orange label">
+            {{ word.create_time }}
+        </div>
+        {% endif %}
+        
+    </div>
+</div>

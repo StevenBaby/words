@@ -1,0 +1,25 @@
+{% load i18n %}
+{% if is_paginated %}
+{% load base_tag %}
+<div class="ui container center aligned raised pagination">
+    <div class="ui pagination menu">
+        {% if page_obj.has_previous %}
+        <a class="item" href="{% fitpage page_obj.previous_page_number %}">
+        {% else %}
+        <a class="item disabled">
+        {% endif %}
+            {% trans 'Previous page' %}
+        </a>
+        <a class="active item">
+            {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} / ({{ page_obj.paginator.count }})
+        </a>
+        {% if page_obj.has_next %}
+        <a class="item" href="{% fitpage page_obj.next_page_number %}">
+        {% else %}
+        <a class="item disabled">
+        {% endif %}
+            {% trans 'Next page' %}
+        </a>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+
+{% if study %}
+    {% if review %}
+        {% set 'button_number' 'three' %}
+    {% else %}
+        {% set 'button_number' 'two' %}
+    {% endif %}
+<p class="ui header"></p>
+<div class="ui huge {{ button_number }} buttons fluid">
+    <a class="ui basic button orange study paraphrase detail">
+        <i class="translate icon"></i>
+        {% trans 'Paraphrase' %}
+    </a>
+    {% if review %}
+    <a class="ui basic button pink study review info">
+        <i class="info circle icon"></i>
+        {% trans 'Information' %}
+    </a>    
+    {% endif %}
+    <a class="ui basic button yellow study skip" href="{% url study_type 'next' %}">
+        <i class="forward icon"></i>
+        {% trans 'Skip' %}
+    </a>
+</div>
+{% endif %}

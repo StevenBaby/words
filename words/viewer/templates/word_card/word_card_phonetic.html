@@ -1,0 +1,50 @@
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+
+{% if study %}
+    {% set 'button_number' 'three' %}
+{% else %}
+    {% set 'button_number' 'two' %}
+{% endif %}
+
+<div class="ui huge {{ button_number }} buttons fluid">
+     {% if study %}
+        {% if ' ' in word.title %}
+        <button class="ui basic pink button word mark">
+            <i class="tags icon pink" ></i>
+            <span>{% trans 'Phrase' %}</span>
+        </button>
+        {% else %}
+        <button class="ui basic green button word mark">
+            <i class="tag icon green" ></i>
+            <span>{% trans 'Word' %}</span>
+        </button>
+        {% endif %}
+    {% endif %}
+
+    {% if word.id %}
+        {% set 'word_type' word.type.content %}
+    {% else %}
+        {% set 'word_type' word.type %}
+    {% endif %}
+
+    {% if word_type == 'EN' %}
+    <button class="ui basic button study phonetic {% get_phonetic_color 'UK' %}" 
+            type="UK" value="{{word.title}}">
+        <i class="volume down icon {% get_phonetic_color 'UK' %}" ></i>
+        {% if not study %}
+        <span>{% get_phonetic_content word 'UK' %}</span>
+        {% endif %}
+        <span>{% get_phonetic_title "UK"%}</span>
+    </button>
+    <button class="ui basic button study phonetic {% get_phonetic_color 'US' %}" 
+            type="US" value="{{word.title}}">
+        <i class="volume down icon {% get_phonetic_color 'US' %}" ></i>
+        {% if not study %}
+        <span>{% get_phonetic_content word 'US' %}</span>
+        {% endif %}
+        <span>{% get_phonetic_title 'US' %}</span>
+    </button>
+    {% endif %}
+</div>

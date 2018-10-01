@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load static %}
+{% load base_tag %}
+{% load words_tag %}
+
+
+{% base_info as base_info %}
+{% get_study_count study_type as count %}
+
+{% if action == 'start' %}
+<div class="ui card centered segments green detail">
+    <div class="ui content segment">
+        <a class="ui huge {% get_study_color study_type %} header centered">
+             {% blocktrans %}You have {{ count }} word need {{ study_description }}!!!{% endblocktrans %}
+        </a>
+    </div>
+</div>
+
+<div class="ui card centered segments green detail">
+    <div class="ui content segment">
+        <a class="ui huge green header centered" href="{% url study_type 'next' %}">
+             {% trans 'Start Study' %}
+        </a>
+    </div>
+</div>
+
+{% elif action == 'next' and word %}
+{% include 'word_card/word_card.html' %}
+{% elif action == 'next' and next_review_time %}
+{% timedelta next_review_time as delta %}
+
+<h1 class="ui huge header {% get_study_color study_type %} segment">
+    {% trans 'You have word need review after' %}
+    {% if delta.days %}
+    <span class="study countdown days">
+        <span class="value">
+            {{ delta.days }}
+        </span>
+        <span>
+            {% trans 'Days' %}
+        </span>
+    </span> 
+    {% endif %}
+    <span class="study countdown hours">
+        {{ delta.hours }}
+    </span>
+    :
+    <span class="study countdown minutes">
+        {{ delta.minutes }}
+    </span>
+    :
+    <span class="study countdown seconds">
+        {{ delta.seconds }}
+    </span>
+</h1>
+{% elif action == 'next' %}
+<h1 class="ui huge header {% get_study_color study_type %} segment">
+    {% trans 'You do not have any word need review!!!' %}
+</h1>
+{% endif %}
+<input id="action" type="hidden" value="{{action}}">
+
+{% if request.resolver_match.url_name == 'review' %}
+    <input class="study start url"  type="hidden" href="{% url 'review' 'start' %}"/>
+{% elif request.resolver_match.url_name == 'hard' %}
+    <input class="study start url"  type="hidden" href="{% url 'hard' 'start' %}"/>
+{% elif request.resolver_match.url_name == 'practice' %}
+    <input class="study start url"  type="hidden" href="{% url 'practice' 'start' %}"/>
+{% endif %}
+
+{% if study %}
+<input class="study method" type="hidden" method="{{ method }}">
+{% endif %}

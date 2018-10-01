@@ -1,0 +1,58 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+{% block title %} {% trans 'Resources' %} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block content %}
+
+<div class="ui segment">
+    <div class="ui grid">
+        <div class="ui left floated ten wide column">
+            <div class="ui huge breadcrumb">
+                {% for var in resource_names %}
+                    {% if forloop.counter0 > 0 %}
+                    <i class="right chevron icon divider"></i>
+                    {% endif %}
+                    <a class="section" href="{{ var.url }}">{% trans var.name %}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="ui right floated right aligned six wide column dictionary">
+            {% if review == 0 %}
+                <div class="ui checkbox toggle checked">
+                    <input type="checkbox" checked="" action="{{ request.path }}?review=1">
+                    <label>{% trans 'Review' %}</label>
+                </div>
+            {% else %}
+                <div class="ui checkbox toggle">
+                    <input type="checkbox" action="{{ request.path }}?review=0">
+                    <label>{% trans 'Review' %}</label>
+                </div>
+            {% endif %}
+
+            {% if dictionary == 0 %}
+                <div class="ui checkbox toggle checked">
+                    <input type="checkbox" checked="" action="{{ request.path }}?dictionary=1">
+                    <label>{% trans 'Dictionary' %}</label>
+                </div>
+            {% else %}
+                <div class="ui checkbox toggle">
+                    <input type="checkbox" action="{{ request.path }}?dictionary=0">
+                    <label>{% trans 'Dictionary' %}</label>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if items.0.type == "menu" %}
+        {% include 'found/resources_menulist.html' %}
+    {% elif items.0.type == "list" %}
+        {% include 'found/resources_menulist.html' %}
+    {% else %}
+        {% include 'found/resources_wordlist.html' %}
+    {% endif %}
+</div>
+{% include 'base/pagination.html' %}
+{% endblock %}

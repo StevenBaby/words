@@ -1,0 +1,68 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+<form class="add form resource" style="display: none;">
+    {% csrf_token %}
+</form>
+
+<table style="display: none;">
+	<tr class="resource wordcard example">
+		<td colspan="3">
+			<div class="content"></div>
+		</td>
+	</tr>
+</table>
+
+<table class="ui selectable striped celled table">
+    {% for item in items %}
+    <tr class="resource item">
+        {% get_word item as word %}
+        {% if word %}
+            {% get_review word as review %}
+            {% if review %}
+                {% set 'td_color' 'positive' %}
+            {% else %}
+                {% set 'td_color' 'warning' %}
+            {% endif %}
+        {% else %}
+            {% set 'td_color' 'negative' %}
+        {% endif %}
+        <td class="three wide {{td_color}}">
+            <a class="ui fluid" href="{% url 'found' item %}" target="_blank">
+                <div class="ui blue header">
+                    {{ item }}
+                </div>
+            </a>
+        </td>
+        <td class="seven wide {{td_color}}">
+            <div class="ui tiny header">
+                {% if word %}
+                    {% for type, para in word.paraphrases %}
+                        {{ type }}. {{ para}}
+                    {% endfor %}
+                {% else %}
+                	<a class="ui yellow label tag resource information" action="{% url 'wordinfo' item %}" value="item">
+                		{% trans 'Show word card' %}
+                	</a>
+                {% endif %}
+            </div>
+        </td>
+        <td class="two wide {{td_color}}">
+            {% if not word %}
+            <div class="ui red tiny label tag">
+                {% trans 'Not in dictionary' %}
+            </div>
+            {% elif review %}
+            <div class="ui green tiny label tag">
+                {% trans 'Already in review' %}
+            </div>
+            {% else %}
+            <a class="ui blue tiny label tag resource add review" action="{% url 'add' 'review' word.title %}">
+                {% trans 'Add to review' %}
+            </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

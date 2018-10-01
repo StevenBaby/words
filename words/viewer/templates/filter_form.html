@@ -1,0 +1,49 @@
+{% load i18n %}
+{% load words_tag %}
+
+{% get_level_count as level_count %}
+
+<form class="ui filter form" action="{% url 'wordlist' %}" method="GET" style="display: none;">
+    <div class="ui header"></div>
+    <div class="field">
+        <div class="three fields">
+            <div class="field">
+                <div class="ui selection dropdown">
+                    <input name="review" type="hidden" value="{{ review }}">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">{% trans 'Review type' %}</div>
+                    <div class="menu">
+                        <div class="item" data-value="0">{% trans "All words" %}</div>
+                        <div class="item" data-value="1">{% trans "Review Word" %}</div>
+                        <div class="item" data-value="2">{% trans "No Review" %}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui selection dropdown">
+                    <input name="level" type="hidden" value="{{ level }}">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Level</div>
+                    <div class="menu">
+                        <div class="item" data-value="-1">{% trans 'All level' %}</div>
+                        {% for lc in level_count %}
+                        <div class="item" data-value="{{lc.level}}">[{{lc.level}}] ({{lc.count}})</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui selection dropdown">
+                    <input name="hard" type="hidden" value="{{ hard }}">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">{% trans 'Hard' %}</div>
+                    <div class="menu">
+                        <div class="item" data-value="0">{% trans "All words" %}</div>
+                        <div class="item" data-value="1">{% trans "Hard word" %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="ui green button">{% trans 'Submit' %}</button> 
+</form>

@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load base_tag %}
+
+{% if request.resolver_match.url_name == 'index' %}
+    {% set 'index_active' 'active' %}
+{% endif %}
+
+<div class="menu">
+    <a class="item {{index_active}}" href="{% url 'index' %}">
+        <i class="home icon"></i>
+        {% trans 'Home' %}
+    </a>
+    {% include 'menu/left/study_menu.html' %}
+    {% include 'menu/left/found_menu.html' %}
+</div>

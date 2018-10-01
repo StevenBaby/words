@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load base_tag %}
+{% base_info as info %}
+<table class="ui very basic table">
+<tr>
+   <td class="twelve wide">
+        <div class="settings update">
+            {% if updater_status == 'updating' %}
+            <div 
+                class="ui indicating increment progress settings updater updating"
+                data-total="{{ updating_total }}"
+                data-value="{{ updating_value }}">
+                <div class="bar"></div>
+                <div class="label">
+                    {% if updating_status == 'downloading' %}
+                        {% trans "Downloading" %}
+                    {% elif updating_status == 'extracting' %}
+                        {% trans "Extracting" %}
+                    {% elif updating_status == "moving" %}
+                        {% trans "Moving" %}
+                    {% else %}
+                        {% trans "Finished" %}
+                    {% endif %}
+                </div>
+            </div>
+            {% elif updater_latest == None %}
+            <div class="ui info floating message">
+                <p>{% trans 'Current version is ' %} [{{ info.version }}]</p>
+            </div>
+                
+            {% elif updater_latest == info.version %}
+            <div class="ui success floating message">
+                <p>{% trans 'Your software is up to date.' %}</p>
+            </div>
+            {% elif updater_latest != info.version %}
+            <div class="ui error floating message">
+                <p> {% trans 'Have new version of ' %} [{{ updater_latest }}] [{{updater_reason}}]</p>
+            </div>
+            {% endif %}
+        </div>
+   </td>
+   <td>
+        {% if updater_status == 'updating' %}
+        <a class="ui icon fluid green button settings update disabled">
+            <i class="refresh icon"></i>
+            <span>
+                {% trans 'Updating' %}
+            </span>
+        </a>
+        {% elif updater_latest == None %}
+        <a 
+            class="ui icon fluid blue button settings update"
+            href="{% url 'settings_update' 'check' %}" 
+            >
+            <i class="refresh icon"></i>
+            <span>
+                {% trans 'Check' %}
+            </span>
+        </a>
+        {% elif updater_latest != info.version %} 
+        <a 
+            class="ui icon fluid green button settings update"
+            href="{% url 'settings_update' 'update' %}" 
+            >
+            <i class="refresh icon"></i>
+            <span>
+                {% trans 'Update' %}
+            </span>
+        </a>
+        {% endif %}
+   </td>
+</tr>
+</table>

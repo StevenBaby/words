@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load base_tag %}
+{% base_info as base_info %}
+<footer>
+    <div class="ui container center aligned segment">
+        {{ base_info.project_name }} © 2017-{{ base_info.current_time.year }} {% trans 'All Rights Reserved' %}
+    </div>
+</footer>

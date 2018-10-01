@@ -1,0 +1,37 @@
+{% load i18n %}
+<table class="ui very basic table">
+<tr>
+   <td class="twelve wide">
+        <div 
+            class="ui indicating increment progress settings phonetic download"
+            data-total="{{ phonetic_download_total }}"
+            data-value="{{ phonetic_download_value }}">
+            <div class="bar"></div>
+            <div class="label">( {{phonetic_download_value}} / {{phonetic_download_total}} )</div>
+        </div>
+   </td>
+   <td>
+        {% if not phonetic_downloading %}
+        <a 
+            class="ui icon fluid blue button settings phonetic download"
+            href="{% url 'settings_phonetic' 'download' %}" 
+            >
+            <i class="download icon"></i>
+            <span>
+                {% trans 'Download' %}
+            </span>
+        </a>
+        {% else %}
+        <a 
+            class="ui icon fluid red button settings phonetic download"
+            href="{% url 'settings_phonetic' 'stop' %}" 
+        >
+             <i class="stop icon"></i>
+            <span>
+                {% trans 'Stop' %}
+            </span>
+        </a>
+        {% endif %}
+   </td>
+</tr>
+</table>

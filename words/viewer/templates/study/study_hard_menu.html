@@ -1,0 +1,33 @@
+{% load base_tag %}
+{% load words_tag %}
+{% load i18n %}
+
+{% if request.resolver_match.url_name == 'hard' %}
+    {% set 'hard_active' 'active' %}
+{% endif %}
+
+<a class="item teal {{hard_active}}" href="{% url 'hard' 'start' %}">
+    {% if not hard_count %}
+        <i class="hourglass green empty icon"></i>
+    {% elif hard_count < 20 %}
+        <i class="hourglass blue start icon"></i>
+    {% elif hard_count < 50 %}
+         <i class="hourglass yellow half icon"></i>
+    {% elif hard_count < 100 %}
+         <i class="hourglass orange end icon"></i>
+    {% else %}
+        <i class="hourglass red full icon"></i>
+    {% endif %}
+
+    {% trans 'Hard' %}
+
+    {% if hard_count > 99 %}
+    <div class="ui circular {% get_study_color 'hard' %} floating mini label">
+        99+
+    </div>
+    {% elif hard_count > 0 %}
+    <div class="ui circular {% get_study_color 'hard' %} floating mini label">
+        {{hard_count}}
+    </div>
+    {% endif %}
+</a>

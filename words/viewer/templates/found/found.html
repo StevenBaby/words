@@ -1,0 +1,10 @@
+{% extends 'base/sidebar_page.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% trans 'Found' %}  {% endblock %}
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+{% block content %}
+    {% include 'found/found_content.html' %}
+{% endblock %}

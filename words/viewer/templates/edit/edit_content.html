@@ -1,0 +1,14 @@
+<div class="ui card centered segments detail">
+    <div class="extra content">
+        {% include 'word_card/word_card_extra_header.html' with review=review %}
+    </div>
+    <div class="ui content ">
+        {% include 'edit/edit_title.html' %}
+        {% include 'word_card/word_card_phonetic.html' %}
+        {% include 'edit/edit_paraphrase_information.html' with word=word %}
+        {% include 'edit/edit_relation_words.html' with word=word %}
+    </div>
+    <div class="extra content">
+        {% include 'edit/edit_extra_footer.html' with review=review %}
+    </div>
+</div>

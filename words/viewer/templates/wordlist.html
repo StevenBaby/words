@@ -1,0 +1,33 @@
+{% extends 'base/sidebar_page.html' %}
+{% load i18n %}
+{% load static %}
+{% load i18n %}
+{% load base_tag %}
+{% load words_tag %}
+{% block title %} {% trans 'Words' %} {% endblock %}
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+{% block content %}
+    {% include 'filter.html'%}
+    {% if items %}
+        {% for item in items %}
+            {% get_review item as review %}
+            {% include 'word_card/word_card.html' with word=item review=review %}
+        {% endfor %}
+        {% include 'base/pagination.html' %}
+    {% else %}
+        <div class="ui card centered segments detail">
+            <div class="ui content ">
+                <div class="ui header">
+                    {% trans 'There are no any words, go to study or change filter settings then try again!!!' %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}

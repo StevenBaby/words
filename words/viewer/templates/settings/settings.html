@@ -1,0 +1,33 @@
+{% extends 'base/sidebar_page.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans 'Settings' %} {% endblock %}
+{% block css %}
+    {% if user.is_staff %}
+    <link href="{% static 'css/settings.css' %}" rel="stylesheet" type="text/css"/>
+    {% endif %}
+{% endblock %}
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+{% block content %}
+<div class="ui segments">
+    {% if user.is_staff %}
+    <div class="ui segment">
+    {% include 'settings/staff_settings.html' %}
+    </div>
+    {% endif %}
+
+    <div class="ui segment">
+    {% include 'settings/user_settings.html' %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    {% if user.is_staff %}
+    <script src="{% static 'js/settings.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+

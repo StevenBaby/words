@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load base_tag %}
+{% get_current_language as LANGUAGE_CODE %}
+{% base_languages LANGUAGE_CODE as languages %}
+<!-- language dropdown start -->
+<div class="item">
+    <i class="dropdown icon"></i>
+    <span class="text">
+        <i class="{{ languages.current.flag }} flag"></i>
+        {% trans 'Language' %}
+    </span>
+    <div class="menu select-language">
+        {% for code, lang in languages.languages.items %}
+        <form method="post" action="{% url 'set_language' %}">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="{{ code }}">
+            <a class="item"><i class="{{ lang.flag }} flag"></i> {{ lang.name_local }}</a>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+<!-- language dropdown end -->

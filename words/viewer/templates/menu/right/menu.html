@@ -1,0 +1,18 @@
+{% load static %}
+{% load i18n %}
+<div class="right menu">
+    {% include 'menu/right/search.html' %}
+    <div class="ui dropdown item">
+        <span class="text"><i class="settings icon"></i>{% trans 'Settings' %}</span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            {% if user.is_staff %}
+            {% include 'menu/right/settings.html' %}
+            {% endif %}
+            {% include 'menu/right/language.html' %}
+            {% include 'menu/right/help.html' %}
+            <div class="divider"></div>
+            {% include 'menu/right/user.html' %}
+        </div>
+    </div>
+</div>
