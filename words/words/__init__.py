@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2018-12-26 [0.21.0] update download method
 - 2018-06-13 [0.20.4] refine resource list
 - 2018-06-11 [0.20.3] refine resource list
 - 2018-06-10 [0.20.2] fix bug for resource list
@@ -92,8 +93,8 @@ __version__ = ".".join(
     [str(var) for var in
         [
         0,
-        20,
-        4,
+        21,
+        0,
     ]
     ])
 
