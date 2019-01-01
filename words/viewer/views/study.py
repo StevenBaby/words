@@ -121,7 +121,8 @@ class StudyView(FormView):
             else:
                 context["method"] = random.choice(self.methods)
 
-        return super(FormView, self).render_to_response(context, **response_kwargs)
+        response = super(FormView, self).render_to_response(context, **response_kwargs)
+        return response
 
 
 class ReviewView(StudyView):
@@ -133,11 +134,11 @@ class ReviewView(StudyView):
 
     def get_next(self, context):
         review = study.get_random_review(user=self.request.user)
-        word = None
         if review:
-            word = review.word
-        context["word"] = word
-        context["review"] = review
+            context["word"] = review.word
+            context["review"] = review
+            return
+
         next_review = study.get_near_review(self.request.user)
         if next_review:
             context["next_review_time"] = next_review.review_time - timezone.now()
@@ -162,11 +163,11 @@ class HardView(StudyView):
 
     def get_next(self, context):
         review = study.get_random_hard(user=self.request.user)
-        word = None
         if review:
-            word = review.word
-        context["word"] = word
-        context["review"] = review
+            context["word"] = review.word
+            context["review"] = review
+            return
+
         next_hard = study.get_near_hard(self.request.user)
         if next_hard:
             # logger.debug("now {} hard_time {} review_time {} ".format(timezone.now(), next_hard.hard_time, next_hard.review_time))
