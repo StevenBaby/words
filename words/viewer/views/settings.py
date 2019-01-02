@@ -114,6 +114,14 @@ class SettingsPhoneticView(TemplateView):
                 logger.info("phonetic download task stoped.")
                 break
 
+        for word in models.Word.objects.filter(review=None):
+            settings.phonetic.value += 1
+            logger.info('downloading %s', word)
+            functions.download_word(word)
+            if not settings.phonetic.downloading:
+                logger.info("phonetic download task stoped.")
+                break
+
         settings.phonetic.downloading = False
         save_settings()
         logger.info("phonetic download task finish.")
