@@ -19,6 +19,7 @@
                 {% endfor %}
             </div>
         </div>
+        {% if items.0.type != "menu" and items.0.type != "list" %}
         <div class="ui right floated right aligned six wide column dictionary">
             {% if review == 0 %}
                 <div class="ui checkbox toggle checked">
@@ -44,6 +45,7 @@
                 </div>
             {% endif %}
         </div>
+        {% endif %}
     </div>
 
     {% if items.0.type == "menu" %}
