@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2019-03-08 [0.21.1] update semantic version to 2.4
 - 2018-12-26 [0.21.0] update download method
 - 2018-06-13 [0.20.4] refine resource list
 - 2018-06-11 [0.20.3] refine resource list
@@ -94,7 +95,7 @@ __version__ = ".".join(
         [
         0,
         21,
-        0,
+        1,
     ]
     ])
 
