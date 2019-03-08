@@ -32,7 +32,8 @@ def get_file_version(filename):
 
 def get_lastest():
 
-    url = 'https://github.com/StevenKjp/words/tree/master/build'
+    url = djsettings.GITHUB_URL + '/tree/master/build'
+    logger.info("get url %s", url)
     soup = dandan.query.soup(url)
     trs = soup.select("tr.js-navigation-item")
     version = StrictVersion(words.__version__)
@@ -54,7 +55,6 @@ def get_lastest():
         if not message:
             continue
         reason = message.get_text()
-
 
     latest = dandan.value.AttrDict()
     latest.version = version
@@ -101,7 +101,7 @@ def update(json_settings):
     settings.updater.status = "updating"
     settings.updater.updating.status = "downloading"
 
-    latest_url = 'https://github.com/StevenKjp/words/raw/master/build/latest.zip'
+    latest_url = djsettings.GITHUB_URL + '/raw/master/build/latest.zip'
     filename = os.path.join(djsettings.DATABASE_DIR, "latest.zip")
     if os.path.exists(filename):
         os.remove(filename)
