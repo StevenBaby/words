@@ -18,8 +18,15 @@
                 {{ rank }}
             </div>
             {% endfor %}
-        {% endif %}       
-
+        {% endif %}
+        {% if review %}
+        <div class="ui basic teal label">
+            {{ review.level }}
+        </div>
+        <div class="ui basic orange label">
+            {{ review.error }}
+        </div>
+        {% endif %}
     </div>
     <div class="right floated column">
         {% if review %}
