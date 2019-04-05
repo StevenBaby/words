@@ -27,27 +27,6 @@
 <a class="item teal {{date_active}}" href="{% url 'date'  %}">
     <i class="bar chart teal icon"></i>
     {% trans 'Date' %}
-
-    {% get_date_count as date_count %}
-    {% if not date_count %}
-        {% set 'date_count_color' "" %}
-    {% elif date_count < 50 %}
-        {% set 'date_count_color' "green" %}
-    {% elif date_count < 100 %}
-        {% set 'date_count_color' "blue" %}
-    {% elif date_count < 200 %}
-         {% set 'date_count_color' "yellow" %}
-    {% elif date_count < 500 %}
-         {% set 'date_count_color' "pink" %}
-    {% else %}
-        {% set 'date_count_color' "red" %}
-    {% endif %}
-
-    {% if date_count %}
-    <div class="ui circular {{ date_count_color }} floating mini label">
-        {{ date_count }}
-    </div>
-    {% endif %}
 </a>
 
 <a class="item teal {{level_active}}" href="{% url 'level'  %}">
