@@ -35,6 +35,8 @@ SECRET_KEY = 'd#u0!e*tve5@v4(&%83402&9z(q6t1@@3vroz42pl4b_vi-z41'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+PROFILING = True
+
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -68,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -233,3 +236,11 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", 'media')
 MEDIA_URL = '/static/media/'
+
+
+if PROFILING:
+    MIDDLEWARE.append('pyinstrument.middleware.ProfilerMiddleware')
+
+    PYINSTRUMENT_PROFILE_DIR = os.path.join(DATABASE_DIR, 'profiles')
+    if not os.path.exists(PYINSTRUMENT_PROFILE_DIR):
+        os.makedirs(PYINSTRUMENT_PROFILE_DIR)
