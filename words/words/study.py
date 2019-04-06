@@ -98,8 +98,15 @@ def get_review(user=1):
 
 
 def get_review_count(user=1):
+    if hasattr(user, 'review_count'):
+        return user.review_count
 
-    return get_review(user=user).count()
+    count = get_review(user=user).count()
+    if isinstance(user, int):
+        return count
+
+    user.review_count = count
+    return count
 
 
 def has_review(user=1):
@@ -182,8 +189,15 @@ def get_hard(user=1):
 
 
 def get_hard_count(user=1):
+    if hasattr(user, 'hard_count'):
+        return user.hard_count
 
-    return get_hard(user).count()
+    count = get_hard(user=user).count()
+    if isinstance(user, int):
+        return count
+
+    user.hard_count = count
+    return count
 
 
 def has_hard(user=1):
