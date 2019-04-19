@@ -24,9 +24,9 @@
         <tbody>
             {% for item in items %}
             <tr>
-                {% if item.count > 300 %}
+                {% if item.count > 400 %}
                     {% set 'td_color' 'negative' %}
-                {% elif item.count > 150 %}
+                {% elif item.count > 200 %}
                     {% set 'td_color' 'warning' %}
                 {% else %}
                     {% set 'td_color' 'positive' %}
