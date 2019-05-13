@@ -34,8 +34,13 @@ GITHUB_URL = 'https://github.com/StevenKangWei/words'
 SECRET_KEY = 'd#u0!e*tve5@v4(&%83402&9z(q6t1@@3vroz42pl4b_vi-z41'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-PROFILING = False
+try:
+    import uwsgi
+    DEBUG = False
+    PROFILING = False
+except ImportError:
+    DEBUG = True
+    PROFILING = True
 
 
 ALLOWED_HOSTS = [
