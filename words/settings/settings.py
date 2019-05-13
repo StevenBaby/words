@@ -35,7 +35,7 @@ SECRET_KEY = 'd#u0!e*tve5@v4(&%83402&9z(q6t1@@3vroz42pl4b_vi-z41'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-PROFILING = True
+PROFILING = False
 
 
 ALLOWED_HOSTS = [
@@ -43,6 +43,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "words.local",
     "steven-arch.local",
+    "words.ccyg.studio",
 ]
 
 
@@ -228,6 +229,7 @@ DATE = "%Y-%m-%d"
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "viewer", "static"),
