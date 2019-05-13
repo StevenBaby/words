@@ -10,6 +10,7 @@
     {% trans 'Found' %}
 </a>
 <div class="divider"></div>
-{% if user.is_staff %}
+{% comment %} {% if user.is_staff %} {% endcomment %}
+{% if user.is_authenticated %}
 {% include 'found/resources_menu.html' %}
 {% endif %}
