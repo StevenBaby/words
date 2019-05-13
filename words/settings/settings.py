@@ -235,11 +235,11 @@ DATE = "%Y-%m-%d"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "viewer", "static"),
-    os.path.join(BASE_DIR, "local"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+#     os.path.join(BASE_DIR, "viewer", "static"),
+#     os.path.join(BASE_DIR, "local"),
+# ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", 'media')
 MEDIA_URL = '/static/media/'
