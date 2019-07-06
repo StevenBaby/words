@@ -895,134 +895,134 @@ msgstr "用户配置"
 msgid "UserProfiles"
 msgstr "用户配置"
 
-#~ msgid "Collins words"
-#~ msgstr "柯林斯词汇"
+msgid "Collins words"
+msgstr "柯林斯词汇"
 
-#~ msgid "Star1"
-#~ msgstr "一星级"
+msgid "Star1"
+msgstr "一星级"
 
-#~ msgid "Star2"
-#~ msgstr "二星级"
+msgid "Star2"
+msgstr "二星级"
 
-#~ msgid "Star3"
-#~ msgstr "三星级"
+msgid "Star3"
+msgstr "三星级"
 
-#~ msgid "Star4"
-#~ msgstr "四星级"
+msgid "Star4"
+msgstr "四星级"
 
-#~ msgid "Star5"
-#~ msgstr "五星级"
+msgid "Star5"
+msgstr "五星级"
 
-#~ msgid "Examination words"
-#~ msgstr "考试词汇"
+msgid "Examination words"
+msgstr "考试词汇"
 
-#~ msgid "English translator"
-#~ msgstr "英语翻译"
+msgid "English translator"
+msgstr "英语翻译"
 
-#~ msgid "Three levels of translation 1"
-#~ msgstr "三级笔译上"
+msgid "Three levels of translation 1"
+msgstr "三级笔译上"
 
-#~ msgid "Three levels of translation 2"
-#~ msgstr "三级笔译下"
+msgid "Three levels of translation 2"
+msgstr "三级笔译下"
 
-#~ msgid "Second level translation outline"
-#~ msgstr "二级翻译口笔译大纲"
+msgid "Second level translation outline"
+msgstr "二级翻译口笔译大纲"
 
-#~ msgid "GRE"
-#~ msgstr "美国研究生入学考试"
+msgid "GRE"
+msgstr "美国研究生入学考试"
 
-#~ msgid "CET4"
-#~ msgstr "四级词汇"
+msgid "CET4"
+msgstr "四级词汇"
 
-#~ msgid "CET6"
-#~ msgstr "六级词汇"
+msgid "CET6"
+msgstr "六级词汇"
 
-#~ msgid "High School"
-#~ msgstr "高考词汇"
+msgid "High School"
+msgstr "高考词汇"
 
-#~ msgid "IELTS"
-#~ msgstr "雅思词汇"
+msgid "IELTS"
+msgstr "雅思词汇"
 
-#~ msgid "Middle school"
-#~ msgstr "初中词汇"
+msgid "Middle school"
+msgstr "初中词汇"
 
-#~ msgid "Postgraduate"
-#~ msgstr "考研词汇"
+msgid "Postgraduate"
+msgstr "考研词汇"
 
-#~ msgid "TEM4"
-#~ msgstr "专四词汇"
+msgid "TEM4"
+msgstr "专四词汇"
 
-#~ msgid "TEM8"
-#~ msgstr "专八词汇"
+msgid "TEM8"
+msgstr "专八词汇"
 
-#~ msgid "TOFEL"
-#~ msgstr "托福词汇"
+msgid "TOFEL"
+msgstr "托福词汇"
 
-#~ msgid "Profession words"
-#~ msgstr "专业词汇"
+msgid "Profession words"
+msgstr "专业词汇"
 
-#~ msgid "Human resources"
-#~ msgstr "人力资源"
+msgid "Human resources"
+msgstr "人力资源"
 
-#~ msgid "Chemistry"
-#~ msgstr "化学"
+msgid "Chemistry"
+msgstr "化学"
 
-#~ msgid "Medicine"
-#~ msgstr "医学"
+msgid "Medicine"
+msgstr "医学"
 
-#~ msgid "Architecture"
-#~ msgstr "建筑"
+msgid "Architecture"
+msgstr "建筑"
 
-#~ msgid "Computer"
-#~ msgstr "计算机"
+msgid "Computer"
+msgstr "计算机"
 
-#~ msgid "Finance"
-#~ msgstr "金融"
+msgid "Finance"
+msgstr "金融"
 
-#~ msgid "Qsbdc words"
-#~ msgstr "轻松背单词"
+msgid "Qsbdc words"
+msgstr "轻松背单词"
 
-#~ msgid "Level words"
-#~ msgstr "分级单词"
+msgid "Level words"
+msgstr "分级单词"
 
-#~ msgid "Level 01"
-#~ msgstr "第一级"
+msgid "Level 01"
+msgstr "第一级"
 
-#~ msgid "Level 02"
-#~ msgstr "第二级"
+msgid "Level 02"
+msgstr "第二级"
 
-#~ msgid "Level 03"
-#~ msgstr "第三级"
+msgid "Level 03"
+msgstr "第三级"
 
-#~ msgid "Level 04"
-#~ msgstr "第四级"
+msgid "Level 04"
+msgstr "第四级"
 
-#~ msgid "Level 05"
-#~ msgstr "第五级"
+msgid "Level 05"
+msgstr "第五级"
 
-#~ msgid "Level 06"
-#~ msgstr "第六级"
+msgid "Level 06"
+msgstr "第六级"
 
-#~ msgid "Level 07"
-#~ msgstr "第七级"
+msgid "Level 07"
+msgstr "第七级"
 
-#~ msgid "Level 08"
-#~ msgstr "第八级"
+msgid "Level 08"
+msgstr "第八级"
 
-#~ msgid "Level 09"
-#~ msgstr "第九级"
+msgid "Level 09"
+msgstr "第九级"
 
-#~ msgid "Level 10"
-#~ msgstr "第十级"
+msgid "Level 10"
+msgstr "第十级"
 
-#~ msgid "Level 11"
-#~ msgstr "第十一级"
+msgid "Level 11"
+msgstr "第十一级"
 
-#~ msgid "Level 12"
-#~ msgstr "第十二级"
+msgid "Level 12"
+msgstr "第十二级"
 
-#~ msgid "Level extra"
-#~ msgstr "扩展级"
+msgid "Level extra"
+msgstr "扩展级"
 
-#~ msgid "Level phrases"
-#~ msgstr "分级词组"
+msgid "Level phrases"
+msgstr "分级词组"
