@@ -157,7 +157,8 @@ $("input.study").keydown(function(event){
         location.reload();
         return;
     }
-    if(input_line.toUpperCase() == "T"){
+    if(input_line.toUpperCase() == "T" || input_line.toUpperCase() == 'TT'){
+        // tt avoid input double t is nonsence
         reset_input();
         $('.study.paraphrase.table').transition('slide down');
         return
