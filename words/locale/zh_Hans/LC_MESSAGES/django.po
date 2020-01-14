@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-06 07:49+0800\n"
+"POT-Creation-Date: 2020-01-14 13:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -491,6 +491,186 @@ msgstr "没有单词需要复习"
 msgid "Practice"
 msgstr "练习"
 
+#: viewer/templates/translations.html:3
+msgid "Collins words"
+msgstr "柯林斯词汇"
+
+#: viewer/templates/translations.html:5
+msgid "Star1"
+msgstr "一星级"
+
+#: viewer/templates/translations.html:7
+msgid "Star2"
+msgstr "二星级"
+
+#: viewer/templates/translations.html:9
+msgid "Star3"
+msgstr "三星级"
+
+#: viewer/templates/translations.html:11
+msgid "Star4"
+msgstr "四星级"
+
+#: viewer/templates/translations.html:13
+msgid "Star5"
+msgstr "五星级"
+
+#: viewer/templates/translations.html:15
+msgid "Examination words"
+msgstr "考试词汇"
+
+#: viewer/templates/translations.html:17
+msgid "English translator"
+msgstr "英语翻译"
+
+#: viewer/templates/translations.html:19
+msgid "Three levels of translation 1"
+msgstr "三级笔译上"
+
+#: viewer/templates/translations.html:21
+msgid "Three levels of translation 2"
+msgstr "三级笔译下"
+
+#: viewer/templates/translations.html:23
+msgid "Second level translation outline"
+msgstr "二级翻译口笔译大纲"
+
+#: viewer/templates/translations.html:25
+msgid "GRE"
+msgstr "美国研究生入学考试"
+
+#: viewer/templates/translations.html:27
+msgid "CET4"
+msgstr "四级词汇"
+
+#: viewer/templates/translations.html:29
+msgid "CET6"
+msgstr "六级词汇"
+
+#: viewer/templates/translations.html:31
+msgid "High School"
+msgstr "高考词汇"
+
+#: viewer/templates/translations.html:33
+msgid "IELTS"
+msgstr "雅思词汇"
+
+#: viewer/templates/translations.html:35
+msgid "Middle school"
+msgstr "初中词汇"
+
+#: viewer/templates/translations.html:37
+msgid "Postgraduate"
+msgstr "考研词汇"
+
+#: viewer/templates/translations.html:39
+msgid "TEM4"
+msgstr "专四词汇"
+
+#: viewer/templates/translations.html:41
+msgid "TEM8"
+msgstr "专八词汇"
+
+#: viewer/templates/translations.html:43
+msgid "TOFEL"
+msgstr "托福词汇"
+
+#: viewer/templates/translations.html:45
+msgid "Profession words"
+msgstr "专业词汇"
+
+#: viewer/templates/translations.html:47
+msgid "Human resources"
+msgstr "人力资源"
+
+#: viewer/templates/translations.html:49
+msgid "Chemistry"
+msgstr "化学"
+
+#: viewer/templates/translations.html:51
+msgid "Astronomy"
+msgstr "天文学"
+
+#: viewer/templates/translations.html:53
+msgid "Medicine"
+msgstr "医学"
+
+#: viewer/templates/translations.html:55
+msgid "Architecture"
+msgstr "建筑"
+
+#: viewer/templates/translations.html:57
+msgid "Computer"
+msgstr "计算机"
+
+#: viewer/templates/translations.html:59
+msgid "Finance"
+msgstr "金融"
+
+#: viewer/templates/translations.html:61
+msgid "Qsbdc words"
+msgstr "轻松背单词"
+
+#: viewer/templates/translations.html:63
+msgid "Level words"
+msgstr "分级单词"
+
+#: viewer/templates/translations.html:65
+msgid "Level 01"
+msgstr "第一级"
+
+#: viewer/templates/translations.html:67
+msgid "Level 02"
+msgstr "第二级"
+
+#: viewer/templates/translations.html:69
+msgid "Level 03"
+msgstr "第三级"
+
+#: viewer/templates/translations.html:71
+msgid "Level 04"
+msgstr "第四级"
+
+#: viewer/templates/translations.html:73
+msgid "Level 05"
+msgstr "第五级"
+
+#: viewer/templates/translations.html:75
+msgid "Level 06"
+msgstr "第六级"
+
+#: viewer/templates/translations.html:77
+msgid "Level 07"
+msgstr "第七级"
+
+#: viewer/templates/translations.html:79
+msgid "Level 08"
+msgstr "第八级"
+
+#: viewer/templates/translations.html:81
+msgid "Level 09"
+msgstr "第九级"
+
+#: viewer/templates/translations.html:83
+msgid "Level 10"
+msgstr "第十级"
+
+#: viewer/templates/translations.html:85
+msgid "Level 11"
+msgstr "第十一级"
+
+#: viewer/templates/translations.html:87
+msgid "Level 12"
+msgstr "第十二级"
+
+#: viewer/templates/translations.html:89
+msgid "Level extra"
+msgstr "扩展级"
+
+#: viewer/templates/translations.html:91
+msgid "Level phrases"
+msgstr "分级词组"
+
 #: viewer/templates/word_card/word_card_extra_footer.html:39
 msgid "Add to dictionary"
 msgstr "添加至词典"
@@ -894,135 +1074,3 @@ msgstr "用户配置"
 #: words/models.py:298
 msgid "UserProfiles"
 msgstr "用户配置"
-
-msgid "Collins words"
-msgstr "柯林斯词汇"
-
-msgid "Star1"
-msgstr "一星级"
-
-msgid "Star2"
-msgstr "二星级"
-
-msgid "Star3"
-msgstr "三星级"
-
-msgid "Star4"
-msgstr "四星级"
-
-msgid "Star5"
-msgstr "五星级"
-
-msgid "Examination words"
-msgstr "考试词汇"
-
-msgid "English translator"
-msgstr "英语翻译"
-
-msgid "Three levels of translation 1"
-msgstr "三级笔译上"
-
-msgid "Three levels of translation 2"
-msgstr "三级笔译下"
-
-msgid "Second level translation outline"
-msgstr "二级翻译口笔译大纲"
-
-msgid "GRE"
-msgstr "美国研究生入学考试"
-
-msgid "CET4"
-msgstr "四级词汇"
-
-msgid "CET6"
-msgstr "六级词汇"
-
-msgid "High School"
-msgstr "高考词汇"
-
-msgid "IELTS"
-msgstr "雅思词汇"
-
-msgid "Middle school"
-msgstr "初中词汇"
-
-msgid "Postgraduate"
-msgstr "考研词汇"
-
-msgid "TEM4"
-msgstr "专四词汇"
-
-msgid "TEM8"
-msgstr "专八词汇"
-
-msgid "TOFEL"
-msgstr "托福词汇"
-
-msgid "Profession words"
-msgstr "专业词汇"
-
-msgid "Human resources"
-msgstr "人力资源"
-
-msgid "Chemistry"
-msgstr "化学"
-
-msgid "Medicine"
-msgstr "医学"
-
-msgid "Architecture"
-msgstr "建筑"
-
-msgid "Computer"
-msgstr "计算机"
-
-msgid "Finance"
-msgstr "金融"
-
-msgid "Qsbdc words"
-msgstr "轻松背单词"
-
-msgid "Level words"
-msgstr "分级单词"
-
-msgid "Level 01"
-msgstr "第一级"
-
-msgid "Level 02"
-msgstr "第二级"
-
-msgid "Level 03"
-msgstr "第三级"
-
-msgid "Level 04"
-msgstr "第四级"
-
-msgid "Level 05"
-msgstr "第五级"
-
-msgid "Level 06"
-msgstr "第六级"
-
-msgid "Level 07"
-msgstr "第七级"
-
-msgid "Level 08"
-msgstr "第八级"
-
-msgid "Level 09"
-msgstr "第九级"
-
-msgid "Level 10"
-msgstr "第十级"
-
-msgid "Level 11"
-msgstr "第十一级"
-
-msgid "Level 12"
-msgstr "第十二级"
-
-msgid "Level extra"
-msgstr "扩展级"
-
-msgid "Level phrases"
-msgstr "分级词组"
