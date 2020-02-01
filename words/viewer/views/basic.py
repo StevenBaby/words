@@ -55,7 +55,7 @@ class WordlistView(FormView, ListView):
         reviews = models.Review.objects.filter(user=self.request.user)
         if self.review == 2:
             queryset = queryset.exclude(id__in=reviews.values("word"))
-            return queryset.order_by("id")
+            return queryset.order_by("-id")
         if self.review == 1:
             queryset = queryset.filter(id__in=reviews.values("word"))
 
