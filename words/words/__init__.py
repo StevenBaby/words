@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2020-02-26 [1.1.1] fix bug for resources
 - 2019-07-06 [1.1.0] add youdao and baidu url in word card
 - 2019-04-04 [1.0.0] update for performance
 - 2019-03-08 [0.21.2] fix bug for updater
@@ -98,7 +99,7 @@ __version__ = ".".join(
         [
         1,
         1,
-        0,
+        1,
     ]
     ])
 
