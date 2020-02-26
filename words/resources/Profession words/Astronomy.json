@@ -1,4 +1,5 @@
 [
+    "constellation",
     "Sirius",
     "Canopus",
     "Alpha Centauri",
@@ -20,5 +21,14 @@
     "Deneb",
     "Mimosa",
     "Regulus",
-    "constellation"
+
+    "Dubhe",
+    "Merak",
+    "Phecda",
+    "Megrez",
+    "Alioth",
+    "Mizar",
+    "Alkaid",
+
+    ""
 ]

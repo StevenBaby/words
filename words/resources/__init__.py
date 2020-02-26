@@ -12,6 +12,9 @@ def get_item(filename):
         return None
     if not isinstance(data, list):
         return None
+
+    data = [var.strip() for var in data if var.strip()]
+
     name = os.path.splitext(os.path.basename(filename))[0]
     item = dandan.value.AttrDict()
     item.type = 'list'
