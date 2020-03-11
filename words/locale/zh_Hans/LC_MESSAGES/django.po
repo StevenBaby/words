@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 13:58+0800\n"
+"POT-Creation-Date: 2020-03-11 21:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -592,82 +592,86 @@ msgid "Astronomy"
 msgstr "天文学"
 
 #: viewer/templates/translations.html:53
+msgid "Greek Alphabet"
+msgstr "希腊字母"
+
+#: viewer/templates/translations.html:55
 msgid "Medicine"
 msgstr "医学"
 
-#: viewer/templates/translations.html:55
+#: viewer/templates/translations.html:57
 msgid "Architecture"
 msgstr "建筑"
 
-#: viewer/templates/translations.html:57
+#: viewer/templates/translations.html:59
 msgid "Computer"
 msgstr "计算机"
 
-#: viewer/templates/translations.html:59
+#: viewer/templates/translations.html:61
 msgid "Finance"
 msgstr "金融"
 
-#: viewer/templates/translations.html:61
+#: viewer/templates/translations.html:63
 msgid "Qsbdc words"
 msgstr "轻松背单词"
 
-#: viewer/templates/translations.html:63
+#: viewer/templates/translations.html:65
 msgid "Level words"
 msgstr "分级单词"
 
-#: viewer/templates/translations.html:65
+#: viewer/templates/translations.html:67
 msgid "Level 01"
 msgstr "第一级"
 
-#: viewer/templates/translations.html:67
+#: viewer/templates/translations.html:69
 msgid "Level 02"
 msgstr "第二级"
 
-#: viewer/templates/translations.html:69
+#: viewer/templates/translations.html:71
 msgid "Level 03"
 msgstr "第三级"
 
-#: viewer/templates/translations.html:71
+#: viewer/templates/translations.html:73
 msgid "Level 04"
 msgstr "第四级"
 
-#: viewer/templates/translations.html:73
+#: viewer/templates/translations.html:75
 msgid "Level 05"
 msgstr "第五级"
 
-#: viewer/templates/translations.html:75
+#: viewer/templates/translations.html:77
 msgid "Level 06"
 msgstr "第六级"
 
-#: viewer/templates/translations.html:77
+#: viewer/templates/translations.html:79
 msgid "Level 07"
 msgstr "第七级"
 
-#: viewer/templates/translations.html:79
+#: viewer/templates/translations.html:81
 msgid "Level 08"
 msgstr "第八级"
 
-#: viewer/templates/translations.html:81
+#: viewer/templates/translations.html:83
 msgid "Level 09"
 msgstr "第九级"
 
-#: viewer/templates/translations.html:83
+#: viewer/templates/translations.html:85
 msgid "Level 10"
 msgstr "第十级"
 
-#: viewer/templates/translations.html:85
+#: viewer/templates/translations.html:87
 msgid "Level 11"
 msgstr "第十一级"
 
-#: viewer/templates/translations.html:87
+#: viewer/templates/translations.html:89
 msgid "Level 12"
 msgstr "第十二级"
 
-#: viewer/templates/translations.html:89
+#: viewer/templates/translations.html:91
 msgid "Level extra"
 msgstr "扩展级"
 
-#: viewer/templates/translations.html:91
+#: viewer/templates/translations.html:93
 msgid "Level phrases"
 msgstr "分级词组"
 
