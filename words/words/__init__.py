@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2020-05-07 [1.1.3] fix bug for django version
 - 2020-05-07 [1.1.2] add resources
 - 2020-02-26 [1.1.1] fix bug for resources
 - 2019-07-06 [1.1.0] add youdao and baidu url in word card
@@ -100,7 +101,7 @@ __version__ = ".".join(
         [
         1,
         1,
-        2,
+        3,
     ]
     ])
 
