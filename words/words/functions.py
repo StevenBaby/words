@@ -36,7 +36,10 @@ def show_console_log(show=True):
 
 
 def get_extra_sql(title):
+    import sqlite3
+
     title = title.replace(' ', '')
+    title = title.replace("'", "''")
     SQL = f"LOWER(REPLACE(title,' ','')) = '{title}'"
     return SQL
 
