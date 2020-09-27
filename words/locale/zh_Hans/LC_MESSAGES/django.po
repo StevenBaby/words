@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 20:50+0800\n"
+"POT-Creation-Date: 2020-09-27 11:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -678,6 +678,14 @@ msgstr "扩展级"
 #: viewer/templates/translations.html:95
 msgid "Level phrases"
 msgstr "分级词组"
+
+#: viewer/templates/translations.html:97
+msgid "Other words"
+msgstr "其他单词"
+
+#: viewer/templates/translations.html:99
+msgid "XieMengYuan Grammar"
+msgstr "谢孟媛文法"
 
 #: viewer/templates/word_card/word_card_extra_footer.html:39
 msgid "Add to dictionary"
