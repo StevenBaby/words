@@ -171,7 +171,10 @@ def review_error(word=None, user=1):
     review.hard += 1
     review.error += 1
     review.review = 0
-    review.level = review.level // 2
+    if ' ' in word.title and review.level >= 1:
+        review.level -= 1
+    else:
+        review.level = review.level // 2
     review.update_time = timezone.now()
 
     update_hard(review)
