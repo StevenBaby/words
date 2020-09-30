@@ -41,7 +41,7 @@ urlpatterns = [
 
     # url(r'^search/(?P<query>.+)/$', views.basic.SearchView.as_view(), name="search"),
     url(r'^search(?:/(?P<query>.+|))?/$', views.basic.SearchView.as_view(), name="search"),
-    url(r'^phonetic/(?P<type>UK|US)/(?P<title>[-\w \',]+)/$', login_required(views.basic.PhoneticView.as_view()), name="phonetic"),
+    url(r'^phonetic/(?P<type>UK|US)/(?P<title>[-\w \',\?]+)/$', login_required(views.basic.PhoneticView.as_view()), name="phonetic"),
 
     url(r'^study/$', RedirectView.as_view(url=reverse_lazy("review", kwargs={'action': 'start'})), name="study"),
     url(r'^review/(?P<action>start|next|check)/$', login_required(views.study.ReviewView.as_view()), name="review"),
@@ -50,13 +50,13 @@ urlpatterns = [
 
     url(r'^edit(?:/(?P<action>para|title|equals|similars|related|refresh|reset))?/(?P<id>[0-9]+)/$', staff_member_required(views.edit.EditView.as_view(), login_url="login"), name="edit"),
     url(r'^edit/save/(?P<id>[0-9]+)/$', staff_member_required(views.edit.EditView.as_view(), login_url="login"), name="save"),
-    url(r'^add/(?P<action>review|word)/(?P<title>[-\w \',]+)/$', login_required(views.edit.AddView.as_view()), name="add"),
+    url(r'^add/(?P<action>review|word)/(?P<title>[-\w \',\?]+)/$', login_required(views.edit.AddView.as_view()), name="add"),
     url(r'^add/paraphrase/(?P<word_id>[0-9]+)/$', staff_member_required(views.edit.AddParaphraseView.as_view()), name="add_paraphrase"),
     url(r'^remove/(?P<action>review|word|para)/(?P<id>[0-9]+)/$', login_required(views.edit.RemoveView.as_view()), name="remove"),
 
-    url(r'^found(?:/(?P<title>[-\w \',]+|))?/$', login_required(views.found.FoundView.as_view()), name="found"),
+    url(r'^found(?:/(?P<title>[-\w \',\?]+|))?/$', login_required(views.found.FoundView.as_view()), name="found"),
     url(r'^resources(?:/(?P<query>[0-9/]+|))?/$', login_required(views.found.ResourcesView.as_view()), name="resources"),
-    url(r'^wordcard/(?P<title>[-\w \',]+)/$', login_required(views.found.WordCardView.as_view()), name="wordinfo"),
+    url(r'^wordcard/(?P<title>[-\w \',\?]+)/$', login_required(views.found.WordCardView.as_view()), name="wordinfo"),
 
     url(r'^statistics/$', RedirectView.as_view(url=reverse_lazy("coming")), name="statistics"),
     url(r'^statistics/coming/$', login_required(views.statistics.ComingView.as_view()), name="coming"),
