@@ -91,6 +91,29 @@ def get_paras(soup):
     return result
 
 
+def get_webphrases(soup):
+    keyword = soup.select_one('.keyword')
+    if not keyword:
+        return []
+    keyword = keyword.get_text().strip()
+
+    content = soup.select_one("#webPhrase")
+    if not content:
+        return []
+    for group in content.select(".wordGroup"):
+        title = group.select_one(".contentTitle")
+        if not title:
+            continue
+        title = title.get_text().strip()
+        if title != keyword:
+            continue
+
+        para = dandan.value.AttrDict()
+        para.type = 'none'
+        para.content = group.get_text().replace(title, '').strip()
+        return [para, ]
+
+
 def get_webparas(soup):
     content = soup.select_one("#webTrans")
     if not content:
@@ -223,7 +246,7 @@ def get_word(title):
     word = dandan.value.AttrDict()
     word.title = title
     word.type = "EN"
-    word.paras = get_paras(soup) or get_webparas(soup) or get_ydparas(soup)
+    word.paras = get_paras(soup) or get_webphrases(soup) or get_webparas(soup) or get_ydparas(soup)
 
     word.phonetics = get_phonetics(soup)
     word.ranks = get_ranks(soup)
@@ -288,7 +311,7 @@ def main():
     # print(word)
     # word = get_word('I like to eat pizza')
     # print(word)
-    word = get_word("A girl standing at the door")
+    word = get_word("The car won't start")
     print(word)
 
 
