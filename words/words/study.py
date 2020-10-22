@@ -2,6 +2,7 @@
 from __future__ import print_function, unicode_literals, division
 import logging
 import datetime
+import re
 
 from django.utils import timezone
 from django.db import transaction
@@ -26,6 +27,8 @@ def check(word, titles, save=True):
     data.list = []
     data.title = word.title
     data.paras = word.paraphrases()
+
+    ignores = r"[ \.,\?\-']"
 
     equal = False
     right = False
@@ -53,7 +56,8 @@ def check(word, titles, save=True):
             item.right = True
             item.paras = functions.get_word(title).paraphrases()
 
-        elif title.lower().replace(" ", "") == word.title.lower().replace(" ", ""):
+        elif re.sub(ignores, '', title.lower()) == re.sub(ignores, '', word.title.lower()):
+            # elif title.lower().replace(" ", "") == word.title.lower().replace(" ", ""):
             right = True
             item.right = True
             item.paras = data.paras
