@@ -154,7 +154,10 @@ def review_right(word=None, user=1):
         return
 
     logger.debug("review right %s", word)
-    review.level += 1
+    if len(word.title.split(' ')) > 3:
+        review.level += 2
+    else:
+        review.level += 1
     review.review = 0
     review.right += 1
     review.update_time = timezone.now()
