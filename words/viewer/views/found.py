@@ -81,16 +81,21 @@ class ResourcesView(ListView):
             self.resource_type = item.type
             self.resource_list = item.list
 
+        self.resource_dict = {title: index for index, title in enumerate(self.resource_list)}
+
         if self.get_status("dictionary") != 0 and self.resource_type == "list":
             words_list = models.Word.objects.values_list('title')
             words_set = set([var[0] for var in words_list])
             self.un_dictionary_list = list(set(self.resource_list) - words_set)
+            self.un_dictionary_list = sorted(self.un_dictionary_list, key=lambda e: self.resource_dict[e])
+
             # logger.debug("un dictionary list length %s"a, len(self.un_dictionary_list))
 
         if self.get_status("review") != 0 and self.resource_type == "list":
             words_list = functions.get_all_review(user=self.request.user).values_list('word__title')
             words_set = set([var[0] for var in words_list])
             self.un_review_list = list(set(self.resource_list) - words_set)
+            self.un_review_list = sorted(self.un_review_list, key=lambda e: self.resource_dict[e])
             # logger.debug("un dictionary list length %s"a, len(self.un_dictionary_list))
 
     def get_status(self, key):
