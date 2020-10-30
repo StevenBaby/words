@@ -81,7 +81,8 @@ class ResourcesView(ListView):
             self.resource_type = item.type
             self.resource_list = item.list
 
-        self.resource_dict = {title: index for index, title in enumerate(self.resource_list)}
+        if self.resource_list and isinstance(self.resource_list[0], str):
+            self.resource_dict = {title: index for index, title in enumerate(self.resource_list)}
 
         if self.get_status("dictionary") != 0 and self.resource_type == "list":
             words_list = models.Word.objects.values_list('title')
