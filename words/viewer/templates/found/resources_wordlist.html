@@ -38,9 +38,11 @@
         <td class="seven wide {{td_color}}">
             <div class="ui tiny header">
                 {% if word %}
-                    {% for type, para in word.paraphrases %}
-                        {{ type }}. {{ para}}
-                    {% endfor %}
+                    <p class="ui tag resource paraphrase" style="display: none;">
+                        {% for type, para in word.paraphrases %}
+                            {{ type }}. {{ para}}
+                        {% endfor %}
+                    </p>
                 {% else %}
                 	<a class="ui yellow label tag resource information" action="{% url 'wordinfo' item %}" value="item">
                 		{% trans 'Show word card' %}

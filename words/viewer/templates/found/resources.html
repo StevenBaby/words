@@ -20,26 +20,30 @@
             </div>
         </div>
         {% if items.0.type != "menu" and items.0.type != "list" %}
-        <div class="ui right floated right aligned six wide column dictionary">
+        <div class="ui right floated right aligned six wide column">
+            <div class="ui checkbox toggle paraphrase">
+                <input type="checkbox">
+                <label>{% trans 'Paraphrase' %}</label>
+            </div>
             {% if review == 0 %}
-                <div class="ui checkbox toggle checked">
+                <div class="ui checkbox toggle checked review action">
                     <input type="checkbox" checked="" action="{{ request.path }}?review=1">
                     <label>{% trans 'Review' %}</label>
                 </div>
             {% else %}
-                <div class="ui checkbox toggle">
+                <div class="ui checkbox toggle review action">
                     <input type="checkbox" action="{{ request.path }}?review=0">
                     <label>{% trans 'Review' %}</label>
                 </div>
             {% endif %}
 
             {% if dictionary == 0 %}
-                <div class="ui checkbox toggle checked">
+                <div class="ui checkbox toggle checked dictionary action">
                     <input type="checkbox" checked="" action="{{ request.path }}?dictionary=1">
                     <label>{% trans 'Dictionary' %}</label>
                 </div>
             {% else %}
-                <div class="ui checkbox toggle">
+                <div class="ui checkbox toggle dictionary action">
                     <input type="checkbox" action="{{ request.path }}?dictionary=0">
                     <label>{% trans 'Dictionary' %}</label>
                 </div>
