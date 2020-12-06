@@ -139,6 +139,10 @@ function check(input) {
 $("input.study").keydown(function (event) {
     if (checking)
         return;
+    if (event.keyCode == 120){ // F9 to play audio
+        next_play();
+        return;
+    }
     if (event.keyCode != 13)
         return;
     form = $('.ui.study.form');
