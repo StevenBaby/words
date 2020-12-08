@@ -81,8 +81,42 @@ function get_para(paras) {
     return para;
 }
 
+
+function get_diff(line) {
+    var ignores = /[ \.,\?\-']/g;
+    let i = 0;
+    let j = 0;
+    for (i = 0; i < line.length;) {
+        if (j >= title.length)
+            break;
+        let l = line[i];
+        let t = title[j];
+
+        if (l.match(ignores)) {
+            i++;
+            continue;
+        }
+        if (t.match(ignores)) {
+            j++;
+            continue;
+        }
+        if (l.toLowerCase() != t.toLowerCase()) {
+            break;
+        }
+        i++;
+        j++;
+    }
+    var before = line.slice(0, i);
+    var after = line.slice(i);
+    var result = before.strip() + ' | ' + after.strip();
+    console.log(result);
+    return result;
+}
+
 function get_check_line(item) {
-    return "{0} {1}".format(item.title, get_para(item.paras))
+    if (item.error == undefined || !item.error)
+        return "{0} {1}".format(item.title, get_para(item.paras))
+    return get_diff(item.title);
 }
 
 function append_check_item(item, style) {
@@ -105,6 +139,7 @@ function show_check_list(data) {
     }
     reviewed = true;
     if (!data.equal) {
+        data.error = false;
         append_check_item(data, "");
     }
     for (var index = 0; index < data.list.length; index++) {
@@ -131,7 +166,7 @@ function check(input) {
     if (t == i)
         return true;
     var ignores = /[ \.,\?\-']/g;
-    if(t.replace(ignores, '') == i.replace(ignores, ''))
+    if (t.replace(ignores, '') == i.replace(ignores, ''))
         return true;
     return false;
 }
@@ -139,7 +174,7 @@ function check(input) {
 $("input.study").keydown(function (event) {
     if (checking)
         return;
-    if (event.keyCode == 120){ // F9 to play audio
+    if (event.keyCode == 120) { // F9 to play audio
         next_play();
         return;
     }
@@ -152,7 +187,8 @@ $("input.study").keydown(function (event) {
     if (practice && !check(input_line)) {
         if (input_line != "") {
             item = {
-                title: input_line
+                title: input_line,
+                error: true,
             }
             append_check_item(item, "pink");
         }
