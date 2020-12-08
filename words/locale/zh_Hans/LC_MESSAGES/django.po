@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-27 11:44+0800\n"
+"POT-Creation-Date: 2020-12-08 19:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,26 +191,32 @@ msgstr "对不起，没有找到任何单词"
 msgid "Resources"
 msgstr "资源"
 
-#: viewer/templates/found/resources.html:27
-#: viewer/templates/found/resources.html:32
+#: viewer/templates/found/resources.html:26
+#: viewer/templates/word_card/word_card_study_buttons.html:15
+#: words/models.py:102 words/models.py:263
+msgid "Paraphrase"
+msgstr "释义"
+
+#: viewer/templates/found/resources.html:31
+#: viewer/templates/found/resources.html:36
 #: viewer/templates/study/study_review_menu.html:22 words/models.py:248
 msgid "Review"
 msgstr "复习"
 
-#: viewer/templates/found/resources.html:39
-#: viewer/templates/found/resources.html:44
+#: viewer/templates/found/resources.html:43
+#: viewer/templates/found/resources.html:48
 msgid "Dictionary"
 msgstr "字典"
 
-#: viewer/templates/found/resources_wordlist.html:46
+#: viewer/templates/found/resources_wordlist.html:48
 msgid "Show word card"
 msgstr "显示单词卡片"
 
-#: viewer/templates/found/resources_wordlist.html:54
+#: viewer/templates/found/resources_wordlist.html:56
 msgid "Not in dictionary"
 msgstr "未加入词典"
 
-#: viewer/templates/found/resources_wordlist.html:64
+#: viewer/templates/found/resources_wordlist.html:66
 #: viewer/templates/word_card/word_card_extra_footer.html:35
 msgid "Add to review"
 msgstr "添加至复习"
@@ -687,6 +693,14 @@ msgstr "其他单词"
 msgid "XieMengYuan Grammar"
 msgstr "谢孟媛文法"
 
+#: viewer/templates/translations.html:101
+msgid "Graduate Core"
+msgstr "考研核心词汇"
+
+#: viewer/templates/translations.html:103
+msgid "English Test"
+msgstr "英语考试"
+
 #: viewer/templates/word_card/word_card_extra_footer.html:39
 msgid "Add to dictionary"
 msgstr "添加至词典"
@@ -762,11 +776,6 @@ msgstr "刷新时间"
 #: words/models.py:195
 msgid "Hard Time"
 msgstr "困难时间"
-
-#: viewer/templates/word_card/word_card_study_buttons.html:15
-#: words/models.py:102 words/models.py:263
-msgid "Paraphrase"
-msgstr "释义"
 
 #: viewer/templates/word_card/word_card_study_buttons.html:20
 msgid "Information"
