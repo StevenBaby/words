@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2021-03-03 [1.2.0] adjust review strategy
 - 2020-05-07 [1.1.3] fix bug for django version
 - 2020-05-07 [1.1.2] add resources
 - 2020-02-26 [1.1.1] fix bug for resources
@@ -100,8 +101,8 @@ __version__ = ".".join(
     [str(var) for var in
         [
         1,
-        1,
-        3,
+        2,
+        0,
     ]
     ])
 
