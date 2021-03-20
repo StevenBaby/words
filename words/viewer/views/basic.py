@@ -5,7 +5,7 @@ import logging
 
 # from django.utils import timezone
 from django.urls import reverse_lazy
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.templatetags.static import static
 # from django.utils.translation import ugettext_lazy as _
 
 from django.db.models import Q

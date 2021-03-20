@@ -24,7 +24,7 @@ class FoundView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(FoundView, self).get_context_data(**kwargs)
-        title = self.kwargs["title"]
+        title = self.kwargs.get('title', '')
         if not title:
             word = functions.get_random(models.Word.objects.all())
         else:
