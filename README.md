@@ -2,6 +2,8 @@
 
 ## A django application for dictation and review English words for Chinese
 
+![](./doc/snapshot.jpg)
+
 ## 安装方法
 
 <https://github.com/StevenKangWei/words/blob/master/doc/usage/installation.md>
