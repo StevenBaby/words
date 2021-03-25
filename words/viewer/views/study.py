@@ -68,7 +68,7 @@ class StudyView(FormView):
     #     return context
 
     def form_valid(self, form):
-        if self.kwargs["action"] != "check":
+        if self.kwargs.get("action", None) != "check":
             return JsonResponse({'success': False, "error": 4, "description": _("Wrong approach"), })
 
         id = form.cleaned_data.get("id", 0)
@@ -97,7 +97,7 @@ class StudyView(FormView):
         return None
 
     def render_to_response(self, context, **response_kwargs):
-        action = self.kwargs['action']
+        action = self.kwargs.get('action', None)
         if action == "start" and not self.has_next():
             action = "next"
         elif action == "next" and self.study_type != StudyView.STUDY_TYPE_PRACTICE:

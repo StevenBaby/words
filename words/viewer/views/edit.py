@@ -42,7 +42,7 @@ class RemoveView(FormView):
     def remove_word(self):
         if not self.request.user.is_staff:
             return HttpResponseForbidden()
-        id = int(self.kwargs["id"])
+        id = int(self.kwargs.get("id", None))
         word = models.Word.objects.filter(id=id).filter()
         if not word:
             return JsonResponse({
@@ -58,7 +58,7 @@ class RemoveView(FormView):
         })
 
     def remove_review(self):
-        id = int(self.kwargs["id"])
+        id = int(self.kwargs.get("id", None))
         review = functions.get_all_review(user=self.request.user).filter(id=id).first()
         if not review:
             return JsonResponse({
@@ -76,7 +76,7 @@ class RemoveView(FormView):
     def remove_para(self):
         if not self.request.user.is_staff:
             return HttpResponseForbidden()
-        id = int(self.kwargs["id"])
+        id = int(self.kwargs.get("id", None))
         para = models.Paraphrase.objects.filter(id=id).first()
         if not para:
             return JsonResponse({
@@ -92,7 +92,7 @@ class RemoveView(FormView):
         })
 
     def form_valid(self, form):
-        action = self.kwargs["action"]
+        action = self.kwargs.get("action", None)
         if action == "word":
             return self.remove_word()
         if action == "review":
@@ -107,7 +107,7 @@ class AddView(FormView):
     form_class = forms.EmptyForm
 
     def save_word(self):
-        title = self.kwargs["title"]
+        title = self.kwargs.get("title", None)
         if settings.IGNORED_PATTERN.match(title):
             return JsonResponse({
                 "success": False,
@@ -163,7 +163,7 @@ class AddView(FormView):
         return JsonResponse(data)
 
     def form_valid(self, form):
-        action = self.kwargs["action"]
+        action = self.kwargs.get("action", None)
         if action == "word":
             return self.add_word()
         if action == "review":
@@ -176,7 +176,7 @@ class AddParaphraseView(FormView):
     form_class = forms.EditForm
 
     def form_valid(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["word_id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("word_id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -217,7 +217,7 @@ class EditView(FormView):
     def get_context_data(self, **kwargs):
         context = super(EditView, self).get_context_data(**kwargs)
         if not self.get_action():
-            id = int(self.kwargs["id"])
+            id = int(self.kwargs.get("id", None))
             word = models.Word.objects.filter(id=id).first()
             context["word"] = word
             context["para_types"] = sorted(list(youdao.PARA_TYPES))
@@ -225,10 +225,10 @@ class EditView(FormView):
         return context
 
     def get_action(self):
-        return self.kwargs["action"]
+        return self.kwargs.get('action', None)
 
     def edit_title(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -269,7 +269,7 @@ class EditView(FormView):
         })
 
     def edit_para(self, form):
-        id = int(self.kwargs["id"])
+        id = int(self.kwargs.get("id", None))
         logger.debug("get paraphrase id %s", id)
         para = models.Paraphrase.objects.filter(id=id).first()
         if not para:
@@ -309,7 +309,7 @@ class EditView(FormView):
         })
 
     def edit_refresh(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -327,7 +327,7 @@ class EditView(FormView):
         })
 
     def edit_equals(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -351,7 +351,7 @@ class EditView(FormView):
         })
 
     def edit_similars(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -375,7 +375,7 @@ class EditView(FormView):
         })
 
     def edit_related(self, form):
-        word = models.Word.objects.filter(id=self.kwargs["id"]).first()
+        word = models.Word.objects.filter(id=self.kwargs.get("id", None)).first()
         if not word:
             return JsonResponse({
                 "success": False,
@@ -398,7 +398,7 @@ class EditView(FormView):
         })
 
     def edit_reset(self, form):
-        review = functions.get_all_review(self.request.user).filter(id=self.kwargs["id"]).first()
+        review = functions.get_all_review(self.request.user).filter(id=self.kwargs.get("id", None)).first()
         if not review:
             return JsonResponse({
                 "success": False,
@@ -443,7 +443,7 @@ class SaveEditView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EditView, self).get_context_data(**kwargs)
-        id = int(self.kwargs["id"])
+        id = int(self.kwargs.get("id", None))
         word = models.Word.objects.filter(id=id).first()
         context["word"] = word
         context["detail"] = True
