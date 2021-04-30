@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2021-04-30 [1.2.1] update settings
 - 2021-03-03 [1.2.0] adjust review strategy
 - 2020-05-07 [1.1.3] fix bug for django version
 - 2020-05-07 [1.1.2] add resources
