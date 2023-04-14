@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+/words/local/settings.json
+/words/local/phonetic
+/words/local/log
+/words/local/backup
+
