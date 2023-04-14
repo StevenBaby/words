@@ -60,6 +60,17 @@
             </div>
         </div>
     </div>
-    
+    <div class="fields">
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {% if user.profile.settings_auto_show_paraphrase %}
+                    <input name="settings_auto_show_paraphrase" checked="" type="checkbox">
+                {% else %}
+                    <input name="settings_auto_show_paraphrase" type="checkbox">
+                {% endif %}
+                <label>{% trans 'Auto Show Paraphrase' %}</label>
+            </div>
+        </div>
+    </div>
     <div class="ui green button settings profile save">{% trans 'Save' %}</div>
 </form>

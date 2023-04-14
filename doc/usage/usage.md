@@ -11,30 +11,30 @@
 
 点击右上角 Settings > Language > 简体中文，即可显示为中文 （非必选）
 
-![(001.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/001.jpg?raw=True)
-![(002.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/002.jpg?raw=True)
+![(001.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/001.jpg?raw=True)
+![(002.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/002.jpg?raw=True)
 
 ## 注册账号
 
 如果第一次使用的话，刚开始会出现创建超级用户页面，输入用户名，密码之后，点击 **注册**，就可以了。
 
-![(003.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/003.jpg?raw=True)
+![(003.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/003.jpg?raw=True)
 
 ## 查找单词
 
 点击页头 **发现**，进入发现页面
 
-![(004.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/005.jpg?raw=True)
+![(004.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/005.jpg?raw=True)
 
 如果词典中没有任何单词，则会显示如下页面
 
-![(005.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/006.jpg?raw=True)
+![(005.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/006.jpg?raw=True)
 
 在输入框中输入想要学习的单词，例如 **hello**，**然后点击 Enter 键**，就会有这个单词的信息
 
 >注：由于历史原因，exit 无法添加至词典，而且每个单词的长度都要大于1，也就是说二十六个字母是无法添加到词典的。
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/007.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/007.jpg?raw=True)
 
 - 左上角的三颗星星，表示柯林斯三星，以此类推，有几个就是几星
 - CET4 表示四级词汇
@@ -60,14 +60,14 @@
 
 有单词加入复习之后，页头菜单和侧边栏就会出现有单词需要复习的图标，上面是需要复习单词的数量。
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/009.jpg?raw=True)
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/008.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/009.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/008.jpg?raw=True)
 
 ## 复习单词
 
 点击侧边栏 **复习**，或者页头 **学习** 进入复习页面，就会出现如下页面
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/010.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/010.jpg?raw=True)
 
 点击开始学习就可以进行复习
 
@@ -83,7 +83,7 @@
 
 听写模式会显示如下页面，然后自动随机的发音
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/011.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/011.jpg?raw=True)
 
 ### 释义模式
 
@@ -91,13 +91,13 @@
 
 因为学习模式和拼写有关，**强烈建议将释义中的所有和单词拼写有关的提示信息删除**，比如 Hello 这个单词的 **(Hello)人名**
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/012.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/012.jpg?raw=True)
 
 听到发音或者看到释义之后，在输入框中输入该单词，然后点击 **Enter** 验证
 
 如果验证错误：
 
-![(())](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/013.jpg?raw=True)
+![(())](https://github.com/StevenBaby/words/blob/master/doc/images/usage/013.jpg?raw=True)
 
 - 卡片上会显示正确的拼写和释义，颜色为白色
 - 卡片上会显示错误的拼写和释义，颜色为红色
@@ -106,7 +106,7 @@
 
 如果验证正确：
 
-![()](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/014.jpg?raw=True)
+![()](https://github.com/StevenBaby/words/blob/master/doc/images/usage/014.jpg?raw=True)
 
 - 卡片上会显示准确的拼写和释义，颜色为绿色
 - 卡片上会显示不够准确的拼写和释义，颜色为蓝色，比如大小写错误和写入了相等的单词
@@ -166,39 +166,39 @@
 
 表示每天需要复习的单词数量
 
-![(statistics-001.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-001.jpg?raw=True)
+![(statistics-001.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-001.jpg?raw=True)
 
 ### 计数
 
 表示每天新添加单词的数量，数量为0的天不出现在统计中，左上角 **字典数量** 表示字典中加入的单词数量，**复习数量** 表示已加入复习的单词数量
 
-![(statistics-002.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-002.jpg?raw=True)
+![(statistics-002.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-002.jpg?raw=True)
 
 ### 日期
 
 默认表示今天每个小时需要复习单词的数量，也可以有来临点击进入，查看特定日期每个小时需要复习单词的数量
 
-![(statistics-003.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-003.jpg?raw=True)
+![(statistics-003.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-003.jpg?raw=True)
 
 ### 级别
 
 表示每个级别单词的数量，由高到低排列。
 
-![(statistics-004.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-004.jpg?raw=True)
+![(statistics-004.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-004.jpg?raw=True)
 
 点击进去可以查看具体的单词列表。
 
-![(statistics-005.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-005.jpg?raw=True)
+![(statistics-005.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-005.jpg?raw=True)
 
 ### 错误
 
 表示错误次数对应的单词数量，由高到低排列。
 
-![(statistics-006.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-006.jpg?raw=True)
+![(statistics-006.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-006.jpg?raw=True)
 
 点击进去可以查看具体的单词列表。
 
-![(statistics-007.jpg)](https://github.com/StevenKangWei/words/blob/master/doc/images/usage/statistics-007.jpg?raw=True)
+![(statistics-007.jpg)](https://github.com/StevenBaby/words/blob/master/doc/images/usage/statistics-007.jpg?raw=True)
 
 ## 来日方长
 

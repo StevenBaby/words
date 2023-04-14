@@ -29,6 +29,7 @@
             {% set 'td_color' 'negative' %}
         {% endif %}
         <td class="three wide {{td_color}}">
+            <input class="id" type="hidden" value="{{ word.id }}">
             <a class="ui fluid" href="{% url 'found' item %}" target="_blank">
                 <div class="ui blue header">
                     {{ item }}
@@ -38,7 +39,11 @@
         <td class="seven wide {{td_color}}">
             <div class="ui tiny header">
                 {% if word %}
+                    {% if user.profile.settings_auto_show_paraphrase %}
+                    <p class="ui tag resource paraphrase" >
+                    {% else %}
                     <p class="ui tag resource paraphrase" style="display: none;">
+                    {% endif %}
                         {% for type, para in word.paraphrases %}
                             {{ type }}. {{ para}}
                         {% endfor %}

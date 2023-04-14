@@ -1,5 +1,6 @@
 # coding=utf-8
 from __future__ import print_function, unicode_literals
+import json
 
 import logging
 import dandan
@@ -20,7 +21,7 @@ from words import models
 from viewer import forms
 
 
-# logger = logging.getLogger("words")
+logger = logging.getLogger("words")
 
 
 class StudyView(FormView):
@@ -68,7 +69,7 @@ class StudyView(FormView):
     #     return context
 
     def form_valid(self, form):
-        if self.kwargs["action"] != "check":
+        if self.kwargs.get("action", None) != "check":
             return JsonResponse({'success': False, "error": 4, "description": _("Wrong approach"), })
 
         id = form.cleaned_data.get("id", 0)
@@ -84,6 +85,13 @@ class StudyView(FormView):
         return JsonResponse(self.check(word, titles))
 
     def deal_redirect(self):
+        if self.study_type == self.STUDY_TYPE_PRACTICE:
+            words = self.request.session.get('practice', None)
+            if 'practice' in self.request.session and not words:
+                del self.request.session['practice']
+                return HttpResponseRedirect(reverse_lazy("practice", kwargs={"action": "start"}))
+            return None
+
         has_hard = study.has_hard(user=self.request.user)
 
         if self.study_type == "hard" and has_hard:
@@ -97,10 +105,10 @@ class StudyView(FormView):
         return None
 
     def render_to_response(self, context, **response_kwargs):
-        action = self.kwargs['action']
+        action = self.kwargs.get('action', None)
         if action == "start" and not self.has_next():
             action = "next"
-        elif action == "next" and self.study_type != StudyView.STUDY_TYPE_PRACTICE:
+        elif action == "next":
             redirect = self.deal_redirect()
             if redirect:
                 return redirect
@@ -188,15 +196,40 @@ class PracticeView(StudyView):
     study_type = StudyView.STUDY_TYPE_PRACTICE
     study_description = _("practice")
 
+    def prepare_words(self, form):
+        input_line = form.cleaned_data.get("input_line", "[]")
+        try:
+            words = json.loads(input_line)
+            words = [int(var) for var in words]
+        except Exception:
+            return
+
+        words = models.Word.objects.filter(id__in=words).values('id')
+        words = [item["id"] for item in words]
+        self.request.session['practice'] = words
+
+    def form_valid(self, form):
+        if self.kwargs.get("action", None) != "start":
+            return super().form_valid(form)
+        self.prepare_words(form)
+        return HttpResponseRedirect(reverse_lazy("practice", kwargs={"action": "start"}))
+
     def has_next(self):
+        if self.request.session.get('practice', None):
+            return True
         return study.has_practice(user=self.request.user)
 
     def get_next(self, context):
-        word = study.get_random_practice(user=self.request.user)
+        words = self.request.session.get('practice', [])
+        word = None
+        if words:
+            word = models.Word.objects.filter(id=random.choice(words)).first()
+        if not word:
+            word = study.get_random_practice(user=self.request.user)
         context["word"] = word
 
     def check_valid(self, word):
-        return study.can_practice(word, self.request.user)
+        return models.Word.objects.filter(title=word).exists()
 
     def check(self, word, titles):
         data = study.check(word, titles, save=False)
@@ -206,3 +239,12 @@ class PracticeView(StudyView):
         else:
             self.right(word)
         return data
+
+    def right(self, word):
+        words = self.request.session.get('practice', [])
+        if not words:
+            return
+
+        if word.id in words:
+            words.remove(word.id)
+        self.request.session['practice'] = words

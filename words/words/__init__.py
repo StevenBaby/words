@@ -1,6 +1,11 @@
 """
 **Events**
 
+- 2021-12-09 [1.5.0] add random factor to review datetime
+- 2021-11-14 [1.4.0] add practice list function
+- 2021-09-17 [1.3.0] update settings show paraphrase
+- 2021-04-30 [1.2.1] update settings
+- 2021-03-03 [1.2.0] adjust review strategy
 - 2020-05-07 [1.1.3] fix bug for django version
 - 2020-05-07 [1.1.2] add resources
 - 2020-02-26 [1.1.1] fix bug for resources
@@ -100,8 +105,8 @@ __version__ = ".".join(
     [str(var) for var in
         [
         1,
-        1,
-        3,
+        5,
+        0,
     ]
     ])
 

@@ -41,7 +41,10 @@ def get_study_count(context, type):
     elif type == "hard":
         return study.get_hard_count(user=user)
     elif type == "practice":
-        return study.get_practice_count(user=user)
+        words = context.request.session.get("practice", [])
+        return len(words) or study.get_practice_count(user=user)
+    elif type == "founding":
+        return len(context.request.session.get("practice", []))
     elif type == 'study':
         return study.get_review_count(user=user) + study.get_hard_count(user=user)
     return 0

@@ -287,6 +287,11 @@ class UserProfile(models.Model):
         verbose_name=_('Settings Alert Reset Review')
     )
 
+    settings_auto_show_paraphrase = models.BooleanField(
+        default=True,
+        verbose_name=_('Settings Auto Show Paraphrase')
+    )
+
     def __str__(self):
         return self.user.username
 

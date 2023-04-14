@@ -3,6 +3,7 @@ from __future__ import print_function, unicode_literals, division
 import logging
 import datetime
 import re
+import random
 
 from django.utils import timezone
 from django.db import transaction
@@ -163,7 +164,11 @@ def review_right(word=None, user=1):
     review.update_time = timezone.now()
 
     delta = interval.interval(review.level)
-    review.review_time = review.update_time + delta
+
+    # gaven a random 0 ~ 1 to enhance
+    weight = random.random()
+
+    review.review_time = review.update_time + delta * weight
     update_hard(review)
     review.save()
 

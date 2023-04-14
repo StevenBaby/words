@@ -5,7 +5,7 @@ import logging
 
 # from django.utils import timezone
 from django.urls import reverse_lazy
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.templatetags.static import static
 # from django.utils.translation import ugettext_lazy as _
 
 from django.db.models import Q
@@ -106,7 +106,7 @@ class SearchView(ListView):
         return JsonResponse(data=data, safe=False)
 
     def get_queryset(self):
-        query = self.kwargs["query"]
+        query = self.kwargs.get("query", None)
         if not query:
             query = ""
 
@@ -122,8 +122,8 @@ class SearchView(ListView):
 class PhoneticView(TemplateView):
 
     def render_to_response(self, context, **response_kwargs):
-        title = self.kwargs["title"]
-        content = self.kwargs["type"]
+        title = self.kwargs.get("title", None)
+        content = self.kwargs.get("type", None)
         word = models.Word.objects.filter(title=title).first()
         if not word:
             url = youdao.get_phonetic_url(title, content)

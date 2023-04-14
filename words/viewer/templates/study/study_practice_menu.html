@@ -6,7 +6,19 @@
     {% set 'practice_active' 'active' %}
 {% endif %}
 
+{% get_study_count 'founding' as count %}
+
 <a class="item teal {{practice_active}}" href="{% url 'practice' 'start' %}">
     <i class="write blue icon"></i>
     {% trans 'Practice' %}
+
+    {% if count > 99 %}
+    <div class="ui circular red floating mini label">
+        99+
+    </div>
+    {% elif count > 0 %}
+    <div class="ui circular blue floating mini label">
+        {{count}}
+    </div>
+    {% endif %}
 </a>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 19:54+0800\n"
+"POT-Creation-Date: 2021-10-29 21:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr "添加"
 #: viewer/templates/edit/edit_relation_words.html:22
 #: viewer/templates/edit/edit_relation_words.html:43
 #: viewer/templates/edit/edit_relation_words.html:64
-#: viewer/templates/settings/user_settings.html:64
+#: viewer/templates/settings/user_settings.html:75
 msgid "Save"
 msgstr "保存"
 
@@ -191,32 +191,33 @@ msgstr "对不起，没有找到任何单词"
 msgid "Resources"
 msgstr "资源"
 
-#: viewer/templates/found/resources.html:26
+#: viewer/templates/found/resources.html:27
+#: viewer/templates/found/resources.html:32
 #: viewer/templates/word_card/word_card_study_buttons.html:15
 #: words/models.py:102 words/models.py:263
 msgid "Paraphrase"
 msgstr "释义"
 
-#: viewer/templates/found/resources.html:31
-#: viewer/templates/found/resources.html:36
+#: viewer/templates/found/resources.html:39
+#: viewer/templates/found/resources.html:44
 #: viewer/templates/study/study_review_menu.html:22 words/models.py:248
 msgid "Review"
 msgstr "复习"
 
-#: viewer/templates/found/resources.html:43
-#: viewer/templates/found/resources.html:48
+#: viewer/templates/found/resources.html:51
+#: viewer/templates/found/resources.html:56
 msgid "Dictionary"
 msgstr "字典"
 
-#: viewer/templates/found/resources_wordlist.html:48
+#: viewer/templates/found/resources_wordlist.html:52
 msgid "Show word card"
 msgstr "显示单词卡片"
 
-#: viewer/templates/found/resources_wordlist.html:56
+#: viewer/templates/found/resources_wordlist.html:60
 msgid "Not in dictionary"
 msgstr "未加入词典"
 
-#: viewer/templates/found/resources_wordlist.html:66
+#: viewer/templates/found/resources_wordlist.html:70
 #: viewer/templates/word_card/word_card_extra_footer.html:35
 msgid "Add to review"
 msgstr "添加至复习"
@@ -406,6 +407,10 @@ msgstr "警告删除释义"
 msgid "Alert Reset Review"
 msgstr "警告重置复习"
 
+#: viewer/templates/settings/user_settings.html:71
+msgid "Auto Show Paraphrase"
+msgstr "自动显示释义"
+
 #: viewer/templates/statistics/coming.html:5
 #: viewer/templates/statistics/coming.html:12
 #: viewer/templates/statistics/statistics_menu.html:19
@@ -586,120 +591,128 @@ msgid "Profession words"
 msgstr "专业词汇"
 
 #: viewer/templates/translations.html:47
+msgid "Academic"
+msgstr "学术"
+
+#: viewer/templates/translations.html:49
 msgid "Human resources"
 msgstr "人力资源"
 
-#: viewer/templates/translations.html:49
+#: viewer/templates/translations.html:51
 msgid "Chemistry"
 msgstr "化学"
 
-#: viewer/templates/translations.html:51
+#: viewer/templates/translations.html:53
 msgid "Astronomy"
 msgstr "天文学"
 
-#: viewer/templates/translations.html:53
+#: viewer/templates/translations.html:55
 msgid "Toponym"
 msgstr "地名"
 
-#: viewer/templates/translations.html:55
+#: viewer/templates/translations.html:57
 msgid "Greek Alphabet"
 msgstr "希腊字母"
 
-#: viewer/templates/translations.html:57
+#: viewer/templates/translations.html:59
 msgid "Medicine"
 msgstr "医学"
 
-#: viewer/templates/translations.html:59
+#: viewer/templates/translations.html:61
 msgid "Architecture"
 msgstr "建筑"
 
-#: viewer/templates/translations.html:61
+#: viewer/templates/translations.html:63
 msgid "Computer"
 msgstr "计算机"
 
-#: viewer/templates/translations.html:63
+#: viewer/templates/translations.html:65
 msgid "Finance"
 msgstr "金融"
 
-#: viewer/templates/translations.html:65
+#: viewer/templates/translations.html:67
 msgid "Qsbdc words"
 msgstr "轻松背单词"
 
-#: viewer/templates/translations.html:67
+#: viewer/templates/translations.html:69
 msgid "Level words"
 msgstr "分级单词"
 
-#: viewer/templates/translations.html:69
+#: viewer/templates/translations.html:71
 msgid "Level 01"
 msgstr "第一级"
 
-#: viewer/templates/translations.html:71
+#: viewer/templates/translations.html:73
 msgid "Level 02"
 msgstr "第二级"
 
-#: viewer/templates/translations.html:73
+#: viewer/templates/translations.html:75
 msgid "Level 03"
 msgstr "第三级"
 
-#: viewer/templates/translations.html:75
+#: viewer/templates/translations.html:77
 msgid "Level 04"
 msgstr "第四级"
 
-#: viewer/templates/translations.html:77
+#: viewer/templates/translations.html:79
 msgid "Level 05"
 msgstr "第五级"
 
-#: viewer/templates/translations.html:79
+#: viewer/templates/translations.html:81
 msgid "Level 06"
 msgstr "第六级"
 
-#: viewer/templates/translations.html:81
+#: viewer/templates/translations.html:83
 msgid "Level 07"
 msgstr "第七级"
 
-#: viewer/templates/translations.html:83
+#: viewer/templates/translations.html:85
 msgid "Level 08"
 msgstr "第八级"
 
-#: viewer/templates/translations.html:85
+#: viewer/templates/translations.html:87
 msgid "Level 09"
 msgstr "第九级"
 
-#: viewer/templates/translations.html:87
+#: viewer/templates/translations.html:89
 msgid "Level 10"
 msgstr "第十级"
 
-#: viewer/templates/translations.html:89
+#: viewer/templates/translations.html:91
 msgid "Level 11"
 msgstr "第十一级"
 
-#: viewer/templates/translations.html:91
+#: viewer/templates/translations.html:93
 msgid "Level 12"
 msgstr "第十二级"
 
-#: viewer/templates/translations.html:93
+#: viewer/templates/translations.html:95
 msgid "Level extra"
 msgstr "扩展级"
 
-#: viewer/templates/translations.html:95
+#: viewer/templates/translations.html:97
 msgid "Level phrases"
 msgstr "分级词组"
 
-#: viewer/templates/translations.html:97
+#: viewer/templates/translations.html:99
 msgid "Other words"
 msgstr "其他单词"
 
-#: viewer/templates/translations.html:99
+#: viewer/templates/translations.html:101
 msgid "XieMengYuan Grammar"
 msgstr "谢孟媛文法"
 
-#: viewer/templates/translations.html:101
+#: viewer/templates/translations.html:103
 msgid "Graduate Core"
 msgstr "考研核心词汇"
 
-#: viewer/templates/translations.html:103
+#: viewer/templates/translations.html:105
 msgid "English Test"
 msgstr "英语考试"
+
+#: viewer/templates/translations.html:107
+msgid "Headword"
+msgstr "中心词"
 
 #: viewer/templates/word_card/word_card_extra_footer.html:39
 msgid "Add to dictionary"
@@ -1092,10 +1105,14 @@ msgstr "设置警告删除释义"
 msgid "Settings Alert Reset Review"
 msgstr "设置警告重置复习"
 
-#: words/models.py:297
+#: words/models.py:292
+msgid "Settings Auto Show Paraphrase"
+msgstr "设置自动显示释义"
+
+#: words/models.py:302
 msgid "UserProfile"
 msgstr "用户配置"
 
-#: words/models.py:298
+#: words/models.py:303
 msgid "UserProfiles"
 msgstr "用户配置"

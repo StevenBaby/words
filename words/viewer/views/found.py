@@ -24,7 +24,7 @@ class FoundView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(FoundView, self).get_context_data(**kwargs)
-        title = self.kwargs["title"]
+        title = self.kwargs.get('title', '')
         if not title:
             word = functions.get_random(models.Word.objects.all())
         else:
@@ -129,12 +129,12 @@ class WordCardView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(WordCardView, self).get_context_data(**kwargs)
-        title = self.kwargs["title"]
+        title = self.kwargs.get("title", None)
         context['word'] = functions.consult(title=title)
         return context
 
     # def render_to_response(self, context, **response_kwargs):
-    #     title = self.kwargs["title"]
+    #     title = self.kwargs.get("title", None)
     #     # if functions.exists(title=title):
     #     #     return JsonResponse({'success': False, "error": 1, "description": _("Word already exists"), })
 
