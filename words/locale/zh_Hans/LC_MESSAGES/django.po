@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 16:09+0800\n"
+"POT-Creation-Date: 2019-07-06 07:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings/settings.py:198
+#: settings/settings.py:206
 msgid "English"
 msgstr "英语"
 
-#: settings/settings.py:199
+#: settings/settings.py:207
 msgid "Simplified Chinese"
 msgstr "简体中文"
 
@@ -133,7 +133,7 @@ msgid "Please input and choise similar word any if you wanted."
 msgstr "请输入或选择你需要的相似的单词"
 
 #: viewer/templates/edit/edit_title.html:23
-#: viewer/templates/found/found_content.html:5
+#: viewer/templates/found/found_inputbox.html:5
 #: viewer/templates/word_card/word_card_title.html:24
 msgid "Input word..."
 msgstr "输入单词..."
@@ -182,7 +182,7 @@ msgstr "提交"
 msgid "Found"
 msgstr "发现"
 
-#: viewer/templates/found/found_content.html:16
+#: viewer/templates/found/found_content.html:9
 #: viewer/templates/found/resources_word_card.html:7
 msgid "Sorry, cannot found any word"
 msgstr "对不起，没有找到任何单词"
@@ -191,14 +191,14 @@ msgstr "对不起，没有找到任何单词"
 msgid "Resources"
 msgstr "资源"
 
-#: viewer/templates/found/resources.html:26
-#: viewer/templates/found/resources.html:31
-#: viewer/templates/study/study_review_menu.html:22 words/models.py:247
+#: viewer/templates/found/resources.html:27
+#: viewer/templates/found/resources.html:32
+#: viewer/templates/study/study_review_menu.html:22 words/models.py:248
 msgid "Review"
 msgstr "复习"
 
-#: viewer/templates/found/resources.html:38
-#: viewer/templates/found/resources.html:43
+#: viewer/templates/found/resources.html:39
+#: viewer/templates/found/resources.html:44
 msgid "Dictionary"
 msgstr "字典"
 
@@ -210,13 +210,7 @@ msgstr "显示单词卡片"
 msgid "Not in dictionary"
 msgstr "未加入词典"
 
-#: viewer/templates/found/resources_wordlist.html:58
-#: viewer/templates/found/wordlist.html:54
-#: viewer/templates/word_card/word_card_extra_footer.html:31
-msgid "Already in review"
-msgstr "已加入复习"
-
-#: viewer/templates/found/resources_wordlist.html:62
+#: viewer/templates/found/resources_wordlist.html:64
 #: viewer/templates/word_card/word_card_extra_footer.html:35
 msgid "Add to review"
 msgstr "添加至复习"
@@ -225,6 +219,11 @@ msgstr "添加至复习"
 #: viewer/templates/found/wordlist.html:12
 msgid "Wordlist"
 msgstr "单词列表"
+
+#: viewer/templates/found/wordlist.html:54
+#: viewer/templates/word_card/word_card_extra_footer.html:31
+msgid "Already in review"
+msgstr "已加入复习"
 
 #: viewer/templates/found/wordlist.html:58
 msgid "Not in review"
@@ -277,7 +276,7 @@ msgstr "注销"
 
 #: viewer/templates/menu/right/user.html:24
 #: viewer/templates/registration/login.html:5
-#: viewer/templates/registration/login.html:23
+#: viewer/templates/registration/login.html:24
 #: viewer/templates/registration/register.html:45
 msgid "Login"
 msgstr "登陆"
@@ -496,6 +495,14 @@ msgstr "练习"
 msgid "Add to dictionary"
 msgstr "添加至词典"
 
+#: viewer/templates/word_card/word_card_extra_header.html:34
+msgid "Youdao"
+msgstr "有道"
+
+#: viewer/templates/word_card/word_card_extra_header.html:37
+msgid "Baidu"
+msgstr "百度"
+
 #: viewer/templates/word_card/word_card_phonetic.html:16
 msgid "Phrase"
 msgstr "词组"
@@ -556,12 +563,12 @@ msgid "Refresh Time"
 msgstr "刷新时间"
 
 #: viewer/templates/word_card/word_card_review_information.html:55
-#: words/models.py:194
+#: words/models.py:195
 msgid "Hard Time"
 msgstr "困难时间"
 
 #: viewer/templates/word_card/word_card_study_buttons.html:15
-#: words/models.py:102 words/models.py:262
+#: words/models.py:102 words/models.py:263
 msgid "Paraphrase"
 msgstr "释义"
 
@@ -704,15 +711,15 @@ msgstr "重置复习成功"
 msgid "Save success"
 msgstr "保存成功"
 
-#: viewer/views/settings.py:171
+#: viewer/views/settings.py:180
 msgid "Backup {} success."
 msgstr "备份 {} 成功."
 
-#: viewer/views/settings.py:185
+#: viewer/views/settings.py:194
 msgid "Restore file does not exists."
 msgstr "还原文件不存在"
 
-#: viewer/views/settings.py:192
+#: viewer/views/settings.py:201
 msgid "Restore {} success."
 msgstr "还原 {} 成功."
 
@@ -732,15 +739,15 @@ msgstr "该单词现在不可学习"
 msgid "Title is Empty"
 msgstr "单词名称为空"
 
-#: viewer/views/study.py:129
+#: viewer/views/study.py:130
 msgid "review"
 msgstr "复习"
 
-#: viewer/views/study.py:158
+#: viewer/views/study.py:159
 msgid "Conquer hard"
 msgstr "克服困难"
 
-#: viewer/views/study.py:188
+#: viewer/views/study.py:189
 msgid "practice"
 msgstr "练习"
 
@@ -812,79 +819,79 @@ msgstr "等级"
 msgid "Ranks"
 msgstr "等级"
 
-#: words/models.py:169 words/models.py:255
+#: words/models.py:169 words/models.py:256
 msgid "User"
 msgstr "用户"
 
-#: words/models.py:198
+#: words/models.py:199
 msgid "Hard mark"
 msgstr "困难标记"
 
-#: words/models.py:203
+#: words/models.py:204
 msgid "Review level"
 msgstr "复习等级"
 
-#: words/models.py:208
+#: words/models.py:209
 msgid "Review times"
 msgstr "复习次数"
 
-#: words/models.py:213
+#: words/models.py:214
 msgid "Review right times"
 msgstr "复习正确次数"
 
-#: words/models.py:218
+#: words/models.py:219
 msgid "Review skip times"
 msgstr "复习跳过次数"
 
-#: words/models.py:223
+#: words/models.py:224
 msgid "Review error times"
 msgstr "复习错误次数"
 
-#: words/models.py:228
+#: words/models.py:229
 msgid "Review status"
 msgstr "复习状态"
 
-#: words/models.py:233
+#: words/models.py:234
 msgid "Reset times"
 msgstr "重置次数"
 
-#: words/models.py:248
+#: words/models.py:249
 msgid "Reviews"
 msgstr "复习"
 
-#: words/models.py:260
+#: words/models.py:261
 msgid "Random"
 msgstr "随机"
 
-#: words/models.py:261
+#: words/models.py:262
 msgid "Dictation"
 msgstr "听写"
 
-#: words/models.py:266
+#: words/models.py:267
 msgid "Settings Study Mode"
 msgstr "设置学习模式"
 
-#: words/models.py:271
+#: words/models.py:272
 msgid "Settings Alert Delete Word"
 msgstr "设置警告删除单词"
 
-#: words/models.py:276
+#: words/models.py:277
 msgid "Settings Alert Delete Review"
 msgstr "设置警告删除复习"
 
-#: words/models.py:281
+#: words/models.py:282
 msgid "Settings Alert Delete Paraphrase"
 msgstr "设置警告删除释义"
 
-#: words/models.py:286
+#: words/models.py:287
 msgid "Settings Alert Reset Review"
 msgstr "设置警告重置复习"
 
-#: words/models.py:296
+#: words/models.py:297
 msgid "UserProfile"
 msgstr "用户配置"
 
-#: words/models.py:297
+#: words/models.py:298
 msgid "UserProfiles"
 msgstr "用户配置"
 

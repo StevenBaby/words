@@ -25,6 +25,8 @@ IGNORED_PATTERN = re.compile(r"^([a-zA-Z]{1})$|^exit$")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+GITHUB_URL = 'https://github.com/StevenKangWei/words'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -33,12 +35,15 @@ SECRET_KEY = 'd#u0!e*tve5@v4(&%83402&9z(q6t1@@3vroz42pl4b_vi-z41'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+PROFILING = False
+
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "words.local",
     "steven-arch.local",
+    "words.ccyg.studio",
 ]
 
 
@@ -66,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -223,6 +229,7 @@ DATE = "%Y-%m-%d"
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "viewer", "static"),
@@ -231,3 +238,11 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", 'media')
 MEDIA_URL = '/static/media/'
+
+
+if PROFILING:
+    MIDDLEWARE.append('pyinstrument.middleware.ProfilerMiddleware')
+
+    PYINSTRUMENT_PROFILE_DIR = os.path.join(DATABASE_DIR, 'profiles')
+    if not os.path.exists(PYINSTRUMENT_PROFILE_DIR):
+        os.makedirs(PYINSTRUMENT_PROFILE_DIR)

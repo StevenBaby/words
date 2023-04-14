@@ -54,8 +54,9 @@
                 {% trans 'Not in dictionary' %}
             </div>
             {% elif review %}
-            <div class="ui green tiny label tag">
-                {% trans 'Already in review' %}
+            <div class="ui pink tiny circular label">
+                {% comment %} {% trans 'Already in review' %} {% endcomment %}
+                {{ review.level }}
             </div>
             {% else %}
             <a class="ui blue tiny label tag resource add review" action="{% url 'add' 'review' word.title %}">

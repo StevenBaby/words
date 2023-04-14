@@ -1,6 +1,10 @@
 """
 **Events**
 
+- 2019-07-06 [1.1.0] add youdao and baidu url in word card
+- 2019-04-04 [1.0.0] update for performance
+- 2019-03-08 [0.21.2] fix bug for updater
+- 2019-03-08 [0.21.1] update semantic version to 2.4
 - 2018-12-26 [0.21.0] update download method
 - 2018-06-13 [0.20.4] refine resource list
 - 2018-06-11 [0.20.3] refine resource list
@@ -92,8 +96,8 @@
 __version__ = ".".join(
     [str(var) for var in
         [
-        0,
-        21,
+        1,
+        1,
         0,
     ]
     ])

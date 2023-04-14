@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load base_tag %}
 {% base_info as base_info %}
 <div class="grid">
@@ -18,10 +19,23 @@
                 {{ rank }}
             </div>
             {% endfor %}
-        {% endif %}       
-
+        {% endif %}
+        {% if review %}
+        <div class="ui basic teal label">
+            {{ review.level }}
+        </div>
+        <div class="ui basic orange label">
+            {{ review.error }}
+        </div>
+        {% endif %}
     </div>
     <div class="right floated column">
+        <a class="ui red label" href="https://www.youdao.com/w/eng/{{word.title}}/" target="__blank">
+            {% trans "Youdao" %}
+        </a>
+        <a class="ui blue label" href="https://fanyi.baidu.com/#en/zh/{{word.title}}" target="__blank">
+            {% trans "Baidu" %}
+        </a>
         {% if review %}
         <div class="ui green label">
             {{ review.first_time }}

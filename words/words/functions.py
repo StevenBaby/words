@@ -35,14 +35,24 @@ def show_console_log(show=True):
     logging.config.dictConfig(config)
 
 
+def get_extra_sql(title):
+    title = title.replace(' ', '')
+    SQL = f"LOWER(REPLACE(title,' ','')) = '{title}'"
+    return SQL
+
+
 def exists(title):
 
     return models.Word.objects.filter(title__iexact=title).exists()
 
 
 def equals(word, title):
+    if word.equals.filter(title=title).exists():
+        return True
 
-    return word.equals.filter(title__iexact=title).exists()
+    SQL = get_extra_sql(title)
+    return word.equals.extra(where=[SQL]).exists()
+    # return word.equals.filter(title__iexact=title).exists()
 
 
 def similars(word, title):
@@ -194,7 +204,7 @@ def get_word(title):
     if word:
         return word
 
-    return models.Word.objects.filter(title__iexact=title).first()
+    return models.Word.objects.extra(where=[get_extra_sql(title)]).first()
 
 
 def get_review(word, user):

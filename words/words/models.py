@@ -188,7 +188,8 @@ class Review(models.Model):
 
     review_time = models.DateTimeField(
         verbose_name=_("Review Time"),
-        default=timezone.now)
+        default=timezone.now,
+        db_index=True)
 
     hard_time = models.DateTimeField(
         verbose_name=_("Hard Time"),

@@ -4,12 +4,12 @@
 
 ## 安装方法
 
-<https://github.com/StevenKjp/words/blob/master/doc/usage/installation.md>
+<https://github.com/StevenKangWei/words/blob/master/doc/usage/installation.md>
 
 ## 使用方法
 
-<https://github.com/StevenKjp/words/blob/master/doc/usage/usage.md>
+<https://github.com/StevenKangWei/words/blob/master/doc/usage/usage.md>
 
 ## 故障排除
 
-<https://github.com/StevenKjp/words/blob/master/doc/usage/troubleshoot.md>
+<https://github.com/StevenKangWei/words/blob/master/doc/usage/troubleshoot.md>
