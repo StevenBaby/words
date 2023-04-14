@@ -12,11 +12,22 @@ def get_item(filename):
         return None
     if not isinstance(data, list):
         return None
+
+    result = []
+
+    for var in data:
+        var = var.strip()
+        if not var:
+            continue
+        if var.startswith('//'):  # for annotation
+            continue
+        result.append(var)
+
     name = os.path.splitext(os.path.basename(filename))[0]
     item = dandan.value.AttrDict()
     item.type = 'list'
     item.name = name
-    item.list = data
+    item.list = result
     return item
 
 

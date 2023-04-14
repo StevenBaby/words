@@ -2,6 +2,7 @@
 from __future__ import print_function, unicode_literals, division
 import logging
 import datetime
+import re
 
 from django.utils import timezone
 from django.db import transaction
@@ -26,6 +27,8 @@ def check(word, titles, save=True):
     data.list = []
     data.title = word.title
     data.paras = word.paraphrases()
+
+    ignores = r"[ \.,\?\-']"
 
     equal = False
     right = False
@@ -53,7 +56,8 @@ def check(word, titles, save=True):
             item.right = True
             item.paras = functions.get_word(title).paraphrases()
 
-        elif title.lower().replace(" ", "") == word.title.lower().replace(" ", ""):
+        elif re.sub(ignores, '', title.lower()) == re.sub(ignores, '', word.title.lower()):
+            # elif title.lower().replace(" ", "") == word.title.lower().replace(" ", ""):
             right = True
             item.right = True
             item.paras = data.paras
@@ -150,7 +154,10 @@ def review_right(word=None, user=1):
         return
 
     logger.debug("review right %s", word)
-    review.level += 1
+    if len(word.title.split(' ')) > 3:
+        review.level += 2
+    else:
+        review.level += 1
     review.review = 0
     review.right += 1
     review.update_time = timezone.now()
@@ -171,7 +178,10 @@ def review_error(word=None, user=1):
     review.hard += 1
     review.error += 1
     review.review = 0
-    review.level = review.level // 2
+    if ' ' in word.title and review.level >= 1:
+        review.level -= 1
+    elif review.level >= 2:
+        review.level -= 2
     review.update_time = timezone.now()
 
     update_hard(review)

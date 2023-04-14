@@ -4,7 +4,10 @@ import re
 import os
 import six
 import dandan
+import requests
 
+session = requests.Session()
+session.trust_env = False
 
 PHONETIC_UK = 1
 PHONETIC_US = 2
@@ -19,6 +22,7 @@ PHONETICS = {
 
 SEARCH_API = "http://www.youdao.com/w/eng/{title}/"
 PHONETIC_API = "http://dict.youdao.com/dictvoice"
+TRANS_API = 'http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule'
 
 PARA_TYPES = {"none", "adj", "adv", "aux", "n", "pron", "v", "vt", "vi", "num", "art", "prep", "conj", "int", "abbr", }
 
@@ -59,8 +63,11 @@ def get_phonetics(content):
     return phonetics
 
 
-def get_paras(content):
+def get_paras(soup):
     result = []
+    content = soup.select_one("#phrsListTab")
+    if not content:
+        return []
     paras = content.select("li")
 
     for para in paras:
@@ -82,6 +89,65 @@ def get_paras(content):
             para.content = content
             result.append(para)
     return result
+
+
+def get_webphrases(soup):
+    keyword = soup.select_one('.keyword')
+    if not keyword:
+        return []
+    keyword = keyword.get_text().strip()
+
+    content = soup.select_one("#webPhrase")
+    if not content:
+        return []
+    for group in content.select(".wordGroup"):
+        title = group.select_one(".contentTitle")
+        if not title:
+            continue
+        title = title.get_text().strip()
+        if title != keyword:
+            continue
+
+        para = dandan.value.AttrDict()
+        para.type = 'none'
+        para.content = group.get_text().replace(title, '').strip()
+        return [para, ]
+
+
+def get_webparas(soup):
+    content = soup.select_one("#webTrans")
+    if not content:
+        return []
+    container = content.select_one(".wt-container")
+    if not container:
+        return []
+
+    title = container.select_one('.title')
+    if not title:
+        return []
+
+    para = dandan.value.AttrDict()
+    para.type = 'none'
+    para.content = title.get_text().strip()
+    return [para, ]
+
+
+def get_ydparas(soup):
+    content = soup.select_one("#ydTrans")
+    if not content:
+        return []
+    container = content.select_one(".trans-container")
+    if not container:
+        return []
+
+    trans = container.select('p')
+    if len(trans) < 2:
+        return []
+
+    para = dandan.value.AttrDict()
+    para.type = 'none'
+    para.content = trans[1].get_text().strip()
+    return [para, ]
 
 
 def get_paraphrases(word):
@@ -176,30 +242,26 @@ def get_word(title):
     url = SEARCH_API.format(title=title)
     # params = {"q": title}
     soup = dandan.query.soup(url=url, timeout=3, retry=2)
-    # print(soup)
-    content = soup.select_one("#phrsListTab")
-    if not content:
-        return None
 
     word = dandan.value.AttrDict()
+    word.title = title
     word.type = "EN"
+    word.paras = get_paras(soup) or get_webphrases(soup) or get_webparas(soup) or get_ydparas(soup)
 
-    word.title = get_keyword(content)
-    if not word.title:
-        return None
-
-    word.paras = get_paras(content)
-    if not word.paras:
-        return None
-
-    word.paraphrases = get_paraphrases(word)
-
-    word.phonetics = get_phonetics(content)
+    word.phonetics = get_phonetics(soup)
     word.ranks = get_ranks(soup)
     word.star = get_star(soup)
     word.synonyms = get_synonyms(soup)
     word.phrases = get_phrases(soup)
     word.sentences = get_sentences(soup)
+
+    if not word.paras:
+        return None
+    word.paraphrases = get_paraphrases(word)
+    title = get_keyword(soup)
+    if title:
+        word.title = title
+
     return word
 
 
@@ -242,3 +304,16 @@ def get_phonetic(title, filename, type=PHONETIC_UK):
         os.makedirs(os.path.dirname(filename))
     url = get_phonetic_url(title=title, type=type)
     dandan.traffic.download(url, filename)
+
+
+def main():
+    # word = get_word('hello')
+    # print(word)
+    # word = get_word('I like to eat pizza')
+    # print(word)
+    word = get_word("The car won't start")
+    print(word)
+
+
+if __name__ == '__main__':
+    main()

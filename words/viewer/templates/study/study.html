@@ -2,6 +2,9 @@
 {% load static %}
 {% load i18n %}
 {% block title %} {% trans 'Study' %}  {% endblock %}
+{% block css %}
+    <link href="{% static 'css/study.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
 {% block sidebar %}
     {% include 'sidebar.html' %}
 {% endblock %}

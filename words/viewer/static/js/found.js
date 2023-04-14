@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-    var checkboxs = $('.dictionary .checkbox');
+    var checkboxs = $('.checkbox.action');
     // console.log(checkboxs);
     for(var i = 0 ; i < checkboxs.length; ++i)
     {
@@ -56,6 +56,9 @@ $(document).ready(function(){
     }
 });
 
+$("body").on("click", ".checkbox.paraphrase", function(){
+    $('.resource.paraphrase.tag').toggle();
+});
 
 $("body").on("click", ".resource.add.review", function(){
     var button = $(this);
