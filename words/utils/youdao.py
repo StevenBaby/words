@@ -73,6 +73,8 @@ def get_paras(soup):
     for para in paras:
         line = para.get_text().strip()
         tup = line.split(".", 1)
+        if len(tup) < 2:
+            continue
         if tup[0] not in PARA_TYPES:
             cla = "none"
             content_line = line
@@ -311,7 +313,7 @@ def main():
     # print(word)
     # word = get_word('I like to eat pizza')
     # print(word)
-    word = get_word("The car won't start")
+    word = get_word("alternately")
     print(word)
 
 
