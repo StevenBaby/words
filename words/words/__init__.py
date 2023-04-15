@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2023-04-15 [2.0.0] add docker file and image
 - 2021-12-09 [1.5.0] add random factor to review datetime
 - 2021-11-14 [1.4.0] add practice list function
 - 2021-09-17 [1.3.0] update settings show paraphrase
@@ -104,8 +105,8 @@
 __version__ = ".".join(
     [str(var) for var in
         [
-        1,
-        5,
+        2,
+        0,
         0,
     ]
     ])
