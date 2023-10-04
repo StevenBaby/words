@@ -165,8 +165,8 @@ def review_right(word=None, user=1):
 
     delta = interval.interval(review.level)
 
-    # gaven a random 0 ~ 1 to enhance
-    weight = random.random()
+    # 随机更新到下一个级别时间一半以上，减轻工作量
+    weight = 0.5 + (random.random()) / 2
 
     review.review_time = review.update_time + delta * weight
     update_hard(review)
