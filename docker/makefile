@@ -2,9 +2,11 @@
 
 VERSION:=$(shell cd ../words && python manage.py ver)
 LOCALNAME:= words:$(VERSION)
+DEVNAME:= words:dev
 REMOTENAME:= stevenkang/words:$(VERSION)
 LATESTNAME:= stevenkang/words:latest
 RUNNAME:= words_$(VERSION)
+RUNDEVNAME:= words_dev
 
 .PHONY: build
 build:
@@ -21,6 +23,13 @@ build:
 	docker build -t $(LOCALNAME) .
 	rm -r ./app
 
+.PHONY: devbuild
+devbuild:
+	cp -r ../words/requirements.txt requirements.txt
+	docker build -t $(DEVNAME) -f Dockerfile.dev .
+	rm requirements.txt
+
+
 .PHONY: tag
 tag:
 	docker tag $(LOCALNAME) $(REMOTENAME)
@@ -31,6 +40,7 @@ push:
 	docker push $(REMOTENAME)
 	docker push $(LATESTNAME)
 
+APP:= $(abspath $(shell pwd)/..)
 LOCAL:= $(abspath $(shell pwd)/../words/local)
 
 .PHONY: runit
@@ -51,6 +61,16 @@ run: $(LOCAL)
 		--restart=always \
 		--name $(RUNNAME) \
 		$(LOCALNAME)
+
+.PHONY: devrun
+devrun: $(LOCAL)
+	docker run \
+		-d \
+		-v $(APP):/app \
+		-p8888:8888 \
+		--restart=always \
+		--name $(RUNDEVNAME) \
+		$(DEVNAME)
 
 .PHONY: stop
 stop:
