@@ -1,4 +1,4 @@
-django==3.1.7
+django==3.2.24
 dandan>=0.5.1
 six
 colorama
