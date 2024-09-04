@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI words service
+After=syslog.target
+
+[Service]
+Type=simple
+User=steven
+Group=root
+
+WorkingDirectory=/home/steven/source/github/words/words
+ExecStart=/home/steven/.envs/words/bin/python /home/steven/source/github/words/words/manage.py runserver 0.0.0.0:8888
+Restart=always
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
