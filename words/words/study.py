@@ -98,8 +98,11 @@ def update_hard(review):
 
 def get_review(user=1):
     return functions.get_all_review(user=user)\
-        .filter(review_time__lte=timezone.now())\
-        .filter(update_time__lt=timezone.now() - datetime.timedelta(seconds=1))
+        .filter(review_time__lte=timezone.now() + user.profile.settings_timedelta)\
+        .filter(
+            update_time__lt=timezone.now()
+        + user.profile.settings_timedelta
+        - datetime.timedelta(seconds=1))
 
 
 def get_review_count(user=1):
@@ -161,7 +164,7 @@ def review_right(word=None, user=1):
         review.level += 1
     review.review = 0
     review.right += 1
-    review.update_time = timezone.now()
+    review.update_time = timezone.now() + user.profile.settings_timedelta
 
     delta = interval.interval(review.level)
 
@@ -187,7 +190,7 @@ def review_error(word=None, user=1):
         review.level -= 1
     elif review.level >= 2:
         review.level -= 2
-    review.update_time = timezone.now()
+    review.update_time = timezone.now() + user.profile.settings_timedelta
 
     update_hard(review)
     review.save()
@@ -198,9 +201,9 @@ def review_error(word=None, user=1):
 def get_hard(user=1):
     return functions.get_all_review(user=user)\
         .exclude(hard=0)\
-        .exclude(review_time__lte=timezone.now())\
+        .exclude(review_time__lte=timezone.now() + user.profile.settings_timedelta )\
         .filter(review_time__gt=F('hard_time'))\
-        .filter(hard_time__lte=timezone.now())
+        .filter(hard_time__lte=timezone.now() + user.profile.settings_timedelta)
 
 
 def get_hard_count(user=1):

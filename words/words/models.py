@@ -5,6 +5,7 @@ Word ORM definition
 from __future__ import print_function, unicode_literals, division
 
 import os
+import datetime
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -290,6 +291,11 @@ class UserProfile(models.Model):
     settings_auto_show_paraphrase = models.BooleanField(
         default=True,
         verbose_name=_('Settings Auto Show Paraphrase')
+    )
+
+    settings_timedelta = models.DurationField(
+        default=datetime.timedelta(seconds=0),
+        verbose_name=_('Settings Time Delta')
     )
 
     def __str__(self):

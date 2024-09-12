@@ -5,6 +5,7 @@ import dandan
 import logging
 import datetime
 
+from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
@@ -29,38 +30,25 @@ class Command(BaseCommand):
             choices=['set', 'fit', ])
         parser.add_argument('--count', '-c', type=int, default=20, help="count of review")
 
-    def set_time(self, time):
-        current = timezone.localtime(time)
-        logger.info("set system time to %s", current.strftime("%Y-%m-%d %H:%M:%S"))
-        if dandan.system.is_win32():
-            command = '''date {} && time {}'''.format(
-                current.strftime("%m-%d-%y"),
-                current.strftime("%H:%M:%S"))
-        elif dandan.system.is_linux():
-            command = '''echo {} | sudo -S date -s "{}"'''.format(
-                self.PW,
-                current.strftime("%Y-%m-%d %H:%M:%S"))
-        os.system(command)
-
     def fit(self, count):
         if count > models.Review.objects.count():
             count = models.Review.objects.count()
 
         item = models.Review.objects.values("review_time").order_by("review_time")[count - 1]
-        self.set_time(item["review_time"])
+        delta = item["review_time"] - timezone.now()
+        user = User.objects.get(id=1)
+        user.profile.settings_timedelta = delta
+        user.save()
+        logger.info("Time forward to %s", 
+                    (timezone.localtime() + delta).strftime("%Y-%m-%d %H:%M:%S"))
 
     def set(self):
-        import requests
-        import pytz
-        try:
-            res = requests.get("http://www.baidu.com", timeout=2)
-            gmt = res.headers["Date"]
-        except Exception:
-            logger.warning("Cannot connect network, please check network connection and try again.")
-            return
-        GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
-        current = datetime.datetime.strptime(gmt, GMT_FORMAT).replace(tzinfo=pytz.timezone("GMT"))
-        self.set_time(current)
+        now = timezone.now()
+        delta = now - now
+        user = User.objects.get(id=1)
+        logger.info("Time forward %s seconds", delta.seconds)
+        user.profile.settings_timedelta = delta
+        user.save()
 
     def handle(self, *args, **options):
         action = options["action"]
