@@ -18,8 +18,6 @@ logger = logging.getLogger("words")
 class Command(BaseCommand):
     help = 'Set OS time from internet'
 
-    PW = "kang"
-
     def add_arguments(self, parser):
         parser.add_argument(
             '--action',
