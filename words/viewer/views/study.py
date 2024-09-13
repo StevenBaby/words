@@ -149,7 +149,9 @@ class ReviewView(StudyView):
 
         next_review = study.get_near_review(self.request.user)
         if next_review:
-            context["next_review_time"] = next_review.review_time - timezone.now()
+            context["next_review_time"] = next_review.review_time - (
+                timezone.now() + self.request.user.profile.settings_timedelta
+            )
 
     def right(self, word):
         study.review_right(word, self.request.user)
@@ -179,7 +181,9 @@ class HardView(StudyView):
         next_hard = study.get_near_hard(self.request.user)
         if next_hard:
             # logger.debug("now {} hard_time {} review_time {} ".format(timezone.now(), next_hard.hard_time, next_hard.review_time))
-            context["next_review_time"] = next_hard.hard_time - timezone.now()
+            context["next_review_time"] = next_hard.hard_time - (
+                timezone.now() + self.request.user.profile.settings_timedelta
+            )
 
     def right(self, word):
         study.hard_right(word, self.request.user)
