@@ -8,7 +8,7 @@ import random
 from django.utils import timezone
 from django.db import transaction
 # from django.conf import settings
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django.db.models import F
 # from django.db.models import Count
 
@@ -97,6 +97,8 @@ def update_hard(review):
 
 
 def get_review(user=1):
+    if isinstance(user, int):
+        user = User.objects.get(id=user)
     return functions.get_all_review(user=user)\
         .filter(review_time__lte=timezone.now() + user.profile.settings_timedelta)\
         .filter(
@@ -199,6 +201,8 @@ def review_error(word=None, user=1):
 # hard function
 
 def get_hard(user=1):
+    if isinstance(user, int):
+        user = User.objects.get(id=user)
     return functions.get_all_review(user=user)\
         .exclude(hard=0)\
         .exclude(review_time__lte=timezone.now() + user.profile.settings_timedelta )\
