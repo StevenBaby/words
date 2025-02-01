@@ -4,7 +4,7 @@
     <a class="item teal">
         <i class="alarm blue icon"></i>
         <span class="current time">{{ info.current_time }}</span>
-        <span class="current offset">+ {{user.profile.settings_timedelta.seconds}}s</span>
+        <span class="current offset">{{user.profile.settings_timedelta.total_seconds|floatformat:0}}s</span>
     </a>
     {% include 'study/study_review_menu.html' %}
     {% include 'study/study_hard_menu.html' %}
