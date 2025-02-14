@@ -2,9 +2,18 @@
 {% base_info as info %}
 <div class="ui vertical menu fluid">
     <a class="item teal">
+        {% widthratio user.profile.settings_timedelta.total_seconds 60 1 as minutes %}
         <i class="alarm blue icon"></i>
         <span class="current time">{{ info.current_time }}</span>
-        <span class="current offset">{{user.profile.settings_timedelta.total_seconds|floatformat:0}}s</span>
+        {% if minutes|slice:':1' == '-'  %}
+        <div class="ui circular red floating mini label">
+            {{ minutes }}
+        </div>
+        {% elif minutes|slice:':1' != '0'  %}
+        <div class="ui circular green floating mini label">
+            {{ minutes }}
+        </div>
+        {% endif %}
     </a>
     {% include 'study/study_review_menu.html' %}
     {% include 'study/study_hard_menu.html' %}
