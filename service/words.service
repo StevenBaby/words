@@ -1,6 +1,6 @@
 [Unit]
 Description=uWSGI words service
-After=syslog.target
+After=network.target
 
 [Service]
 Type=simple
@@ -8,9 +8,13 @@ User=steven
 Group=root
 
 WorkingDirectory=/home/steven/source/github/words/words
-ExecStart=/home/steven/.envs/words/bin/python /home/steven/source/github/words/words/manage.py runserver 0.0.0.0:8888
+Environment="PATH=/home/steven/.envs/words/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=python /home/steven/source/github/words/words/manage.py runserver 0.0.0.0:8888
+
 Restart=always
-StandardError=syslog
+
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
